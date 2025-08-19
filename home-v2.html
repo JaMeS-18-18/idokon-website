@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AwesomeThemez">
+    <meta name="description" content="Poze - Point of Sale Landing Page HTML Template">
+    <title>I-Dokon - Point of Sale</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" href="assets/img/logo_only.jpg" type="image/png">
+    <!-- CSS plugins files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+
+  <body>
+    <!-- Start Preloader -->
+    <div class="cs_perloader">
+      <div class="cs_perloader_in">
+        <div class="cs_perloader_dots_wrap">
+          <div class="cs_perloader_dots"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <span class="cs_perloader_text">Yuklanmoqda...</span>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header section -->
+    <header class="cs_site_header cs_style_1 cs_version_2 cs_text_primary cs_sticky_header cs_medium">
+      <div class="cs_main_header">
+        <div class="container">
+          <div class="cs_main_header_in">
+            <div class="cs_main_header_left">
+              <a class="cs_site_branding" href="index.html" aria-label="Home page link">
+                <img src="assets/img/logo.png" alt="Logo">
+              </a>
+            </div>
+            <div class="cs_main_header_center">
+              <nav class="cs_nav cs_medium cs_primary_font">
+                <ul class="cs_nav_list cs_onepage_nav">
+                  <li class="menu-item">
+                    <a href="#home" aria-label="Home link">Asosiy</a>
+                  </li>
+                  <li><a href="#features" aria-label="Menu link">Xususiyatlar</a></li>
+                  <li><a href="#pricing" aria-label="Menu link">Ta'riflar</a></li>
+                  <li><a href="#testimonial" aria-label="Menu link">Ta'ssurotlar</a></li>
+                  <li><a href="#faq" aria-label="Menu link">FAQ</a>
+                  <li><a href="#blog" aria-label="Menu link">Blog</a></li>
+                  <li><a href="#contact" aria-label="Menu link">Aloqa</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="cs_main_header_right">
+              <div class="cs_header_actions">
+                <!-- Language selector -->
+                <div class="cs_lang" aria-label="Language selector">
+                  <button type="button" class="cs_lang_btn" aria-haspopup="listbox" aria-expanded="false">
+                    <img src="https://flagcdn.com/w20/uz.png" alt="O'zbekcha bayroq">
+                    <span class="cs_lang_code">O'zbekcha</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <ul class="cs_lang_menu" role="listbox">
+                    <li role="option" data-lang="uz">
+                      <img src="https://flagcdn.com/w20/uz.png" alt="O'zbekcha"> O'zbekcha
+                    </li>
+                    <li role="option" data-lang="ru">
+                      <img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский
+                    </li>
+                    <li role="option" data-lang="en">
+                      <img src="https://flagcdn.com/w20/gb.png" alt="English"> English
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Cart -->
+                <a href="/cart.html" class="cs_cart" aria-label="Savatcha">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span class="cs_cart_badge" id="cart-count">0</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header section -->
+    <div class="cs_content">
+      <!-- Start Hero section -->
+      <section class="cs_hero cs_style_2 position-relative" id="home">
+        <div class="container">
+          <div class="row align-items-center cs_gap_y_40 cs_reverse_md">
+            <div class="col-lg-7">
+              <div class="cs_hero_text">
+                <h1 class="cs_hero_title">POS terminalimiz yordamida savdo muvaffaqiyatini oshirish</h1>
+                <p class="cs_hero_subtitle">Bizning zamonaviy POS dasturiy ta’minotimiz sizning biznes faoliyatingizni
+                  tubdan o‘zgartirish uchun ishlab chiqilgan. Uning kuchli xususiyatlari va foydalanuvchiga qulay
+                  interfeysi yordamida mijozlar tajribasini yaxshilang va umumiy samaradorligingizni oshiring.</p>
+                <div class="cs_btn_group cs_version_2 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.25s">
+                  <a href="#" aria-label="Click to view demo" class="cs_btn cs_bg_heading cs_dark_hover">Demo ishlatib
+                    ko'rish</a>
+                  <a href="#" aria-label="Click to start free trial"
+                    class="cs_btn cs_bg_accent cs_dark_hover">Bog'lanish</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="cs_hero_thumb">
+                <img src="assets/img/idokon-hero.png" alt="Hero Image">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_hero_shape1">
+          <img src="assets/img/hero_bg3.png" alt="Polygon Icon">
+        </div>
+        <div class="cs_hero_shape2">
+          <img src="assets/img/hero_bg2.png" alt="Polygon Icon">
+        </div>
+      </section>
+      <!-- End Hero section -->
+      <!-- Start Featured section -->
+      <style>
+        /* kartalar bir xil balandlik */
+        #features-row>[class*="col-"] {
+          display: flex;
+        }
+
+        #features-row .cs_iconbox {
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 auto;
+          height: 100%;
+        }
+
+        #features-row .cs_text_btn {
+          margin-top: auto;
+        }
+
+        /* teng balandlik uchun clamp */
+        .clamp-2,
+        .clamp-3 {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .clamp-2 {
+          -webkit-line-clamp: 2;
+          line-height: 1.3;
+          min-height: calc(1.3em * 2);
+        }
+
+        .clamp-3 {
+          -webkit-line-clamp: 3;
+          line-height: 1.45;
+          min-height: calc(1.45em * 3);
+        }
+      </style>
+
+      <section class="cs_business_feature position-relative" id="features">
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="cs_section_heading cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              I-Dokon bilan biznesingizni rivojlantiring</p>
+            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">Sodda ammo ayni
+              paytda murakkab
+              <br> Bizning savdo nuqtasi tizimimiz
+            </h2>
+          </div>
+          <div class="cs_height_85 cs_height_lg_60"></div>
+          <div id="features-row" class=" row cs_gap_y_30 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          </div>
+          <!-- <div class="row cs_gap_y_30 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+            <div class="col-lg-6 col-xl-3">
+              <div class="cs_iconbox cs_style_1">
+                <div class="cs_iconbox_icon">
+                  <img src="assets/img/shop.svg" alt="Icon">
+                </div>
+                <h3 class="cs_iconbox_title">Savdo tezligi ↑ </h3>
+                <p class="cs_iconbox_subtitle"> Bir bosishda to‘lov, kam xatolik, ko‘proq chek</p>
+                <a href="#" aria-label="Click to view feature" class="cs_text_btn cs_text_accent">
+                  Batafsil
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="cs_iconbox cs_style_1">
+                <div class="cs_iconbox_icon">
+                  <img src="assets/img/price_bar.svg" alt="Icon">
+                </div>
+                <h3 class="cs_iconbox_title">Kassirlar uchun tez va sodda</h3>
+                <p class="cs_iconbox_subtitle">3 bosqichda sotuv, skaner bilan tez qidiruv, chegirma/bonus va qaytarishlar. Qulay klaviatura qisqa buyruqlari va aniq interfeys.</p>
+                <a href="#" aria-label="Click to view feature" class="cs_text_btn cs_text_accent">
+                  Batafsil
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="cs_iconbox cs_style_1">
+                <div class="cs_iconbox_icon">
+                  <img src="assets/img/setup.svg" alt="Icon">
+                </div>
+                <h3 class="cs_iconbox_title">Real-time hisobot va nazorat</h3>
+                <p class="cs_iconbox_subtitle">Kunlik aylanma, top-tovarlar, foyda va kassirlar kesimi. Barchasi web-kabinetda — eksport va xabarnomalar bilan.</p>
+                <a href="#" aria-label="Click to view feature" class="cs_text_btn cs_text_accent">
+                  Batafsil
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="cs_iconbox cs_style_1">
+                <div class="cs_iconbox_icon">
+                  <img src="assets/img/ui.svg" alt="Icon">
+                </div>
+                <h3 class="cs_iconbox_title">Oson o‘rnatish, keng integratsiya</h3>
+                <p class="cs_iconbox_subtitle">Windows’da 10 daqiqada ishga tushadi. Printer, skaner, bank terminali, Tez QR va mahalliy to‘lov servislariga ulanish imkoniyati, API bilan kengayadi.</p>
+                <a href="#" aria-label="Click to view feature" class="cs_text_btn cs_text_accent">
+                  Batafsil
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div> -->
+          <div class="cs_featured_shape">
+            <img src="assets/img/Vector.svg" alt="Image">
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_80"></div>
+      </section>
+      <!-- Software features -->
+      <section>
+        <div class="container">
+          <div class="row align-items-center cs_gap_y_40">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_pr_45 text-center">
+                <img src="assets/img/idokon-feature.png" alt="Image">
+              </div>
+            </div>
+            <div class="col-xl-6 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_section_heading cs_style_1">
+                <p class="cs_section_subtitle cs_text_accent">Dasturning asosiy xususiyatlari</p>
+                <h2 class="cs_section_title mb-0">Ajoyib dizaynga ega kuchli xususiyatlar</h2>
+              </div>
+              <div class="cs_height_60 cs_height_lg_40"></div>
+              <div class="row cs_gap_y_40">
+                <div class="col-lg-6">
+                  <div class="cs_iconbox cs_style_2">
+                    <div class="cs_number_box cs_bg_accent cs_text_white">01</div>
+                    <h3 class="cs_iconbox_title">Inventarizatsiyani boshqarish</h3>
+                    <p class="cs_iconbox_subtitle">Zaxira va kirim–chiqimni avtomatik kuzatib, minimal qoldiqni
+                      eslatadi.</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="cs_iconbox cs_style_2">
+                    <div class="cs_number_box cs_bg_accent cs_text_white">02</div>
+                    <h3 class="cs_iconbox_title">Sotish va to'lov jarayoni</h3>
+                    <p class="cs_iconbox_subtitle">Naqd, karta va QR to'lovni bir bosishda qabul qilib, xatolikni
+                      kamaytiradi.</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="cs_iconbox cs_style_2">
+                    <div class="cs_number_box cs_bg_accent cs_text_white">03</div>
+                    <h3 class="cs_iconbox_title">Hisobot va tahlil</h3>
+                    <p class="cs_iconbox_subtitle">Aylanma va foydani real vaqtda ko'rsatib, eksport va filial kesimini
+                      beradi.</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="cs_iconbox cs_style_2">
+                    <div class="cs_number_box cs_bg_accent cs_text_white">04</div>
+                    <h3 class="cs_iconbox_title">Xavfsiz tezkor tranzaksiya</h3>
+                    <p class="cs_iconbox_subtitle">EMV asosida himoyalangan to'lov, tez tasdiq va ishonchli natija
+                      ta'minlanadi.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_75"></div>
+      </section>
+      <!-- Users features -->
+      <section class="cs_user_feature">
+        <div class="container">
+          <div class="row align-items-center cs_gap_y_40 cs_reverse_lg">
+            <div class="col-xl-6 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_section_heading cs_style_1">
+                <p class="cs_section_subtitle cs_text_accent">Bizning do‘konimizdan kimlar foydalanishi mumkin</p>
+                <h2 class="cs_section_title mb-0">Dasturiy ta’minotimiz keng ko‘lamli biznes va sanoat sohalariga
+                  moslashtirilgan</h2>
+              </div>
+              <div class="cs_height_60 cs_height_lg_40"></div>
+              <ul class="cs_list cs_style_1 cs_mp0">
+                <li>
+                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_text">Chakana do‘konlar</span>
+                </li>
+                <li>
+                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_text">Supermarketlar</span>
+                </li>
+
+                <li>
+                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_text">Mini-marketlar</span>
+                </li>
+                <li>
+                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_text">Onlayn savdo </span>
+                </li>
+                <li>
+                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_text">Yana ko‘plab sohalar</span>
+                </li>
+              </ul>
+
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_feature_thumb_1 text-center"><img src="assets/img/idokon-industries.png" alt="Image"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_80"></div>
+      </section>
+      <!-- End Featured section -->
+      <!-- Start Pricing section -->
+      <section id="pricing" class="cs_section_shape_wrap_1 cs_gradient_bg_1 position-relative overflow-hidden">
+        <div class="cs_section_shape_1 position-absolute">
+          <img src="assets/img/Vector3.svg" alt="Shape">
+        </div>
+        <div class="cs_section_shape_2 position-absolute">
+          <img src="assets/img/dot.svg" alt="Shape">
+        </div>
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="cs_section_heading cs_style_1 cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              Bizning Ta'riflar</p>
+            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">Shaffof narxlash
+              rejalari <br> ehtiyojlaringizga mos keladiganini toping</h2>
+          </div>
+          <div class="cs_height_85 cs_height_lg_60"></div>
+          <div class="row cs_gap_y_30 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+            <div class="col-lg-4">
+              <div class="cs_pricing_table cs_style_1">
+                <div class="cs_pricing_head">
+                  <div class="cs_pricing_icon">
+                    <img src="assets/img/symbol.svg" alt="Image">
+                  </div>
+                  <div class="cs_pricing_head_text">
+                    <h3 class="cs_pricing_head_title">Start</h3>
+                    <p class="cs_pricing_head_subtitle mb-0">Kichik do'konlar uchun</p>
+                  </div>
+                </div>
+                <div class="cs_pricing_seperator"></div>
+                <div class="cs_pricing_plan">
+                  <h3 class="cs_price_value">100.000 <small>/ oy</small></h3>
+                </div>
+                <div class="cs_pricing_feature">
+                  <ul class="cs_pricing_feature_list cs_mp0">
+                    <li><i class="fa-solid fa-check"></i>Only for one user</li>
+                    <li><i class="fa-solid fa-check"></i>Inventory management</li>
+                    <li><i class="fa-solid fa-check"></i>Sells report & anlysis</li>
+                    <li><i class="fa-solid fa-xmark"></i>Extreme functionality</li>
+                    <li><i class="fa-solid fa-xmark"></i>Bar code scanning</li>
+                    <li><i class="fa-solid fa-xmark"></i>Free 24/7 support</li>
+                  </ul>
+                  <a href="#contact" aria-label="Click to buy service" class="cs_pricing_btn cs_up_3_hover">Ta'rifni
+                    tanlang</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="cs_pricing_table cs_style_1 active">
+                <div class="cs_pricing_head">
+                  <div class="cs_pricing_icon"><img src="assets/img/symbol1.svg" alt="Image"></div>
+                  <div class="cs_pricing_head_text">
+                    <h3 class="cs_pricing_head_title">Standard</h3>
+                    <p class="cs_pricing_head_subtitle mb-0">Standart do'konlar uchun</p>
+                  </div>
+                </div>
+                <div class="cs_pricing_seperator"></div>
+                <div class="cs_pricing_plan">
+                  <h3 class="cs_price_value">150.000 <small>/ oy</small></h3>
+                </div>
+                <div class="cs_pricing_feature">
+                  <ul class="cs_pricing_feature_list cs_mp0">
+                    <li><i class="fa-solid fa-check"></i>Only for one user</li>
+                    <li><i class="fa-solid fa-check"></i>Inventory management</li>
+                    <li><i class="fa-solid fa-check"></i>Sells report & anlysis</li>
+                    <li><i class="fa-solid fa-check"></i>Extreme functionality</li>
+                    <li><i class="fa-solid fa-xmark"></i>Bar code scanning</li>
+                    <li><i class="fa-solid fa-xmark"></i>Free 24/7 support</li>
+                  </ul>
+                  <a href="#contact" aria-label="Click to buy service" class="cs_pricing_btn cs_up_3_hover">Ta'rifni
+                    tanlang</a>
+                </div>
+                <div class="cs_pricing_badge">Ommabop</div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="cs_pricing_table cs_style_1">
+                <div class="cs_pricing_head">
+                  <div class="cs_pricing_icon"><img src="assets/img/symbol2.svg" alt="Image"></div>
+                  <div class="cs_pricing_head_text">
+                    <h3 class="cs_pricing_head_title">Premium</h3>
+                    <p class="cs_pricing_head_subtitle mb-0">Katta hajmdagi do'konlar uchun</p>
+                  </div>
+                </div>
+                <div class="cs_pricing_seperator"></div>
+                <div class="cs_pricing_plan">
+                  <h3 class="cs_price_value">250.000 <small>/ oy</small></h3>
+                </div>
+                <div class="cs_pricing_feature">
+                  <ul class="cs_pricing_feature_list cs_mp0">
+                    <li><i class="fa-solid fa-check"></i>Only for one user</li>
+                    <li><i class="fa-solid fa-check"></i>Inventory management</li>
+                    <li><i class="fa-solid fa-check"></i>Sells report & anlysis</li>
+                    <li><i class="fa-solid fa-check"></i>Extreme functionality</li>
+                    <li><i class="fa-solid fa-check"></i>Bar code scanning</li>
+                    <li><i class="fa-solid fa-check"></i>Free 24/7 support</li>
+                  </ul>
+                  <a href="#contact" aria-label="Click to buy service" class="cs_pricing_btn cs_up_3_hover">Ta'rifni
+                    tanlang</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_80"></div>
+      </section>
+      <!-- End Pricing section -->
+      <!--Start Testimonial Section -->
+      <section id="testimonial">
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="cs_section_heading cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              Mijozlarimiz fikrlari</p>
+            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">Bizning
+              a’loligimizni tasdiqlovchi <br> mamnun mijozlar sharhlari</h2>
+          </div>
+          <div class="cs_height_85 cs_height_lg_60"></div>
+        </div>
+        <div class="cs_slider wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Shahnoza Karimova</h4>
+                <p class="mb-0">Lazzat Cafe</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Interfeysi juda sodda, karta va QR to‘lovlar muammosiz o‘tadi. Kassa yopish va qaytarishlar ham yengil.
+            </p>
+            <div class="cs_rating" data-rating="5">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Sanjar Nurmatov</h4>
+                <p class="mb-0">Baraka Market</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Hisobotlar real vaqtda — aylanma va foydani kunma-kun ko‘ramiz. Terminal integratsiyasi zo‘r ishlaydi.
+            </p>
+            <div class="cs_rating" data-rating="4.8">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Dilshod Rahimov</h4>
+                <p class="mb-0">Grand Hotel Tashkent</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Xizmat haqi, ko‘p xonali hisob-kitob va cheklar tartibda. Mehmonlar tez to‘laydi, navbat yo‘q.
+            </p>
+            <div class="cs_rating" data-rating="4.6">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://i.pravatar.cc/160?img=68" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Malika Rasulova</h4>
+                <p class="mb-0">Click&Shop e-commerce</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Ombor bilan sinxron ishlaydi, onlayn buyurtmalar va chegirmalar bir tizimda. Juda qulay.
+            </p>
+            <div class="cs_rating" data-rating="5">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://i.pravatar.cc/160?img=28" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Bekzod Islomov</h4>
+                <p class="mb-0">MiniMarket 24/7</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Dastur tez, skaner bilan qidiruv ancha osonlashdi. Kechasi ham barqaror ishladi.
+            </p>
+            <div class="cs_rating" data-rating="4.5">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+          <div class="cs_testimonial cs_style_1">
+            <div class="cs_client_info">
+              <div class="cs_client_img">
+                <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="avatar">
+              </div>
+              <div class="cs_client_meta">
+                <h4 class="cs_client_name">Nodira Abdullaeva</h4>
+                <p class="mb-0">Belle Spa & Salon</p>
+              </div>
+            </div>
+            <p class="cs_client_review">
+              Dashboard chiroyli, mijoz bazasi va bonus tizimi qulay. Qo‘llab-quvvatlash jamoasi e’tiborli.
+            </p>
+            <div class="cs_rating" data-rating="4.7">
+              <div class="cs_rating_percentage"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cs_height_143 cs_height_lg_75"></div>
+      </section>
+      <!--End Testimonial Section -->
+      <!-- Start Brands section -->
+      <div class="container">
+        <div class="cs_section_heading cs_style_2 text-center">
+          <h2 class="cs_section_subtitle mb-0 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Bizning
+            hamkorlarimiz</h2>
+        </div>
+        <div class="cs_height_45 cs_height_lg_45"></div>
+        <div class="cs_partners wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          <div class="cs_partner"><img src="assets/img/brand_1.svg" alt="Brand"></div>
+          <div class="cs_partner"><img src="assets/img/brand_2.svg" alt="Brand"></div>
+          <div class="cs_partner"><img src="assets/img/brand_3.svg" alt="Brand"></div>
+          <div class="cs_partner"><img src="assets/img/brand_4.svg" alt="Brand"></div>
+          <div class="cs_partner"><img src="assets/img/brand_5.svg" alt="Brand"></div>
+          <div class="cs_partner"><img src="assets/img/brand_6.svg" alt="Brand"></div>
+        </div>
+      </div>
+      <div class="cs_height_150 cs_height_lg_80"></div>
+      <!-- End Brands section -->
+      <!-- Start CTA section -->
+      <section>
+        <div class="container">
+          <div class="cs_cta cs_style_1 text-center position-relative">
+            <div class="cs_cta_in">
+              <div class="cs_section_heading cs_style_1">
+                <h2 class="cs_section_title cs_text_white">Biz bilan biznesingizni yangilang <br> Eng zamonaviy POS
+                  yechimlari!
+                </h2>
+                <p class="cs_section_subtitle mb-0">Tranzaktsiyalarning kelajagini his eting! Bugun demoni
+                  rejalashtiring va qanday qilib guvoh bo'ling <br> bizning POS yechimimiz biznesingizni inqilob qilishi
+                  mumkin.
+
+                </p>
+              </div>
+              <div class="cs_btn_group text-center">
+                <a href="#" aria-label="Start trial button" class="cs_btn cs_bg_white">Demo ishlatib ko'rish</a>
+                <a href="#" aria-label="Purchase button" class="cs_btn cs_bg_accent">Bog'lanish</a>
+              </div>
+            </div>
+            <div class="cs_cta_shape1"><img src="assets/img/Ellipse_small.svg" alt="Image"></div>
+            <div class="cs_cta_shape2"><img src="assets/img/stroke.svg" alt="Image"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End CTA section -->
+      <!--Start FAQ's section -->
+      <section class="cs_faq_wrap position-relative" id="faq">
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="cs_section_heading cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              Savolingiz bormi?
+            </p>
+            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">Bu yerda ba'zi
+              savollarga javoblar
+            </h2>
+          </div>
+          <div class="cs_height_85 cs_height_lg_60"></div>
+          <div class="row wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+              <div class="cs_accordian_wrap">
+                <div class="cs_accordian active">
+                  <h2 class="cs_accordian_title">
+                    POS tizimi biznesimga qanday foyda keltiradi?
+                    <span class="cs_accordian_toggle"><span></span></span>
+                  </h2>
+                  <div class="cs_accordian_body">
+                    To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni, kerakli funksiyalarni va
+                    kelgusidagi o‘sish imkoniyatini inobatga oling. Turli variantlarni solishtiring va sharhlarni o‘qib,
+                    ongli qaror qabul qiling. Xaridlarni boshqarish va mijozlarni ball, chegirma yoki maxsus takliflar
+                    bilan rag‘batlantirish imkoniyatini ham ko‘rib chiqing.
+                  </div>
+                </div>
+
+                <div class="cs_accordian">
+                  <h2 class="cs_accordian_title">
+                    POS tizimini onlayn do‘konim bilan integratsiya qila olamanmi?
+                    <span class="cs_accordian_toggle"><span></span></span>
+                  </h2>
+                  <div class="cs_accordian_body">
+                    To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti, zarur funksiyalar va kelgusidagi o‘sish
+                    ehtimolini hisobga oling. Variantlarni tadqiq qiling va foydalanuvchi sharhlarini o‘qib chiqing.
+                    Xaridlarni boshqarish va mijozlarni ball, chegirma yoki maxsus takliflar bilan mukofotlash
+                    imkoniyatlari muhim.
+                  </div>
+                </div>
+
+                <div class="cs_accordian">
+                  <h2 class="cs_accordian_title">
+                    POS tizimidan foydalanish uchun maxsus o‘qitish kerakmi?
+                    <span class="cs_accordian_toggle"><span></span></span>
+                  </h2>
+                  <div class="cs_accordian_body">
+                    To‘g‘ri POS tizimini tanlash uchun biznes turi, hajmi, byudjeti, zarur funksiyalar va kelajakdagi
+                    o‘sish rejalaringizni inobatga oling. Turli yechimlarni solishtirib, sharhlarni o‘qing. Xaridlarni
+                    yuritish hamda mijozlarni ball, chegirma yoki maxsus takliflar bilan rag‘batlantirish kabi
+                    imkoniyatlar yordam beradi.
+                  </div>
+                </div>
+
+                <div class="cs_accordian">
+                  <h2 class="cs_accordian_title">
+                    POS tizimi qanday savdo tahlillarini taqdim etadi?
+                    <span class="cs_accordian_toggle"><span></span></span>
+                  </h2>
+                  <div class="cs_accordian_body">
+                    To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti, kerakli funksiyalar va o‘sish
+                    salohiyatini hisobga oling. Yechimlarni o‘rganing, sharhlarni ko‘rib chiqing va ongli qaror qabul
+                    qiling. Xaridlar statistikasi va mijozlarni ball, chegirma yoki maxsus takliflar bilan
+                    rag‘batlantirish imkoniyatlari foydali bo‘ladi.
+                  </div>
+                </div>
+
+                <div class="cs_accordian">
+                  <h2 class="cs_accordian_title">
+                    Biznesim uchun to‘g‘ri POS tizimini qanday tanlayman?
+                    <span class="cs_accordian_toggle"><span></span></span>
+                  </h2>
+                  <div class="cs_accordian_body">
+                    To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni, zarur funksiyalarni va
+                    kelgusidagi o‘sish ehtimolini inobatga oling. Turli variantlarni tadqiq qiling, sharhlarni o‘qing va
+                    keyin qaror qabul qiling. Xaridlarni boshqarish hamda mijozlarni ball, chegirma yoki maxsus
+                    takliflar bilan rag‘batlantirish muhim mezonlardan biridir.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="cs_faq_shape1"></div>
+        <div class="cs_faq_shape2"></div>
+        <div class="cs_height_150 cs_height_lg_75"></div>
+      </section>
+      <!--End FAQ's section -->
+      <!--Start Blog Section -->
+      <!-- <section class="cs_blog cs_gradient_bg_2" id="blog">
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="cs_section_heading cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              Latest Blog</p>
+            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">Insights &
+              Inspiration, Explore Our Blog <br> for Knowledge and Ideas</h2>
+          </div>
+          <div class="cs_height_85 cs_height_lg_60"></div>
+          <div class="row wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+            <div class="col-lg-4">
+              <div class="cs_post cs_style_1">
+                <div class="cs_post_thumb cs_modal_btn" data-modal="details">
+                  <img src="assets/img/blog1.jpg" alt="Image">
+                  <div class="cs_posted_by">25 Mar</div>
+                </div>
+                <div class="cs_post_content">
+                  <div class="cs_post_content_in">
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/user.svg" alt="Image"></div>
+                        <p class="mb-0">Admin</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/label.svg" alt="Image"></div>
+                        <p class="mb-0">Software</p>
+                      </div>
+                    </div>
+                    <h2 class="cs_post_title cs_modal_btn mb-0" data-modal="details">
+                      How they shape our digital world with software innovation
+                    </h2>
+                  </div>
+                  <div class="cs_post_user">
+                    <span class="cs_text_btn cs_modal_btn" data-modal="details">
+                      Read More
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </span>
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/comment-dots.svg" alt="Image"></div>
+                        <p class="mb-0">12</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/eye.svg" alt="Image"></div>
+                        <p class="mb-0">50</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cs_height_lg_30"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="cs_post cs_style_1">
+                <div class="cs_post_thumb cs_modal_btn" data-modal="details">
+                  <img src="assets/img/blog2.jpg" alt="Image">
+                  <div class="cs_posted_by">22 Apr</div>
+                </div>
+                <div class="cs_post_content">
+                  <div class="cs_post_content_in">
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/user.svg" alt="Image"></div>
+                        <p class="mb-0">Admin</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/label.svg" alt="Image"></div>
+                        <p class="mb-0">Software</p>
+                      </div>
+                    </div>
+                    <h2 class="cs_post_title cs_modal_btn mb-0" data-modal="details">
+                      How they shape our digital world with software innovation
+                    </h2>
+                  </div>
+                  <div class="cs_post_user">
+                    <span class="cs_text_btn cs_modal_btn" data-modal="details">Read More
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </span>
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/comment-dots.svg" alt="Image"></div>
+                        <p class="mb-0">12</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/eye.svg" alt="Image"></div>
+                        <p class="mb-0">50</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cs_height_lg_30"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="cs_post cs_style_1">
+                <div class="cs_post_thumb cs_modal_btn" data-modal="details">
+                  <img src="assets/img/blog3.jpg" alt="Image">
+                  <div class="cs_posted_by">05 July</div>
+                </div>
+                <div class="cs_post_content">
+                  <div class="cs_post_content_in">
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/user.svg" alt="Image"></div>
+                        <p class="mb-0">Admin</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/label.svg" alt="Image"></div>
+                        <p class="mb-0">Software</p>
+                      </div>
+                    </div>
+                    <h2 class="cs_post_title cs_modal_btn mb-0" data-modal="details">
+                      How they shape our digital world with software innovation
+                    </h2>
+                  </div>
+                  <div class="cs_post_user">
+                    <div class="cs_text_btn cs_modal_btn" data-modal="details">
+                      Read More
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                          fill="currentColor"></path>
+                      </svg>
+                    </div>
+                    <div class="cs_post_meta_wrap">
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/comment-dots.svg" alt="Image"></div>
+                        <p class="mb-0">12</p>
+                      </div>
+                      <div class="cs_post_meta">
+                        <div class="cs_post_meta_icon"><img src="assets/img/eye.svg" alt="Image"></div>
+                        <p class="mb-0">50</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cs_height_lg_30"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_80"></div>
+      </section> -->
+      <!--End Blog Section -->
+      <!--Start contact Section -->
+      <div class="cs_contact" id="contact">
+        <div class="cs_height_143 cs_height_lg_75"></div>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_contact_thumb text-center">
+                <img src="assets/img/idokon-contact.png" alt="Image">
+              </div>
+            </div>
+            <div class="col-xl-6 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_section_heading cs_style_1">
+                <p class="cs_section_subtitle cs_text_accent">Biz bilan bog'lanish</p>
+                <h2 class="cs_section_title mb-0">Biz bilan bog‘laning! <br> Hoziroq murojaat qiling</h2>
+              </div>
+              <div class="cs_height_50 cs_height_lg_40"></div>
+              <form action="https://api.web3forms.com/submit" method="POST" id="cs_form" class="row">
+                <input type="hidden" name="access_key" value="cd98b256-0db3-478c-ab2asd8-1ec94f8aqwsq0447c">
+                <div class="col-sm-6">
+                  <input type="text" name="name" class="cs_form_field" placeholder="Ismingiz" required>
+                  <div class="cs_height_30 cs_height_lg_30"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="tel" name="phone" class="cs_form_field" placeholder="Telefon raqamingiz*" required>
+                  <div class="cs_height_30 cs_height_lg_30"></div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input type="text" name="phone" class="cs_form_field" placeholder="Mobile*" required>
+                  <div class="cs_height_30 cs_height_lg_30"></div> -->
+                </div>
+                <div class="col-sm-6">
+                  <!-- <input type="text" name="subject" class="cs_form_field" placeholder="Subject*" required>
+                  <div class="cs_height_30 cs_height_lg_30"></div> -->
+                </div>
+                <div class="col-lg-12">
+                  <textarea name="message" rows="7" class="cs_form_field m-0"
+                    placeholder="Murojaatingiz haqida batafsil*" required></textarea>
+                  <div class="cs_height_30 cs_height_lg_30"></div>
+                </div>
+                <div class="col-lg-12">
+                  <button aria-label="Submit button" class="cs_btn cs_bg_accent cs_dark_hover"
+                    type="submit">Yuborish</button>
+                  <div id="cs_result"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_150 cs_height_lg_80"></div>
+      </div>
+      <!--End contact Section -->
+    </div>
+    <!-- Blog Details Modal -->
+    <!-- <div class="cs_modal" data-modal="details">
+      <div class="cs_close_overlay"></div>
+      <div class="cs_modal_in">
+        <div class="cs_modal_container cs_white_bg">
+          <button class="cs_close_modal cs_center cs_primary_bg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="cs_post_details cs_style_1">
+            <div class="cs_post_meta_wrap">
+              <div class="cs_post_meta">
+                <div class="cs_post_meta_icon cs_text_accent"><i class="fa-regular fa-user"></i></div>
+                <p class="mb-0">Admin</p>
+              </div>
+              <div class="cs_post_meta">
+                <div class="cs_post_meta_icon cs_text_accent"><i class="fa-regular fa-calendar"></i></div>
+                <p class="mb-0">25.03.2023</p>
+              </div>
+            </div>
+            <h2 class="cs_post_title">How they shape our digital world with software innovation</h2>
+            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day,
+              goingforward, a new normal that has evolved from generation X is on the runway heading towards a
+              streamlined cloud solution. User generated content in real-time will have multiple touchpoints for
+              offshoring.
+            </p>
+            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the
+              digital divide with additional clickthroughs from DevOps.
+            </p>
+            <div class="cs_height_5 cs_height_lg_5"></div>
+            <img src="assets/img/blog_details.jpg" alt="blog1">
+            <h2>Collaboratively administrate empowered.</h2>
+            <div class="cs_post_text">
+              <p>Podcasting operational change management inside of workflows to establish a framework. Taking
+                seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball
+                while performing a deep dive on the start-up mentality to derive convergence on cross-platform
+                integration.
+              </p>
+              <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate
+                B2C users after installed base benefits. Dramatically visualize customer directed convergence
+                withoutrevolutionary ROI.
+              </p>
+              <p>Podcasting operational change management inside of workflows to establish a framework. Taking
+                seamless key performance indicators offline to maximise the long tail.
+              </p>
+              <h2>Blog video post can also added.</h2>
+              <p>Completely synergize resource taxing relationships via premier niche markets. Professionally
+                cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer
+                service for state of the art customer service.
+              </p>
+              <blockquote>Integer accumsan arcu ligula, eget dictum augue egestas sed. Curabitur bibendum, lorem ac
+                dapibus pellentesque, justo lectus bibendum enim.<small>by: <span>Mark Parker</span></small>
+              </blockquote>
+              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                alteration some form, by injected humour, or randomised words which don't look even slightly believable.
+                If you are going to use passage of Lorem Ipsum.
+              </p>
+              <h2>Phosfluorescently engage worldwide?</h2>
+              <p>Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly
+                visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically
+                pontificate installed base portals after maintainable products.
+              </p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <img src="assets/img/blog2.jpg" alt="Image">
+                </div>
+                <div class="col-lg-6">
+                  <img src="assets/img/blog3.jpg" alt="Image">
+                </div>
+              </div>
+              <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the
+                digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information
+                highway will close the loop on focusing solely on the bottom line.
+              </p>
+            </div>
+            <div class="cs_height_35 cs_height_lg_35"></div>
+          </div>
+          <div class="comments_area">
+            <div class="comment_list_outer">
+              <h2 class="comments_title">Comments(3)</h2>
+              <ol class="comment_list">
+                <li class="comment">
+                  <div class="comment_body">
+                    <div class="comment_meta">
+                      <div class="comment_author">
+                        <img src="assets/img/comment1.jpg" alt="comment1" class="avatar">
+                        <a href="#" aria-label="Comment link" class="nm">Smith Jhon</a>
+                      </div>
+                      <div class="comment_metadata">
+                        <a href="#" aria-label="Comment link"><span>15 Jan, 2023</span></a>
+                      </div>
+                    </div>
+                    <div class="comment_content">
+                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                    </div>
+                    <div class="reply"><a href="#" aria-label="Comment link" class="comment_reply_link">Reply</a></div>
+                  </div>
+                  <ol class="children">
+                    <li class="comment">
+                      <div class="comment_body">
+                        <div class="comment_meta">
+                          <div class="comment_author">
+                            <img src="assets/img/comment2.jpg" alt="comment1" class="avatar">
+                            <span class="nm"><a href="#" aria-label="Comment link">Robat Newman</a></span>
+                          </div>
+                          <div class="comment_metadata">
+                            <a href="#" aria-label="Comment link"><span>15 Jan, 2023</span></a>
+                          </div>
+                        </div>
+                        <div class="comment_content">
+                          <p>Consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer.</p>
+                        </div>
+                        <div class="reply"><a href="#" aria-label="Comment link" class="comment_reply_link">Reply</a>
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+                <li class="comment">
+                  <div class="comment_body">
+                    <div class="comment_meta">
+                      <div class="comment_author">
+                        <img src="assets/img/comment1.jpg" alt="comment1" class="avatar">
+                        <span class="nm"><a href="#" aria-label="Comment link">Hannibal Lecter</a></span>
+                      </div>
+                      <div class="comment_metadata">
+                        <a href="#" aria-label="Comment link"><span>26 Jan, 2023</span></a>
+                      </div>
+                    </div>
+                    <div class="comment_content">
+                      <p>Lorem ipsum dolor sit amet. Lorem ipsum adipiscing elit.</p>
+                    </div>
+                    <div class="reply"><a href="#" aria-label="Comment link" class="comment_reply_link">Reply</a></div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="comment_respond">
+              <h2 class="comment_reply_title">Add your comment</h2>
+              <form class="comment_form">
+                <div class="comment_form_author">
+                  <input type="text" placeholder="Name*" required>
+                </div>
+                <div class="comment_form_email">
+                  <input type="email" placeholder="E-mail*" required>
+                </div>
+                <div class="comment_form_url">
+                  <input type="url" placeholder="Website">
+                </div>
+                <div class="comment_form_comment">
+                  <textarea rows="5" placeholder="Write here...*" required></textarea>
+                </div>
+                <div class="form_submit">
+                  <button type="submit" class="cs_btn cs_bg_accent cs_color1 cs_dark_hover">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- End Blog Details Modal -->
+    <!-- Login modal -->
+    <div class="cs_modal cs_size_sm" data-modal="login">
+      <div class="cs_close_overlay"></div>
+      <div class="cs_modal_in">
+        <div class="cs_modal_container">
+          <button class="cs_close_modal cs_center cs_primary_bg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="cs_login">
+            <div class="cs_login_container text-center">
+              <div class="cs_logo">
+                <img src="assets/img/Poze.svg" alt="Logo">
+              </div>
+              <form class="cs_login_form">
+                <div class="cs_form_heading">
+                  <h2 class="cs_login_title">Login into account</h2>
+                  <p class="cs_login_subtitle mb-0">Use your credentials to access your account</p>
+                </div>
+                <div class="cs_text_field">
+                  <img src="assets/img/envelop.svg" alt="Icon">
+                  <input type="email" class="cs_form_field" placeholder="Email address">
+                </div>
+                <div class="cs_text_field position-relative">
+                  <img src="assets/img/lock.svg" alt="Icon">
+                  <input type="password" class="cs_form_field" placeholder="Password">
+                </div>
+                <div class="cs_login_meta">
+                  <div class="cs_check">
+                    <input type="checkbox">
+                    <label>Remember me</label>
+                  </div>
+                  <span class="cs_text_btn cs_modal_btn" data-modal="forgot"><span>Forgot Password?</span></span>
+                </div>
+                <button type="submit" aria-label="Submit button" class="cs_btn cs_bg_accent w-100 cs_dark_hover">
+                  <span>Login</span>
+                </button>
+                <div class="cs_or"><span>or login width</span></div>
+                <div class="cs_social_btn cs_style_1 cs_center">
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank">
+                    <i class="fa-brands fa-google"></i></a>
+                </div>
+                <p class="mb-0">
+                  Don't have an account?
+                  <span class="cs_text_btn cs_modal_btn" data-modal="register"><span>Register Here</span></span>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="cs-height_100 cs-height_lg_70"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Register modal -->
+    <div class="cs_modal cs_size_sm" data-modal="register">
+      <div class="cs_close_overlay"></div>
+      <div class="cs_modal_in">
+        <div class="cs_modal_container">
+          <button class="cs_close_modal cs_center cs_primary_bg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="cs_login">
+            <div class="cs_login_container text-center">
+              <div class="cs_logo">
+                <img src="assets/img/Poze.svg" alt="Logo">
+              </div>
+              <form class="cs_login_form">
+                <div class="cs_form_heading">
+                  <h2 class="cs_login_title">Create an account</h2>
+                  <p class="cs_login_subtitle mb-0">Use your credentials to create an account</p>
+                </div>
+                <div class="cs_text_field">
+                  <span><i class="fa-regular fa-circle-user"></i></span>
+                  <input type="text" class="cs_form_field" placeholder="Full Name">
+                </div>
+                <div class="cs_text_field">
+                  <img src="assets/img/envelop.svg" alt="Icon">
+                  <input type="email" class="cs_form_field" placeholder="Email address">
+                </div>
+                <div class="cs_text_field position-relative">
+                  <img src="assets/img/lock.svg" alt="Icon">
+                  <input type="password" class="cs_form_field" placeholder="Password">
+                </div>
+                <div class="cs_login_meta">
+                  <div class="cs_check">
+                    <input type="checkbox">
+                    <label>Accept terms & condition</label>
+                  </div>
+                </div>
+                <button type="submit" aria-label="Submit button" class="cs_btn cs_bg_accent w-100 cs_dark_hover">
+                  <span>Register</span>
+                </button>
+                <div class="cs_or"><span>or signup with</span></div>
+                <div class="cs_social_btn cs_style_1 cs_center">
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank"><i
+                      class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank"><i
+                      class="fa-brands fa-x-twitter"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank"><i
+                      class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.linkedin.com/" aria-label="Social link" target="_blank"><i
+                      class="fa-brands fa-google"></i></a>
+                </div>
+                <p class="mb-0">Already have an account?
+                  <span class="cs_text_btn cs_modal_btn" data-modal="login">Login</span>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="cs-height_100 cs-height_lg_70"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Recovery Password modal -->
+    <div class="cs_modal cs_size_sm" data-modal="forgot">
+      <div class="cs_close_overlay"></div>
+      <div class="cs_modal_in">
+        <div class="cs_modal_container">
+          <button class="cs_close_modal cs_center cs_primary_bg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="cs_login">
+            <div class="cs_login_container text-center">
+              <div class="cs_logo">
+                <img src="assets/img/Poze.svg" alt="Logo">
+              </div>
+              <form class="cs_login_form">
+                <div class="cs_form_heading">
+                  <h2 class="cs_login_title">Change Password</h2>
+                  <p class="mb-0">Enter your email below to request an POZE account password reset.</p>
+                </div>
+                <div class="cs_text_field position-relative">
+                  <img src="assets/img/envelop.svg" alt="Icon">
+                  <input type="email" class="cs_form_field" placeholder="Enter Your Email">
+                </div>
+                <button type="submit" aria-label="Submit button" class="cs_btn cs_bg_accent w-100 cs_dark_hover mb-0">
+                  <span>Submit</span>
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="cs-height_100 cs-height_lg_70"></div>
+        </div>
+      </div>
+    </div>
+    <!--Start Footer Section -->
+    <footer class="cs_site_footer cs_color_1 cs_sticky_footer">
+      <div class="cs_footer_shape1">
+        <img src="assets/img/Vector1.svg" alt="Vector-Icon">
+      </div>
+      <div class="cs_height_140 cs_height_lg_70"></div>
+      <div class="cs_main_footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-xl-4">
+              <div class="cs_footer_widget">
+                <div class="cs_text_field">
+                  <img src="assets/img/logo.png" alt="Logo" class="cs_footer_logo">
+                  <p class="cs_text_white mb-0">
+                    Bizning POS dasturimiz biznes jarayonlaringizni soddalashtirib, samaradorlikni oshiradigan yakuniy
+                    yechimdir.
+                    Oddiylik, ko‘p qirrali imkoniyatlar va ilg‘or texnologiyalar uyg‘unligiga e’tibor qaratganmiz.
+                  </p>
+                </div>
+              </div>
+              <div class="cs_footer_widget">
+                <div class="cs_social_btn cs_style_1 d-flex">
+                  <a href="https://www.facebook.com/" aria-label="Ijtimoiy tarmoq havolasi" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.facebook.com/" aria-label="Ijtimoiy tarmoq havolasi" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="https://www.facebook.com/" aria-label="Ijtimoiy tarmoq havolasi" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://www.facebook.com/" aria-label="Ijtimoiy tarmoq havolasi" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="cs_height_0 cs_height_lg_30"></div>
+            </div>
+
+            <div class="col-lg-2 col-xl-2 offset-lg-1">
+              <div class="cs_footer_widget">
+                <h2 class="cs_footer_widget_title">Tez havolalar</h2>
+                <ul class="cs_footer_widget_nav cs_mp0">
+                  <li><a href="/" aria-label="Footer havola">Bosh sahifa</a></li>
+                  <li><a href="/#about" aria-label="Footer havola">Xususiyatlar</a></li>
+                  <li><a href="/#pricing" aria-label="Footer havola">Narxlar</a></li>
+                  <li><a href="/#blog" aria-label="Footer havola">Blog</a></li>
+                  <li><a href="/#contact" aria-label="Footer havola">Aloqa</a></li>
+                </ul>
+              </div>
+              <div class="cs_height_0 cs_height_lg_30"></div>
+            </div>
+
+            <div class="col-xl-1 col-lg-2">
+              <div class="cs_footer_widget">
+                <h2 class="cs_footer_widget_title">Qo‘llab-quvvatlash</h2>
+                <ul class="cs_footer_widget_nav cs_mp0">
+                  <li><a href="/#faq" aria-label="Footer havola">Ko‘p beriladigan savollar (FAQ)</a></li>
+                  <li><a href="#" aria-label="Footer havola">Maqolalar</a></li>
+                  <li><a href="#" aria-label="Footer havola">Jonli chat</a></li>
+                </ul>
+              </div>
+              <div class="cs_height_0 cs_height_lg_30"></div>
+            </div>
+
+            <div class="col-lg-4 col-xl-3 offset-xl-1">
+              <div class="cs_footer_widget">
+                <h2 class="cs_footer_widget_title">Yangiliklarga obuna bo‘ling</h2>
+                <form class="cs_newsletter position-relative">
+                  <input type="text" placeholder="Email manzilingiz" class="cs_form_field">
+                  <button type="submit" aria-label="Obuna tugmasi" class="cs_btn cs_bg_accent cs_send">
+                    Yuborish
+                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395 9.29705 0.907394L1.64705 0.907394C1.17761 0.907395 0.797048 1.28795 0.797048 1.75739C0.797048 2.22684 1.17761 2.60739 1.64705 2.60739H8.44705V9.4074C8.44705 9.87684 8.82761 10.2574 9.29705 10.2574C9.76649 10.2574 10.147 9.87684 10.147 9.4074L10.147 1.75739ZM1.41281 10.8437L9.89809 2.35844L8.69601 1.15635L0.210727 9.64163L1.41281 10.8437Z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs_height_110 cs_height_lg_50"></div>
+        </div>
+        <div class="container cs_copyright_text cs_text_white text-center">
+          &copy; Copyright 2025. Design by<a href="https://t.me/Online_xakker" target="_blank" aria-label="Site link"
+            target="_blank" class="cs_site_link cs_text_accent"> JaMeS</a>
+        </div>
+      </div>
+    </footer>
+    <!--End Footer Section -->
+    <!-- Back to top btn -->
+    <div id="cs_backtotop"><i class="fa-solid fa-arrow-up"></i></div>
+    <!-- All Scripts Files -->
+    <script src="/features.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.slick.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+
+</html>

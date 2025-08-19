@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>POS uskunalar savatchasi — IDOKON</title>
+    <link rel="icon" href="assets/img/logo_only.jpg" type="image/png">
+
+    <!-- Sizdagi mavjud CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!-- Scoped CSS: headerga tegmaydi -->
+    <style>
+      :root {
+        --idk-accent: #06B6D4;
+        --idk-line: #e5e7eb;
+        --idk-muted: #6b7280;
+      }
+
+      .idk-cart {
+        margin-top: 5rem;
+        background: #fff;
+      }
+
+      .idk-cart .idk-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 12px;
+      }
+
+      .idk-cart .idk-filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 18px 0
+      }
+
+      .idk-cart .idk-search {
+        flex: 1;
+        min-width: 220px
+      }
+
+      .idk-cart .idk-chip {
+        background: #f3f4f6;
+        border: 1px solid var(--idk-line);
+        padding: 6px 10px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: .92rem
+      }
+
+      .idk-cart .idk-chip.is-active {
+        background: var(--idk-accent);
+        color: #fff;
+        border-color: transparent
+      }
+
+      .idk-cart .idk-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 16px
+      }
+
+      @media (max-width: 992px) {
+        .idk-cart .idk-grid {
+          grid-template-columns: 1fr
+        }
+      }
+
+      /* Katalog kartalari — ixcham */
+      .idk-card {
+        border: 1px solid var(--idk-line);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        align-items: center
+      }
+
+      .idk-card img {
+        width: 84px;
+        height: 84px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex: 0 0 auto
+      }
+
+      .idk-card-body {
+        flex: 1 1 auto;
+        min-width: 0
+      }
+
+      .idk-title {
+        font-weight: 700;
+        font-size: 0.98rem;
+        line-height: 1.2
+      }
+
+      .idk-sub {
+        color: var(--idk-muted);
+        font-size: .86rem;
+        white-space: normal;
+        /* endi tagma-tag tushadi */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* faqat balandlik cheklansa ... ishlaydi */
+        max-width: 520px;
+        /* eni chegaralab qo‘ydik */
+        display: -webkit-box;
+        /* 2 qatordan oshsa ellipsis */
+        -webkit-line-clamp: 2;
+        /* maksimal 2 qator */
+        -webkit-box-orient: vertical;
+      }
+
+
+      .idk-price {
+        font-weight: 700;
+        font-size: .98rem
+      }
+
+      .idk-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-end
+      }
+
+      .idk-add {
+        background: var(--idk-accent);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 6px 10px;
+        white-space: nowrap
+      }
+
+      .idk-step {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--idk-line);
+        border-radius: 10px;
+        overflow: hidden
+      }
+
+      .idk-step button {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: #f9fafb;
+        cursor: pointer
+      }
+
+      .idk-step .val {
+        min-width: 36px;
+        text-align: center;
+        display: inline-block
+      }
+
+      /* Savatcha paneli */
+      .idk-aside {
+        position: sticky;
+        top: 90px;
+        border: 1px solid var(--idk-line);
+        border-radius: 14px;
+        padding: 14px;
+        height: fit-content
+      }
+
+      .idk-cart-empty {
+        color: var(--idk-muted);
+        text-align: center;
+        padding: 10px
+      }
+
+      .idk-cart-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--idk-line)
+      }
+
+      .idk-cart-row:last-child {
+        border-bottom: none
+      }
+
+      .idk-cart-row img {
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        object-fit: cover
+      }
+
+      .idk-cart-title {
+        font-weight: 600;
+        font-size: .95rem
+      }
+
+      .idk-cart-meta {
+        color: var(--idk-muted);
+        font-size: .86rem
+      }
+
+      .idk-del {
+        border: none;
+        background: #fff;
+        color: #ef4444
+      }
+
+      .idk-totals {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        font-weight: 700
+      }
+
+      .idk-divider {
+        height: 1px;
+        background: var(--idk-line);
+        margin: 10px 0
+      }
+
+      .idk-btn {
+        background: var(--idk-accent);
+        border: none;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 12px;
+        width: 100%
+      }
+
+      /* Modal umumiy */
+      .idk-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .45);
+        display: none;
+        z-index: 999999
+      }
+
+      .idk-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999999
+      }
+
+      .idk-modal.is-open,
+      .idk-backdrop.is-open {
+        display: flex
+      }
+
+      .idk-card-modal {
+        background: #fff;
+        border-radius: 16px;
+        max-width: 820px;
+        width: calc(100% - 24px);
+        max-height: 90vh;
+        overflow: auto
+      }
+
+      .idk-modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--idk-line)
+      }
+
+      .idk-modal-body {
+        padding: 12px 16px
+      }
+
+      .idk-close {
+        border: none;
+        background: #fff;
+        font-size: 22px
+      }
+
+      /* Detal modal (slider) */
+      .idk-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid var(--idk-line)
+      }
+
+      .idk-slide {
+        display: none
+      }
+
+      .idk-slide.is-active {
+        display: block
+      }
+
+      .idk-slider img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover
+      }
+
+      .idk-nav {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 8px
+      }
+
+      .idk-nav img {
+        width: 62px;
+        height: 46px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        cursor: pointer
+      }
+
+      .idk-nav img.is-active {
+        border-color: var(--idk-accent)
+      }
+
+      .idk-prev,
+      .idk-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: rgba(0, 0, 0, .5);
+        color: #fff;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer
+      }
+
+      .idk-prev {
+        left: 8px
+      }
+
+      .idk-next {
+        right: 8px
+      }
+
+      @media (max-width: 576px) {
+        .idk-card {
+          flex-direction: column;
+          /* Yonma-yon emas, ustma-ust */
+          align-items: flex-start;
+        }
+
+        .idk-card img {
+          width: 100%;
+          /* Ekran bo‘yi bo‘ylab */
+          height: auto;
+          /* Proportsiya saqlansin */
+          border-radius: 12px;
+          margin-bottom: 8px;
+        }
+
+        .idk-card-body {
+          width: 100%;
+        }
+
+        .idk-actions {
+          justify-content: flex-start;
+          /* tugmalar chapga */
+          margin-top: 6px;
+        }
+      }
+    </style>
+
+    <style>
+      /* === Mobile FAB (floating cart button) + Drawer === */
+      .idk-fab {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        height: 56px;
+        min-width: 56px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: var(--idk-accent);
+        color: #fff;
+        display: none;
+        /* desktopda yo'q */
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+        border: none;
+      }
+
+      .idk-fab i {
+        font-size: 18px;
+      }
+
+      .idk-fab .badge {
+        background: #fff;
+        color: #111827;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 2px 8px;
+      }
+
+      /* Drawer */
+      .idk-drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .45);
+        display: none;
+        z-index: 9;
+      }
+
+      .idk-drawer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, .2);
+        transform: translateY(100%);
+        transition: transform .25s ease;
+        z-index: 99992;
+        max-height: 95vh;
+        overflow: auto;
+        display: none;
+        /* desktopda yo'q */
+      }
+
+      .idk-drawer.is-open {
+        transform: translateY(0);
+      }
+
+      .idk-drawer-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--idk-line);
+      }
+
+      .idk-drawer-body {
+        padding: 12px 16px;
+      }
+
+      .idk-drawer .idk-close {
+        border: none;
+        background: #fff;
+        font-size: 22px
+      }
+
+      /* Mobil rejimda aside’ni yashiramiz, FAB + drawer’ni ko’rsatamiz */
+      @media (max-width: 992px) {
+        .idk-aside {
+          display: none;
+        }
+
+        .idk-fab {
+          display: flex;
+        }
+
+        .idk-drawer,
+        .idk-drawer-backdrop {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Start Preloader -->
+    <div class="cs_perloader">
+      <div class="cs_perloader_in">
+        <div class="cs_perloader_dots_wrap">
+          <div class="cs_perloader_dots"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <span class="cs_perloader_text">Yuklanmoqda...</span>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- HEADER: sizdagi mavjud navbar (o‘zgartirmadim) -->
+    <header class="cs_site_header cs_style_1 cs_version_2 cs_text_primary cs_sticky_header cs_medium">
+      <div class="cs_main_header">
+        <div class="container">
+          <div class="cs_main_header_in">
+            <div class="cs_main_header_left">
+              <a class="cs_site_branding" href="index.html" aria-label="Home page link">
+                <img src="assets/img/logo.png" alt="Logo">
+              </a>
+            </div>
+            <div class="cs_main_header_center">
+              <nav class="cs_nav cs_medium cs_primary_font">
+                <ul class="cs_nav_list cs_onepage_nav">
+                  <li class="menu-item">
+                    <a href="./index.html#home" aria-label="Home link">Asosiy</a>
+                  </li>
+                  <li><a href="./index.html#features" aria-label="Menu link">Xususiyatlar</a></li>
+                  <li><a href="./index.html#pricing" aria-label="Menu link">Ta'riflar</a></li>
+                  <li><a href="./index.html#testimonial" aria-label="Menu link">Ta'ssurotlar</a></li>
+                  <li><a href="./index.html#faq" aria-label="Menu link">FAQ</a>
+                  <li><a href="./index.html#blog" aria-label="Menu link">Blog</a></li>
+                  <li><a href="./index.html#contact" aria-label="Menu link">Aloqa</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="cs_main_header_right">
+              <div class="cs_header_actions">
+                <!-- Language selector -->
+                <div class="cs_lang" aria-label="Language selector">
+                  <button type="button" class="cs_lang_btn" aria-haspopup="listbox" aria-expanded="false">
+                    <img src="https://flagcdn.com/w20/uz.png" alt="O'zbekcha bayroq">
+                    <span class="cs_lang_code">O'zbekcha</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                  <ul class="cs_lang_menu" role="listbox">
+                    <li role="option" data-lang="uz">
+                      <img src="https://flagcdn.com/w20/uz.png" alt="O'zbekcha"> O'zbekcha
+                    </li>
+                    <li role="option" data-lang="ru">
+                      <img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский
+                    </li>
+                    <li role="option" data-lang="en">
+                      <img src="https://flagcdn.com/w20/gb.png" alt="English"> English
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Cart -->
+                <a href="/cart.html" class="cs_cart" aria-label="Savatcha">
+                  <i class="fa-solid fa-cart-shopping "></i>
+                  <span class="cs_cart_badge" id="cart-count">0</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="idk-cart">
+      <div class="idk-container">
+
+        <!-- Filters -->
+        <div class="idk-filters">
+          <input id="idk-search" class="form-control idk-search" type="search"
+            placeholder="Qidirish: 'printer', 'shtrix', 'monoblok'..." />
+          <button class="idk-chip is-active" data-idk-cat="all" type="button">Hammasi</button>
+          <button class="idk-chip" data-idk-cat="monoblok" type="button">Monoblok</button>
+          <button class="idk-chip" data-idk-cat="printer" type="button">X-printer / Chek</button>
+          <button class="idk-chip" data-idk-cat="scanner" type="button">Shtrix skaner</button>
+          <button class="idk-chip" data-idk-cat="scale" type="button">Tarozilar</button>
+          <button class="idk-chip" data-idk-cat="box" type="button">Pul Quti</button>
+        </div>
+
+        <div class="idk-grid">
+          <!-- LEFT: Catalog -->
+          <section>
+            <div id="idk-catalog" class="vstack gap-2" aria-live="polite"></div>
+            <div id="idk-empty" class="text-center text-muted mt-3 d-none">Hech narsa topilmadi.</div>
+          </section>
+
+          <!-- RIGHT: Cart / Checkout -->
+          <aside class="idk-aside">
+            <h5 class="mb-2">Savatcha</h5>
+            <div id="idk-cart-rows"></div>
+            <div id="idk-cart-empty" class="idk-cart-empty">Savatcha bo‘sh.</div>
+
+            <div class="idk-divider"></div>
+            <div class="idk-totals">
+              <span>Jami:</span>
+              <span id="idk-total">0 so‘m</span>
+            </div>
+            <div class="idk-divider"></div>
+
+            <!-- Checkout modal ochuvchi tugma -->
+            <button id="idk-open-checkout" class="idk-btn">Buyurtma berish</button>
+            <div id="idk-status" class="mt-2"></div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Cart FAB (mobile) -->
+    <button type="button" class="idk-fab" id="idk-fab" aria-label="Savatchani ko‘rish">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>Savatcha</span>
+      <span class="badge" id="idk-fab-count">0</span>
+    </button>
+
+
+    <!-- PRODUCT DETAILS MODAL (slider) -->
+    <div class="idk-backdrop" id="idk-backdrop"></div>
+    <div class="idk-modal" id="idk-modal" role="dialog" aria-modal="true" aria-labelledby="idk-modal-title">
+      <div class="idk-card-modal">
+        <div class="idk-modal-head">
+          <h5 id="idk-modal-title" class="m-0">Mahsulot</h5>
+          <button class="idk-close" id="idk-close" aria-label="Yopish">&times;</button>
+        </div>
+        <div class="idk-modal-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="idk-slider" id="idk-slider">
+                <button class="idk-prev" id="idk-prev" aria-label="Oldingi">&#8249;</button>
+                <button class="idk-next" id="idk-next" aria-label="Keyingi">&#8250;</button>
+              </div>
+              <div class="idk-nav mt-2" id="idk-nav"></div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="mb-1"><span class="badge bg-light text-dark" id="idk-modal-cat">Kategoriya</span></div>
+              <div class="fs-5 fw-bold mb-1" id="idk-modal-price">0 so‘m</div>
+              <p class="text-muted" id="idk-modal-desc"></p>
+
+              <div class="d-flex align-items-center gap-2 mt-2">
+                <div class="idk-step">
+                  <button type="button" data-modal-qty="minus" aria-label="Kamaytirish">−</button>
+                  <span class="val" id="idk-modal-qty">1</span>
+                  <button type="button" data-modal-qty="plus" aria-label="Oshirish">+</button>
+                </div>
+                <button class="idk-btn" id="idk-modal-add"><i class="fa-solid fa-cart-plus me-1"></i>Savatga
+                  qo‘shish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKOUT MODAL (Ism/Telefon so‘raladi) -->
+    <div class="idk-backdrop" id="chk-backdrop"></div>
+    <div class="idk-modal" id="chk-modal" role="dialog" aria-modal="true" aria-labelledby="chk-title">
+      <div class="idk-card-modal" style="max-width:560px">
+        <div class="idk-modal-head">
+          <h5 id="chk-title" class="m-0">Buyurtmani tasdiqlash</h5>
+          <button class="idk-close" id="chk-close" aria-label="Yopish">&times;</button>
+        </div>
+        <div class="idk-modal-body">
+          <form id="idk-checkout-form" class="vstack gap-2">
+            <label for="chk-name" class="fw-semibold">Ism sharifingiz</label>
+            <input id="chk-name" class="form-control" placeholder="Masalan: Jalilov Jasurbek" required>
+
+            <div class="phone-input">
+              <label for="chk-phone" class="fw-semibold ">Telefon raqam</label>
+              <input type="tel" id="chk-phone" class="form-control phone-input__input" placeholder="+998 XX XXX-XX-XX"
+                required>
+            </div>
+
+            <label for="chk-note" class="fw-semibold">Izoh (ixtiyoriy)</label>
+            <textarea id="chk-note" class="form-control" rows="2"
+              placeholder="Masalan: Toshkentga yetkazib berish."></textarea>
+
+            <button class="idk-btn mt-1" type="submit">Yuborish</button>
+            <div class="text-muted" style="font-size:.9rem">Menejerimiz tez orada aloqaga chiqadi.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Cart Drawer -->
+    <div class="idk-drawer-backdrop" id="idk-drawer-backdrop"></div>
+    <div class="idk-drawer" id="idk-drawer" role="dialog" aria-modal="true" aria-labelledby="idk-drawer-title">
+      <div class="idk-drawer-head">
+        <h5 id="idk-drawer-title" class="m-0">Savatcha</h5>
+        <button class="idk-close" id="idk-drawer-close" aria-label="Yopish">&times;</button>
+      </div>
+      <div class="idk-drawer-body">
+        <div id="idk-drawer-rows"></div>
+        <div class="idk-divider"></div>
+        <div class="idk-totals">
+          <span>Jami:</span>
+          <span id="idk-drawer-total">0 so‘m</span>
+        </div>
+        <div class="idk-divider"></div>
+        <button class="idk-btn" id="idk-drawer-checkout">Buyurtma berish</button>
+      </div>
+    </div>
+
+
+    <!-- JS -->
+    <script>
+      // ====== Ma'lumotlar ======
+      const PRODUCTS = [
+        { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 295, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
+        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 400, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
+        { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 60, images: ["./assets/img/Oborodvniya/printer1.png"] },
+        { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 50, images: ["./assets/img/Oborodvniya/printer2.png"] },
+        { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 60, images: ["./assets/img/Oborodvniya/scanner1.png"] },
+        { id: "box-01", cat: "box", title: "Pul qo'yish uchun quti", desc: "Qulf turi: Elektromexanik, Ulanish: RJ-11, Bill Klamp: Ha, Banknotlar uchun kataklar soni: 5, Tangalar uyalari soni: 5, Material: metall, Qora rang, Og'irligi: 7.8 kg, Umumiy o'lchamlari: 410 × 100 × 415 mm", price: 60, images: ["./assets/img/Oborodvniya/box1.png"] },
+        { id: "scale-01", cat: "scale", title: "Rongta tarozi", desc: "Barcode scale 1510, 15 kg, Sifat kafolati: 6 oy", price: 470, images: ["./assets/img/Oborodvniya/scale1.png"] },
+        { id: "scale-02", cat: "scale", title: "Shtrixli kodni va tovarlarning narxini kiritadigan tarozi", desc: "Ishlab chiqarilgan: Rossiya, Klaviaturalar soni: 77, Og'irlik chegarasi: 40 gr – 15 kg, Qog'oz kengligi: 58 mm, Sifat kafolati: 1 yil", price: 570, images: ["./assets/img/Oborodvniya/scale2.png"] },
+        { id: "scale-03", cat: "scale", title: "Tarozi TMA", desc: "Davlat: Xitoy 🇨🇳, Og'irlik ko‘tarishi: 30 kg, Kafolat: 6 oy, PLU: 4000 tagacha", price: 350, images: ["./assets/img/Oborodvniya/scale3.png", "./assets/img/Oborodvniya/scale3.1.png"] }
+      ];
+
+      // ====== Util ======
+      const fmt = n => new Intl.NumberFormat("uz-UZ").format(n) + "$";
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+      const escapeHtml = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
+      const LS_KEY = "idokon_cart_v3";
+
+      let cart = loadCart();
+      let activeCat = "all";
+
+      // UI refs
+      const catalogEl = $("#idk-catalog");
+      const emptyEl = $("#idk-empty");
+      const searchEl = $("#idk-search");
+      const cartRowsEl = $("#idk-cart-rows");
+      const cartEmptyEl = $("#idk-cart-empty");
+      const totalEl = $("#idk-total");
+      const badgeEl = $("#cart-count");
+      const statusEl = $("#idk-status");
+      const openCheckoutBtn = $("#idk-open-checkout");
+
+      // FAB + Drawer refs
+      const fabBtn = $("#idk-fab");
+      const fabCount = $("#idk-fab-count");
+      const drawer = $("#idk-drawer");
+      const drawerBackdrop = $("#idk-drawer-backdrop");
+      const drawerClose = $("#idk-drawer-close");
+      const drawerRowsEl = $("#idk-drawer-rows");
+      const drawerTotalEl = $("#idk-drawer-total");
+      const drawerCheckoutBtn = $("#idk-drawer-checkout");
+
+      // Product modal refs
+      const modal = $("#idk-modal");
+      const backdrop = $("#idk-backdrop");
+      const modalTitle = $("#idk-modal-title");
+      const modalDesc = $("#idk-modal-desc");
+      const modalCat = $("#idk-modal-cat");
+      const modalPrice = $("#idk-modal-price");
+      const modalQtySpan = $("#idk-modal-qty");
+      const modalAddBtn = $("#idk-modal-add");
+      const slider = $("#idk-slider");
+      const nav = $("#idk-nav");
+      const prevBtn = $("#idk-prev");
+      const nextBtn = $("#idk-next");
+      const modalClose = $("#idk-close");
+      let modalProduct = null, slideIdx = 0, modalQty = 1;
+
+      // Checkout modal refs
+      const chkModal = $("#chk-modal");
+      const chkBackdrop = $("#chk-backdrop");
+      const chkClose = $("#chk-close");
+      const chkForm = $("#idk-checkout-form");
+      const chkName = $("#chk-name");
+      const chkPhone = $("#chk-phone");
+      const chkNote = $("#chk-note");
+
+      // ===== Init =====
+      renderCatalog();
+      renderCart();
+
+      // === Filters (skrollni saqlab qaytarish bilan) ===
+      function safeRenderCatalog() {
+        const y = window.scrollY;
+        renderCatalog();
+        requestAnimationFrame(() => window.scrollTo(0, y)); // sakrash yo‘q
+      }
+      searchEl.addEventListener("input", safeRenderCatalog);
+      $$(".idk-chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          $$(".idk-chip").forEach(b => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          activeCat = btn.dataset.idkCat;
+          safeRenderCatalog();
+        });
+      });
+
+      // === Catalog actions (faqat kartaning ichini yangilaymiz) ===
+      catalogEl.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-idk]");
+        if (!el) return;
+        const type = el.dataset.idk;
+        const id = el.dataset.id;
+
+        if (type === "open") { openModal(id); return; }
+
+        if (type === "add") {
+          const p = PRODUCTS.find(x => x.id === id);
+          if (!p) return;
+          addToCart(p, 1);
+
+          // Faqat shu kartadagi actions’ni stepperga almashtiramiz
+          const actions = el.closest(".idk-actions");
+          if (actions) {
+            actions.innerHTML = `
+          <div class="idk-step">
+            <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
+            <span class="val">${cart[p.id]?.qty || 1}</span>
+            <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          </button>
+        `;
+          }
+          renderCart(); // faqat savat/drawer yangilanadi
+          return;
+        }
+
+        if (type === "incart-minus" || type === "incart-plus") {
+          const it = cart[id];
+          if (!it) return;
+          it.qty += (type === "incart-plus" ? 1 : -1);
+
+          if (it.qty <= 0) {
+            delete cart[id];
+            // Kartadagi stepperni "Qo'shish"ga qaytaramiz
+            const actions = el.closest(".idk-actions");
+            if (actions) {
+              actions.innerHTML = `
+            <button class="idk-add" data-idk="add" data-id="${id}">
+              <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
+            </button>
+            <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
+              <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            </button>
+          `;
+            }
+          } else {
+            // Faqat shu kartadagi qty ko'rsatkichini yangilaymiz
+            const stepVal = el.closest(".idk-actions")?.querySelector(".idk-step .val");
+            if (stepVal) stepVal.textContent = String(it.qty);
+          }
+          saveCart();
+          renderCart(); // aside/drawer/badge
+          return;
+        }
+      });
+
+      // === CART ACTIONS: umumiy handler (aside + drawer) ===
+      function handleCartContainerClick(e) {
+        // O'chirish
+        const del = e.target.closest("[data-idk-del]");
+        if (del) {
+          const id = del.dataset.idkDel;
+          delete cart[id];
+          saveCart();
+          renderCart();
+          syncCatalogAction(id);   // << katalog kartasini ham yangilash
+          return;
+        }
+
+        // + / - miqdor
+        const qbtn = e.target.closest("[data-idk-qty]");
+        if (qbtn) {
+          const id = qbtn.dataset.id;
+          const kind = qbtn.dataset.idkQty; // "plus" | "minus"
+          if (!cart[id]) return;
+
+          cart[id].qty += (kind === "plus" ? 1 : -1);
+          if (cart[id].qty <= 0) {
+            delete cart[id];
+            saveCart();
+            renderCart();
+            syncCatalogAction(id); // 0 bo'lsa "Qo‘shish" tugmasiga qaytarish
+            return;
+          }
+
+          saveCart();
+          renderCart();
+          syncCatalogAction(id);   // qty ni katalog kartasida ham yangilash
+        }
+      }
+
+      cartRowsEl.addEventListener("click", handleCartContainerClick);
+      drawerRowsEl.addEventListener("click", handleCartContainerClick);
+
+      // === Checkout open ===
+      openCheckoutBtn.addEventListener("click", () => {
+        if (Object.keys(cart).length === 0) {
+          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot tanlang.</div>`;
+          return;
+        }
+        openChk();
+      });
+
+      // === Checkout submit ===
+      chkForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = chkName.value.trim();
+        const phone = chkPhone.value.trim();
+        const note = chkNote.value.trim();
+
+        if (!name || !phone) { alert("Ism va telefon majburiy."); return; }
+        const items = Object.values(cart).map(({ id, title, price, qty }) =>
+          ({ id, title, price, qty, subtotal: price * qty })
+        );
+        if (items.length === 0) { alert("Savatcha bo‘sh. Avval mahsulot tanlang."); return; }
+
+        const payload = {
+          customer: { name, phone, note },
+          items,
+          total: items.reduce((a, c) => a + c.subtotal, 0),
+          source: "idokon-cart",
+          createdAt: new Date().toISOString()
+        };
+
+        const API_BASE = "https://oborodvinya-bot-idokon.onrender.com";
+        const url = `${API_BASE}/api/telegram-order`;
+
+        const submitBtn = chkForm.querySelector('button[type="submit"]');
+        const prevText = submitBtn?.textContent || "";
+        submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yuborilmoqda...");
+
+
+        try {
+          const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          // JSON ichidagi ok ni ham tekshiramiz
+          let body = null;
+          try { body = await res.json(); } catch { }
+          if (!res.ok || (body && body.ok === false)) {
+            const msg = (body && (body.error || body.details)) || "Server xatosi";
+            throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
+          }
+
+          // OK
+          const clearedIds = Object.keys(cart);
+          cart = {}; saveCart(); renderCart();
+          clearedIds.forEach(syncCatalogAction);
+          closeChk();
+
+          Toastify({
+            text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
+            duration: 4000,
+            close: true,
+            gravity: "top",
+            position: "left",
+            style: {
+              background: "linear-gradient(to right, #06B6D4, #0ea5e9)",
+              width: "90%"   // mobil uchun kengroq
+            }
+          }).showToast();
+        } catch (err) {
+          clearTimeout(t);
+          const reason = err.name === "AbortError" ? "So‘rov vaqti tugadi." : (err.message || "Xatolik yuz berdi.");
+          Toastify({
+            text: "Yuborishda xatolik: " + reason,
+            duration: 5000,
+            close: true,
+            gravity: "top",
+            position: "left",
+            style: {
+              background: "linear-gradient(to right, #ef4444, #dc2626)",
+              width: "90%"
+            }
+          }).showToast();
+        } finally {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = prevText || "Yuborish"; }
+        }
+      });
+
+      function syncCatalogAction(id) {
+        const card = catalogEl.querySelector(`.idk-card[data-card-id="${id}"]`);
+        if (!card) return;
+        const actions = card.querySelector(".idk-actions");
+        if (!actions) return;
+
+        if (cart[id]) {
+          const qty = cart[id].qty;
+          actions.innerHTML = `
+      <div class="idk-step">
+        <button type="button" data-idk="incart-minus" data-id="${id}" aria-label="Kamaytirish">−</button>
+        <span class="val">${qty}</span>
+        <button type="button" data-idk="incart-plus" data-id="${id}" aria-label="Oshirish">+</button>
+      </div>
+      <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+      </button>
+    `;
+        } else {
+          actions.innerHTML = `
+      <button class="idk-add" data-idk="add" data-id="${id}">
+        <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
+      </button>
+      <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+      </button>
+    `;
+        }
+      }
+
+
+
+      // === Product modal ===
+      modalClose.addEventListener("click", closeModal);
+      backdrop.addEventListener("click", closeModal);
+      prevBtn.addEventListener("click", () => setSlide(slideIdx - 1));
+      nextBtn.addEventListener("click", () => setSlide(slideIdx + 1));
+      nav.addEventListener("click", (e) => {
+        const t = e.target.closest("img[data-thumb]");
+        if (!t) return; setSlide(parseInt(t.dataset.thumb, 10));
+      });
+      modal.addEventListener("click", (e) => {
+        const q = e.target.closest("[data-modal-qty]");
+        if (q) {
+          modalQty = Math.max(1, modalQty + (q.dataset.modalQty === "plus" ? 1 : -1));
+          modalQtySpan.textContent = String(modalQty);
+        }
+      });
+      modalAddBtn.addEventListener("click", () => {
+        if (!modalProduct) return;
+        addToCart(modalProduct, modalQty);
+        closeModal();
+        renderCart(); // katalogni qayta chizmaymiz
+      });
+
+      // === Checkout modal ===
+      chkClose.addEventListener("click", closeChk);
+      chkBackdrop.addEventListener("click", closeChk);
+
+      // === FAB / Drawer ===
+      if (fabBtn) {
+        fabBtn.addEventListener("click", openDrawer);
+        drawerBackdrop.addEventListener("click", closeDrawer);
+        drawerClose.addEventListener("click", closeDrawer);
+      }
+      drawerBackdrop.style.display = "none";
+      document.body.style.overflow = "";
+      function openDrawer() {
+        drawer.classList.add("is-open");
+        drawerBackdrop.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        drawer.classList.remove("is-open");
+        drawerBackdrop.style.display = "none";
+        document.body.style.overflow = "";
+      }
+      drawerCheckoutBtn?.addEventListener("click", () => {
+        closeDrawer();
+        if (Object.keys(cart).length === 0) {
+          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot tanlang.</div>`;
+          return;
+        }
+        openChk();
+      });
+
+      // ====== Renderers ======
+      function renderCatalog() {
+        const q = searchEl.value.trim().toLowerCase();
+        const filtered = PRODUCTS.filter(p => {
+          const okCat = (activeCat === "all" || p.cat === activeCat);
+          const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
+          return okCat && okText;
+        });
+
+        catalogEl.innerHTML = "";
+        if (filtered.length === 0) { emptyEl.classList.remove("d-none"); return; }
+        emptyEl.classList.add("d-none");
+
+        filtered.forEach(p => {
+          const inCart = !!cart[p.id];
+          const qty = inCart ? cart[p.id].qty : 1;
+
+          const card = document.createElement("div");
+          card.className = "idk-card";
+          card.dataset.cardId = p.id; // identifikator (joyida update uchun)
+          card.innerHTML = `
+        <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(p.title)}">
+        <div class="idk-card-body">
+          <div class="idk-title">${escapeHtml(p.title)}</div>
+          <div class="idk-sub" title="${escapeHtml(p.desc)}">${escapeHtml(p.desc)}</div>
+          <div class="d-flex align-items-center justify-content-between mt-1">
+            <div class="idk-price">${fmt(p.price)}</div>
+            <div class="idk-actions">
+              ${inCart
+              ? `<div class="idk-step">
+                     <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
+                     <span class="val">${qty}</span>
+                     <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
+                   </div>`
+              : `<button class="idk-add" data-idk="add" data-id="${p.id}">
+                     <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
+                   </button>`
+            }
+              <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+          catalogEl.appendChild(card);
+        });
+      }
+
+      function renderCart() {
+        const items = Object.values(cart);
+
+        // Hisob-kitob
+        let total = 0, count = 0;
+        items.forEach(it => { total += it.price * it.qty; count += it.qty; });
+
+        // ===== Aside (desktop)
+        cartRowsEl.innerHTML = "";
+        if (items.length === 0) {
+          cartEmptyEl.classList.remove("d-none");
+        } else {
+          cartEmptyEl.classList.add("d-none");
+          items.forEach(it => {
+            const sub = it.price * it.qty;
+            const row = document.createElement("div");
+            row.className = "idk-cart-row";
+            row.innerHTML = `
+          <img src="${it.images?.[0] || ""}" alt="${escapeHtml(it.title)}">
+          <div class="flex-grow-1">
+            <div class="idk-cart-title">${escapeHtml(it.title)}</div>
+            <div class="idk-cart-meta">
+              ${fmt(it.price)} ×
+              <div class="idk-step d-inline-flex align-middle ms-1">
+                <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
+                <span class="val">${it.qty}</span>
+                <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
+              </div>
+              = <strong>${fmt(sub)}</strong>
+            </div>
+          </div>
+          <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        `;
+            cartRowsEl.appendChild(row);
+          });
+        }
+        totalEl.textContent = fmt(total);
+        badgeEl.textContent = String(count);
+
+        // ===== FAB (mobile)
+        if (fabCount) fabCount.textContent = String(count);
+
+        // ===== Drawer (mobile)
+        if (drawerRowsEl) {
+          drawerRowsEl.innerHTML = "";
+          if (items.length === 0) {
+            drawerRowsEl.innerHTML = `<div class="idk-cart-empty">Savatcha bo‘sh.</div>`;
+            drawerTotalEl.textContent = fmt(0);
+            // agar bo'shab qolsa, ochiq bo'lsa yopamiz
+            if (drawer.classList.contains("is-open")) closeDrawer();
+          } else {
+            items.forEach(it => {
+              const sub = it.price * it.qty;
+              const row = document.createElement("div");
+              row.className = "idk-cart-row";
+              row.innerHTML = `
+            <img src="${it.images?.[0] || ""}" alt="${escapeHtml(it.title)}">
+            <div class="flex-grow-1">
+              <div class="idk-cart-title">${escapeHtml(it.title)}</div>
+              <div class="idk-cart-meta">
+                ${fmt(it.price)} ×
+                <div class="idk-step d-inline-flex align-middle ms-1">
+                  <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
+                  <span class="val">${it.qty}</span>
+                  <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
+                </div>
+                = <strong>${fmt(sub)}</strong>
+              </div>
+            </div>
+            <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          `;
+              drawerRowsEl.appendChild(row);
+            });
+            drawerTotalEl.textContent = fmt(total);
+          }
+        }
+      }
+
+      function addToCart(prod, qty) {
+        if (!cart[prod.id]) {
+          cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
+        }
+        cart[prod.id].qty += qty;
+        saveCart();
+      }
+      function saveCart() { localStorage.setItem(LS_KEY, JSON.stringify(cart)); }
+      function loadCart() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) { return {}; } }
+
+      // ===== Product modal helpers =====
+      function openModal(id) {
+        const p = PRODUCTS.find(x => x.id === id);
+        if (!p) return;
+        modalProduct = p; modalQty = 1;
+        modalTitle.textContent = p.title;
+        modalDesc.textContent = p.desc;
+        modalCat.textContent = p.cat;
+        modalPrice.textContent = fmt(p.price);
+        modalQtySpan.textContent = "1";
+        buildSlider(p.images || []);
+        slideIdx = 0; applySlide();
+        modal.classList.add("is-open"); backdrop.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        modal.classList.remove("is-open"); backdrop.classList.remove("is-open");
+        document.body.style.overflow = "";
+        modalProduct = null;
+      }
+      function buildSlider(imgs) {
+        slider.querySelectorAll(".idk-slide").forEach(el => el.remove());
+        nav.innerHTML = "";
+        imgs.forEach((src, i) => {
+          const s = document.createElement("div");
+          s.className = "idk-slide";
+          s.innerHTML = `<img src="${src}" alt="Rasm ${i + 1}">`;
+          slider.insertBefore(s, slider.querySelector(".idk-next"));
+          const tn = document.createElement("img");
+          tn.src = src; tn.dataset.thumb = String(i);
+          nav.appendChild(tn);
+        });
+      }
+      function setSlide(i) {
+        const thumbs = nav.querySelectorAll("img");
+        const n = thumbs.length || 1;
+        slideIdx = (i + n) % n;
+        applySlide();
+      }
+      function applySlide() {
+        const slides = slider.querySelectorAll(".idk-slide");
+        const thumbs = nav.querySelectorAll("img");
+        slides.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
+        thumbs.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
+      }
+
+      // ===== Checkout modal helpers =====
+      function openChk() {
+        chkModal.classList.add("is-open"); chkBackdrop.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeChk() {
+        chkModal.classList.remove("is-open"); chkBackdrop.classList.remove("is-open");
+        document.body.style.overflow = "";
+        chkForm.reset();
+      }
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+      let phoneInputElement = document.querySelector('.phone-input');
+      let phoneInput = document.querySelector('.phone-input__input');
+
+      // Boshlanishida +998- ni qo'yamiz
+      phoneInput.value = '+998';
+
+      phoneInput.addEventListener('keypress', e => {
+        const numericalInput = e.keyCode >= 48 && e.keyCode <= 57;
+        const inputValue = phoneInput.value;
+        const requiresDashInsert = inputValue.length === 4 ||inputValue.length === 7 || inputValue.length === 11 || inputValue.length === 14;
+        const maxChars = inputValue.length >= 17; // +998-XX-XXX-XX-XX (16 ta belgi)
+
+        // Max uzunlikni cheklash
+        if (maxChars) {
+          e.preventDefault();
+        }
+
+        // Faqat raqam kiritishga ruxsat beramiz
+        if (numericalInput) {
+          if (requiresDashInsert) {
+            phoneInput.value = inputValue + '-';
+          }
+        } else {
+          e.preventDefault();
+        }
+      });
+
+      // Foydalanuvchi +998 qismini o'chira olmasligi uchun
+      phoneInput.addEventListener('keydown', e => {
+        if (phoneInput.selectionStart < 5 && (e.key === 'Backspace' || e.key === 'Delete')) {
+          e.preventDefault();
+        }
+      });
+
+      // Green: '#ABC4AB'
+      phoneInput.addEventListener('focus', () => {
+        phoneInputElement.style.borderColor = '#58B0C6';
+      });
+
+      phoneInput.addEventListener('focusout', () => {
+        phoneInputElement.style.borderColor = '#708B99';
+      });
+    </script>
+
+    <!-- <script>
+     Toastify({
+  text: "Xatolik",
+  className: "info",
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  }
+}).showToast();
+    </script> -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.slick.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+
+</html>
