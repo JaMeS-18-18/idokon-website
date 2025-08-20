@@ -217,8 +217,11 @@
       }
 
       .idk-totals {
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        place-items: center;
         margin-top: 8px;
         font-weight: 700
       }
@@ -451,6 +454,7 @@
       }
 
       .idk-drawer-body {
+        width: 100%;
         padding: 12px 16px;
       }
 
@@ -476,6 +480,298 @@
         }
       }
     </style>
+
+    <style>
+      .idk-switch {
+        position: relative;
+        display: inline-flex;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        border-radius: 9999px;
+        padding: 4px;
+        gap: 4px;
+        margin: 14px 0 10px;
+      }
+
+      .idk-switch-btn {
+        position: relative;
+        z-index: 1;
+        border: 0;
+        background: transparent;
+        padding: 8px 16px;
+        border-radius: 9999px;
+        font-weight: 600;
+        color: #334155;
+        cursor: pointer;
+      }
+
+      .idk-switch-btn.is-active {
+        color: #0ea5e9;
+      }
+
+      .idk-switch-indicator {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        width: calc(50% - 4px);
+        background: #e6f6fd;
+        border-radius: 9999px;
+        transition: transform .25s ease;
+      }
+
+      .idk-switch[data-active="plans"] .idk-switch-indicator {
+        transform: translateX(100%);
+      }
+
+      /* Pricing (plans) mini-grid look */
+      #idk-plans .cs_pricing_table {
+        width: 100%;
+      }
+
+      #idk-plans .cs_pricing_table.selected {
+        outline: 2px solid #0ea5e9;
+        box-shadow: 0 0 0 4px rgba(14, 165, 233, .15);
+      }
+
+      .idk-plan-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .6rem 1rem;
+        border-radius: .6rem;
+        border: 1px solid #0ea5e9;
+        color: #0ea5e9;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .idk-plan-btn.is-current {
+        background: #0ea5e9;
+        color: #fff;
+      }
+
+      .idk-total-line {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        font-size: 13px;
+      }
+
+      .idk-total-line-mobile {
+        width: 100%;
+        background-color: red;
+      }
+
+
+      /* ===== PLANS (Ta'riflar) ===== */
+      .idk-plans-grid {
+        --gap: 20px;
+      }
+
+      .idk-plans-grid .col {
+        padding: 0 var(--gap);
+        margin-bottom: var(--gap);
+      }
+
+      .idk-plan-card {
+        border: 1px solid #e9eef2;
+        border-radius: 16px;
+        background: #fff;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(2, 12, 27, 0.04);
+        transition: box-shadow .2s, border-color .2s, transform .08s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .idk-plan-card:hover {
+        box-shadow: 0 8px 28px rgba(2, 12, 27, 0.08);
+        border-color: #d9e4ea;
+      }
+
+      .idk-plan-card.selected {
+        border-color: #06B6D4;
+        box-shadow: 0 8px 32px rgba(6, 182, 212, .18);
+      }
+
+      .idk-plan-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .idk-plan-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: #f6fafc;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        overflow: hidden;
+      }
+
+      .idk-plan-icon img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      .idk-plan-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .idk-plan-sub {
+        margin: 2px 0 0;
+        color: #708b99;
+        font-size: 12px;
+      }
+
+      .idk-plan-sep {
+        height: 1px;
+        background: #eef3f6;
+        margin: 16px 0;
+      }
+
+      .idk-plan-price {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -.02em;
+        margin: 8px 0 0;
+      }
+
+      .idk-plan-price small {
+        font-weight: 500;
+        font-size: 14px;
+        color: #708b99;
+      }
+
+      .idk-plan-features {
+        margin-top: 14px;
+      }
+
+      .idk-plan-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      .idk-plan-features li {
+        color: #1f2d3d;
+        font-size: 14px;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .idk-plan-features li::before {
+        content: "–";
+        color: #9fb2bd;
+      }
+
+      .idk-plan-actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .idk-plan-pick,
+      .idk-plan-more {
+        border: 1px solid #bee3ed;
+        background: #fff;
+        color: #0588a4;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .idk-plan-pick:hover,
+      .idk-plan-more:hover {
+        border-color: #06B6D4;
+        color: #06B6D4;
+      }
+
+      .idk-plan-pick.is-current {
+        background: #06B6D4;
+        border-color: #06B6D4;
+        color: #fff;
+      }
+
+      .idk-plan-badge {
+        position: absolute;
+        top: 11px;
+        width: 161px;
+        text-align: center;
+        right: -33px;
+        background: #ff7a59;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 0px 18px;
+        transform: rotate(31deg);
+      }
+
+      /* Yashirin xususiyatlar ko‘rsatish: faqat 5 tasi ko‘rinsin */
+      .idk-plan-features:not(.is-open) li.is-extra {
+        display: none;
+      }
+
+      /* Grid moslashuv */
+      @media (min-width: 992px) {
+        #idk-plans .col {
+          width: 33.3333%;
+        }
+      }
+
+      .idk-sub-switch {
+        display: inline-flex;
+        background: #f3f4f6;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 15px auto 25px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      }
+
+      .idk-sub-btn {
+        padding: 6px 14px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+        transition: all 0.2s ease;
+      }
+
+      .idk-sub-btn:hover {
+        background: #e5e7eb;
+      }
+
+      .idk-sub-btn.is-active {
+        background: #06B6D4;
+        color: #fff;
+      }
+
+      /* optional – faqat ko‘rinish uchun */
+.idk-plan-card {
+  transition: box-shadow .2s, transform .2s;
+}
+.idk-plan-card:hover { transform: translateY(-2px); }
+
+    </style>
+
   </head>
 
   <body>
@@ -491,7 +787,7 @@
     </div>
     <!-- End Preloader -->
 
-    <!-- HEADER: sizdagi mavjud navbar (o‘zgartirmadim) -->
+    <!-- HEADER -->
     <header class="cs_site_header cs_style_1 cs_version_2 cs_text_primary cs_sticky_header cs_medium">
       <div class="cs_main_header">
         <div class="container">
@@ -510,7 +806,7 @@
                   <li><a href="./index.html#features" aria-label="Menu link">Xususiyatlar</a></li>
                   <li><a href="./index.html#pricing" aria-label="Menu link">Ta'riflar</a></li>
                   <li><a href="./index.html#testimonial" aria-label="Menu link">Ta'ssurotlar</a></li>
-                  <li><a href="./index.html#faq" aria-label="Menu link">FAQ</a>
+                  <li><a href="./index.html#faq" aria-label="Menu link">FAQ</a></li>
                   <li><a href="./index.html#blog" aria-label="Menu link">Blog</a></li>
                   <li><a href="./index.html#contact" aria-label="Menu link">Aloqa</a></li>
                 </ul>
@@ -540,7 +836,7 @@
 
                 <!-- Cart -->
                 <a href="/cart.html" class="cs_cart" aria-label="Savatcha">
-                  <i class="fa-solid fa-cart-shopping "></i>
+                  <i class="fa-solid fa-cart-shopping"></i>
                   <span class="cs_cart_badge" id="cart-count">0</span>
                 </a>
               </div>
@@ -554,7 +850,19 @@
     <main class="idk-cart">
       <div class="idk-container">
 
-        <!-- Filters -->
+        <!-- Segmented Switch: Qurilmalar | Ta'riflar -->
+        <div class="idk-switch" id="idk-switch">
+          <button class="idk-switch-btn is-active" data-tab="products">Qurilmalar</button>
+          <button class="idk-switch-btn" data-tab="plans">Ta'riflar</button>
+          <span class="idk-switch-indicator"></span>
+        </div>
+        <div class="idk-sub-switch d-none" id="idk-plan-switch">
+          <button class="idk-sub-btn is-active" data-cycle="monthly">Oylik</button>
+          <button class="idk-sub-btn" data-cycle="yearly">Yillik (-17%)</button>
+          <span class="idk-sub-indicator"></span>
+        </div>
+
+        <!-- Filters (faqat Qurilmalar uchun ko‘rinadi) -->
         <div class="idk-filters">
           <input id="idk-search" class="form-control idk-search" type="search"
             placeholder="Qidirish: 'printer', 'shtrix', 'monoblok'..." />
@@ -567,9 +875,10 @@
         </div>
 
         <div class="idk-grid">
-          <!-- LEFT: Catalog -->
+          <!-- LEFT: Catalog/Plans -->
           <section>
             <div id="idk-catalog" class="vstack gap-2" aria-live="polite"></div>
+            <div id="idk-plans" class="row cs_gap_y_30 d-none" aria-live="polite"></div>
             <div id="idk-empty" class="text-center text-muted mt-3 d-none">Hech narsa topilmadi.</div>
           </section>
 
@@ -580,9 +889,20 @@
             <div id="idk-cart-empty" class="idk-cart-empty">Savatcha bo‘sh.</div>
 
             <div class="idk-divider"></div>
+            <!-- YANGI: Jami bloklari 2 qatordan (Qurilmalar USD, Tarif UZS/oy) -->
             <div class="idk-totals">
-              <span>Jami:</span>
-              <span id="idk-total">0 so‘m</span>
+              <div class="idk-total-line">
+                <span>Qurilmalar jami:</span>
+                <span id="idk-total">0$</span>
+              </div>
+              <div class="idk-total-line d-none" id="idk-plan-total-line">
+                <span>Abonent to‘lovi:</span>
+                <span id="idk-plan-total">0 so‘m/oy</span>
+              </div>
+              <div class="idk-total-line " id="idk-grand-line">
+                <span>Jami:</span>
+                <span id="idk-grand-total">0 so‘m</span>
+              </div>
             </div>
             <div class="idk-divider"></div>
 
@@ -600,7 +920,6 @@
       <span>Savatcha</span>
       <span class="badge" id="idk-fab-count">0</span>
     </button>
-
 
     <!-- PRODUCT DETAILS MODAL (slider) -->
     <div class="idk-backdrop" id="idk-backdrop"></div>
@@ -630,8 +949,9 @@
                   <span class="val" id="idk-modal-qty">1</span>
                   <button type="button" data-modal-qty="plus" aria-label="Oshirish">+</button>
                 </div>
-                <button class="idk-btn" id="idk-modal-add"><i class="fa-solid fa-cart-plus me-1"></i>Savatga
-                  qo‘shish</button>
+                <button class="idk-btn" id="idk-modal-add">
+                  <i class="fa-solid fa-cart-plus me-1"></i>Savatga qo‘shish
+                </button>
               </div>
             </div>
           </div>
@@ -639,7 +959,7 @@
       </div>
     </div>
 
-    <!-- CHECKOUT MODAL (Ism/Telefon so‘raladi) -->
+    <!-- CHECKOUT MODAL -->
     <div class="idk-backdrop" id="chk-backdrop"></div>
     <div class="idk-modal" id="chk-modal" role="dialog" aria-modal="true" aria-labelledby="chk-title">
       <div class="idk-card-modal" style="max-width:560px">
@@ -653,7 +973,7 @@
             <input id="chk-name" class="form-control" placeholder="Masalan: Jalilov Jasurbek" required>
 
             <div class="phone-input">
-              <label for="chk-phone" class="fw-semibold ">Telefon raqam</label>
+              <label for="chk-phone" class="fw-semibold">Telefon raqam</label>
               <input type="tel" id="chk-phone" class="form-control phone-input__input" placeholder="+998 XX XXX-XX-XX"
                 required>
             </div>
@@ -679,63 +999,101 @@
       <div class="idk-drawer-body">
         <div id="idk-drawer-rows"></div>
         <div class="idk-divider"></div>
+
         <div class="idk-totals">
-          <span>Jami:</span>
-          <span id="idk-drawer-total">0 so‘m</span>
+          <div class="idk-total-line">
+            <span>Qurilmalar jami:</span>
+            <span id="idk-drawer-total">0 so‘m</span>
+          </div>
+          <div class="idk-total-line d-none" id="idk-drawer-plan-total-line">
+            <span>Abonent to‘lovi:</span>
+            <span id="idk-drawer-plan-monthly">0 so‘m / oy</span>
+          </div>
+          <div class="idk-total-line" id="idk-drawer-grand-line">
+            <span>Jami:</span>
+            <span id="idk-drawer-grand-total">0 so‘m</span>
+          </div>
         </div>
+
         <div class="idk-divider"></div>
         <button class="idk-btn" id="idk-drawer-checkout">Buyurtma berish</button>
       </div>
+
     </div>
 
 
+  
     <!-- JS -->
     <script>
-      // ====== Ma'lumotlar ======
+      /* ================== Ma'lumotlar (SO'MDA) ================== */
       const PRODUCTS = [
-        { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 295, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
-        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 400, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
-        { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 60, images: ["./assets/img/Oborodvniya/printer1.png"] },
-        { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 50, images: ["./assets/img/Oborodvniya/printer2.png"] },
-        { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 60, images: ["./assets/img/Oborodvniya/scanner1.png"] },
-        { id: "box-01", cat: "box", title: "Pul qo'yish uchun quti", desc: "Qulf turi: Elektromexanik, Ulanish: RJ-11, Bill Klamp: Ha, Banknotlar uchun kataklar soni: 5, Tangalar uyalari soni: 5, Material: metall, Qora rang, Og'irligi: 7.8 kg, Umumiy o'lchamlari: 410 × 100 × 415 mm", price: 60, images: ["./assets/img/Oborodvniya/box1.png"] },
-        { id: "scale-01", cat: "scale", title: "Rongta tarozi", desc: "Barcode scale 1510, 15 kg, Sifat kafolati: 6 oy", price: 470, images: ["./assets/img/Oborodvniya/scale1.png"] },
-        { id: "scale-02", cat: "scale", title: "Shtrixli kodni va tovarlarning narxini kiritadigan tarozi", desc: "Ishlab chiqarilgan: Rossiya, Klaviaturalar soni: 77, Og'irlik chegarasi: 40 gr – 15 kg, Qog'oz kengligi: 58 mm, Sifat kafolati: 1 yil", price: 570, images: ["./assets/img/Oborodvniya/scale2.png"] },
-        { id: "scale-03", cat: "scale", title: "Tarozi TMA", desc: "Davlat: Xitoy 🇨🇳, Og'irlik ko‘tarishi: 30 kg, Kafolat: 6 oy, PLU: 4000 tagacha", price: 350, images: ["./assets/img/Oborodvniya/scale3.png", "./assets/img/Oborodvniya/scale3.1.png"] }
+        { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 3694875, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
+        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 5010000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
+        { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 751500, images: ["./assets/img/Oborodvniya/printer1.png"] },
+        { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 626250, images: ["./assets/img/Oborodvniya/printer2.png"] },
+        { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 751500, images: ["./assets/img/Oborodvniya/scanner1.png"] },
+        { id: "box-01", cat: "box", title: "Pul qo'yish uchun quti", desc: "Qulf turi: Elektromexanik, Ulanish: RJ-11, Bill Klamp: Ha, Banknotlar uchun kataklar soni: 5, Tangalar uyalari soni: 5, Material: metall, Qora rang, Og'irligi: 7.8 kg, Umumiy o'lchamlari: 410 × 100 × 415 mm", price: 751500, images: ["./assets/img/Oborodvniya/box1.png"] },
+        { id: "scale-01", cat: "scale", title: "Rongta tarozi", desc: "Barcode scale 1510, 15 kg, Sifat kafolati: 6 oy", price: 5886750, images: ["./assets/img/Oborodvniya/scale1.png"] },
+        { id: "scale-02", cat: "scale", title: "Shtrixli kodni va tovarlarning narxini kiritadigan tarozi", desc: "Ishlab chiqarilgan: Rossiya, Klaviaturalar soni: 77, Og'irlik chegarasi: 40 gr – 15 kg, Qog'oz kengligi: 58 mm, Sifat kafolati: 1 yil", price: 7142250, images: ["./assets/img/Oborodvniya/scale2.png"] },
+        { id: "scale-03", cat: "scale", title: "Tarozi TMA", desc: "Davlat: Xitoy 🇨🇳, Og'irlik ko‘tarishi: 30 kg, Kafolat: 6 oy, PLU: 4000 tagacha", price: 4383750, images: ["./assets/img/Oborodvniya/scale3.png", "./assets/img/Oborodvniya/scale3.1.png"] }
       ];
 
-      // ====== Util ======
-      const fmt = n => new Intl.NumberFormat("uz-UZ").format(n) + "$";
+      /* ====== Tariflar (oylik/yillik) ====== */
+      const PLANS = [
+        { id: "plan-start", tag: "Start", subtitle: "Kichik do‘konlar uchun", priceMonthly: 100000, priceYearly: 1000000, icon: "assets/img/symbol.svg", features: ["1 foydalanuvchi", "Ombor hisoboti", "Sotuv tahlili", "24/7 support"] },
+        { id: "plan-standard", tag: "Standard", subtitle: "Standart do‘konlar uchun", priceMonthly: 150000, priceYearly: 1500000, icon: "assets/img/symbol1.svg", badge: "Ommabop", features: ["3 foydalanuvchi", "Inventar boshqaruvi", "Hisobot & tahlil", "Cheksiz support"] },
+        { id: "plan-premium", tag: "Premium", subtitle: "Katta do‘konlar uchun", priceMonthly: 250000, priceYearly: 2500000, icon: "assets/img/symbol2.svg", features: ["Cheksiz foydalanuvchi", "Kengaytirilgan funksiyalar", "Bar code scanning", "VIP support"] }
+      ];
+
+      /* ================== Util ================== */
+      const fmtUZS = n => new Intl.NumberFormat("uz-UZ").format(Number(n || 0)) + " so‘m";
       const $ = (s, root = document) => root.querySelector(s);
       const $$ = (s, root = document) => [...root.querySelectorAll(s)];
       const escapeHtml = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
       const LS_KEY = "idokon_cart_v3";
+      const LS_CYCLE = "idokon_cycle_v1";
 
+      /* ================== State ================== */
       let cart = loadCart();
       let activeCat = "all";
+      let activeTab = "products";                           // 'products' | 'plans'
+      let activeCycle = localStorage.getItem(LS_CYCLE) || "monthly"; // 'monthly' | 'yearly'
 
-      // UI refs
+      /* ================== DOM refs ================== */
       const catalogEl = $("#idk-catalog");
+      const plansEl = $("#idk-plans");
       const emptyEl = $("#idk-empty");
       const searchEl = $("#idk-search");
+      const filtersEl = $(".idk-filters");
+      const switchEl = $("#idk-switch");
+      const planSwitch = $("#idk-plan-switch"); // oylik/yillik sub-switch (bo'lsa)
+
+      // Aside
       const cartRowsEl = $("#idk-cart-rows");
       const cartEmptyEl = $("#idk-cart-empty");
-      const totalEl = $("#idk-total");
+      const asideDevicesTotalEl = $("#idk-total");
+      const asidePlanLine = $("#idk-plan-total-line");
+      const asidePlanEl = $("#idk-plan-total");
+      const asideGrandEl = $("#idk-grand-total");
+
       const badgeEl = $("#cart-count");
       const statusEl = $("#idk-status");
       const openCheckoutBtn = $("#idk-open-checkout");
 
-      // FAB + Drawer refs
+      // Drawer
       const fabBtn = $("#idk-fab");
       const fabCount = $("#idk-fab-count");
       const drawer = $("#idk-drawer");
       const drawerBackdrop = $("#idk-drawer-backdrop");
       const drawerClose = $("#idk-drawer-close");
       const drawerRowsEl = $("#idk-drawer-rows");
-      const drawerTotalEl = $("#idk-drawer-total");
+      const drawerDevicesTotalEl = $("#idk-drawer-total");
+      const drawerPlanLine = $("#idk-drawer-plan-total-line");
+      const drawerPlanMonthlyEl = $("#idk-drawer-plan-monthly") || $("#idk-drawer-plan-total");
+      const drawerGrandEl = $("#idk-drawer-grand-total");
       const drawerCheckoutBtn = $("#idk-drawer-checkout");
 
-      // Product modal refs
+      // Product modal
       const modal = $("#idk-modal");
       const backdrop = $("#idk-backdrop");
       const modalTitle = $("#idk-modal-title");
@@ -751,7 +1109,7 @@
       const modalClose = $("#idk-close");
       let modalProduct = null, slideIdx = 0, modalQty = 1;
 
-      // Checkout modal refs
+      // Checkout modal
       const chkModal = $("#chk-modal");
       const chkBackdrop = $("#chk-backdrop");
       const chkClose = $("#chk-close");
@@ -760,15 +1118,104 @@
       const chkPhone = $("#chk-phone");
       const chkNote = $("#chk-note");
 
-      // ===== Init =====
+      /* ================== Init ================== */
+      // sub-switch aktiv klassini qayta tiklash
+      if (planSwitch) {
+        $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.toggle("is-active", b.dataset.cycle === activeCycle));
+      }
+      renderSwitch();
       renderCatalog();
+      renderPlans();
       renderCart();
 
-      // === Filters (skrollni saqlab qaytarish bilan) ===
+      /* ================== Helpers (plans) ================== */
+      function getPlanPrice(plan, cycle = activeCycle) {
+        return cycle === "yearly" ? plan.priceYearly : plan.priceMonthly;
+      }
+      function getCycleUnit(cycle = activeCycle) {
+        return cycle === "yearly" ? "yil" : "oy";
+      }
+      function setCycle(cycle) {
+        activeCycle = cycle;
+        localStorage.setItem(LS_CYCLE, cycle);
+        updateSelectedPlanPriceFromCycle();
+        renderPlans();
+        renderCart();
+      }
+      function getSelectedPlan() {
+        const it = Object.values(cart).find(x => x.isPlan);
+        return it ? { id: it.id, tag: it.planTag, cycle: it.cycle, priceUZS: it.priceUZS } : null;
+      }
+      function addPlanToCart(plan) {
+        // eski planni tozalaymiz
+        for (const k of Object.keys(cart)) if (cart[k].isPlan) delete cart[k];
+        cart[plan.id] = {
+          id: plan.id,
+          isPlan: true,
+          planTag: plan.tag,
+          title: `Tarif: ${plan.tag}`,
+          desc: plan.subtitle,
+          cycle: activeCycle,
+          priceUZS: getPlanPrice(plan, activeCycle),
+          price: 0, // qurilma hisob-kitobiga kirmasin
+          qty: 1,
+          images: []
+        };
+        saveCart();
+      }
+      function updateSelectedPlanPriceFromCycle() {
+        const it = Object.values(cart).find(x => x.isPlan);
+        if (!it) return;
+        const plan = PLANS.find(p => p.id === it.id);
+        if (!plan) return;
+        it.cycle = activeCycle;
+        it.priceUZS = getPlanPrice(plan, activeCycle);
+        saveCart();
+      }
+
+      /* ================== Switch (Qurilmalar/Tariflar) ================== */
+      function renderSwitch() {
+        switchEl.dataset.active = 'products';
+        switchEl.addEventListener('click', (e) => {
+          const btn = e.target.closest('.idk-switch-btn');
+          if (!btn) return;
+          $$('.idk-switch-btn', switchEl).forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeTab = btn.dataset.tab; // 'products' | 'plans'
+          switchEl.dataset.active = activeTab;
+
+          if (activeTab === 'products') {
+            plansEl.classList.add('d-none');
+            catalogEl.classList.remove('d-none');
+            filtersEl.classList.remove('d-none');
+            emptyEl.classList.add('d-none');
+            if (planSwitch) planSwitch.classList.add("d-none");
+          } else {
+            catalogEl.classList.add('d-none');
+            filtersEl.classList.add('d-none');
+            plansEl.classList.remove('d-none');
+            emptyEl.classList.add('d-none');
+            if (planSwitch) planSwitch.classList.remove("d-none");
+          }
+        });
+
+        // Oylik/Yillik sub-switch
+        if (planSwitch) {
+          planSwitch.addEventListener("click", (e) => {
+            const btn = e.target.closest(".idk-sub-btn");
+            if (!btn) return;
+            $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            setCycle(btn.dataset.cycle); // monthly | yearly
+          });
+        }
+      }
+
+      /* ================== Filters ================== */
       function safeRenderCatalog() {
         const y = window.scrollY;
         renderCatalog();
-        requestAnimationFrame(() => window.scrollTo(0, y)); // sakrash yo‘q
+        requestAnimationFrame(() => window.scrollTo(0, y));
       }
       searchEl.addEventListener("input", safeRenderCatalog);
       $$(".idk-chip").forEach(btn => {
@@ -780,7 +1227,7 @@
         });
       });
 
-      // === Catalog actions (faqat kartaning ichini yangilaymiz) ===
+      /* ================== Catalog actions ================== */
       catalogEl.addEventListener("click", (e) => {
         const el = e.target.closest("[data-idk]");
         if (!el) return;
@@ -794,7 +1241,6 @@
           if (!p) return;
           addToCart(p, 1);
 
-          // Faqat shu kartadagi actions’ni stepperga almashtiramiz
           const actions = el.closest(".idk-actions");
           if (actions) {
             actions.innerHTML = `
@@ -805,10 +1251,9 @@
           </div>
           <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-          </button>
-        `;
+          </button>`;
           }
-          renderCart(); // faqat savat/drawer yangilanadi
+          renderCart();
           return;
         }
 
@@ -816,10 +1261,8 @@
           const it = cart[id];
           if (!it) return;
           it.qty += (type === "incart-plus" ? 1 : -1);
-
           if (it.qty <= 0) {
             delete cart[id];
-            // Kartadagi stepperni "Qo'shish"ga qaytaramiz
             const actions = el.closest(".idk-actions");
             if (actions) {
               actions.innerHTML = `
@@ -828,38 +1271,95 @@
             </button>
             <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
               <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-            </button>
-          `;
+            </button>`;
             }
           } else {
-            // Faqat shu kartadagi qty ko'rsatkichini yangilaymiz
             const stepVal = el.closest(".idk-actions")?.querySelector(".idk-step .val");
             if (stepVal) stepVal.textContent = String(it.qty);
           }
           saveCart();
-          renderCart(); // aside/drawer/badge
+          renderCart();
           return;
         }
       });
 
-      // === CART ACTIONS: umumiy handler (aside + drawer) ===
+      /* ================== Plans render & pick ================== */
+      function renderPlans() {
+        plansEl.innerHTML = "";
+        const current = getSelectedPlan();
+
+        PLANS.forEach(plan => {
+          const price = getPlanPrice(plan);
+          const unit = getCycleUnit();
+
+          const col = document.createElement("div");
+          col.className = "col-lg-4";
+          col.innerHTML = `
+        <div class="idk-plan-card ${current && current.id === plan.id ? 'selected' : ''}" data-plan-id="${plan.id}">
+          ${plan.badge ? `<div class="idk-plan-badge">${escapeHtml(plan.badge)}</div>` : ''}
+          <div class="idk-plan-head">
+            <div class="idk-plan-icon"><img src="${plan.icon}" alt=""></div>
+            <div>
+              <h3 class="idk-plan-title">${escapeHtml(plan.tag)}</h3>
+              <p class="idk-plan-sub">${escapeHtml(plan.subtitle)}</p>
+            </div>
+          </div>
+          <div class="idk-plan-sep"></div>
+          <div class="idk-plan-price">${fmtUZS(price)} <small>/ ${unit}</small></div>
+          <ul class="idk-plan-features">
+            ${plan.features.map(f => `<li>${escapeHtml(f)}</li>`).join("")}
+          </ul>
+          <div class="idk-plan-actions">
+            <button class="idk-plan-pick ${current && current.id === plan.id ? 'is-current' : ''}" data-pick-plan="${plan.id}">
+              ${current && current.id === plan.id ? 'Tanlangan' : 'Tanlash'}
+            </button>
+          </div>
+        </div>`;
+          plansEl.appendChild(col);
+        });
+      }
+
+      plansEl.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-pick-plan]");
+        if (!btn) return;
+        const plan = PLANS.find(p => p.id === btn.dataset.pickPlan);
+        if (!plan) return;
+
+        const prev = getSelectedPlan();
+        if (prev && prev.id === plan.id) return; // allaqachon tanlangan
+
+        addPlanToCart(plan);
+        renderPlans();
+        renderCart();
+
+        if (window.Toastify) {
+          Toastify({
+            text: prev ? `Tarif almashtirildi: ${prev.tag} → ${plan.tag}` : `Tarif tanlandi: ${plan.tag}`,
+            duration: 3000, close: true, gravity: "top", position: "left",
+            style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
+          }).showToast();
+        }
+      });
+
+      /* ================== Cart actions (delete/qty) ================== */
       function handleCartContainerClick(e) {
-        // O'chirish
         const del = e.target.closest("[data-idk-del]");
         if (del) {
           const id = del.dataset.idkDel;
+          const wasPlan = cart[id]?.isPlan;
           delete cart[id];
           saveCart();
           renderCart();
-          syncCatalogAction(id);   // << katalog kartasini ham yangilash
+          syncCatalogAction(id);
+          if (wasPlan) renderPlans();
           return;
         }
 
-        // + / - miqdor
         const qbtn = e.target.closest("[data-idk-qty]");
         if (qbtn) {
           const id = qbtn.dataset.id;
-          const kind = qbtn.dataset.idkQty; // "plus" | "minus"
+          if (cart[id]?.isPlan) return; // plan uchun qty yo'q
+          const kind = qbtn.dataset.idkQty;
           if (!cart[id]) return;
 
           cart[id].qty += (kind === "plus" ? 1 : -1);
@@ -867,44 +1367,47 @@
             delete cart[id];
             saveCart();
             renderCart();
-            syncCatalogAction(id); // 0 bo'lsa "Qo‘shish" tugmasiga qaytarish
+            syncCatalogAction(id);
             return;
           }
-
           saveCart();
           renderCart();
-          syncCatalogAction(id);   // qty ni katalog kartasida ham yangilash
+          syncCatalogAction(id);
         }
       }
-
       cartRowsEl.addEventListener("click", handleCartContainerClick);
       drawerRowsEl.addEventListener("click", handleCartContainerClick);
 
-      // === Checkout open ===
+      /* ================== Checkout open/submit ================== */
       openCheckoutBtn.addEventListener("click", () => {
         if (Object.keys(cart).length === 0) {
-          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot tanlang.</div>`;
+          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
           return;
         }
         openChk();
       });
 
-      // === Checkout submit ===
       chkForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const name = chkName.value.trim();
         const phone = chkPhone.value.trim();
         const note = chkNote.value.trim();
-
         if (!name || !phone) { alert("Ism va telefon majburiy."); return; }
-        const items = Object.values(cart).map(({ id, title, price, qty }) =>
+
+        const deviceItems = Object.values(cart).filter(x => !x.isPlan);
+        const items = deviceItems.map(({ id, title, price, qty }) =>
           ({ id, title, price, qty, subtotal: price * qty })
         );
-        if (items.length === 0) { alert("Savatcha bo‘sh. Avval mahsulot tanlang."); return; }
+        if (items.length === 0 && !getSelectedPlan()) {
+          alert("Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.");
+          return;
+        }
 
+        const plan = getSelectedPlan(); // {id, tag, cycle, priceUZS} | null
         const payload = {
           customer: { name, phone, note },
           items,
+          plan,
           total: items.reduce((a, c) => a + c.subtotal, 0),
           source: "idokon-cart",
           createdAt: new Date().toISOString()
@@ -917,91 +1420,257 @@
         const prevText = submitBtn?.textContent || "";
         submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yuborilmoqda...");
 
-
         try {
-          const res = await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-
-          // JSON ichidagi ok ni ham tekshiramiz
-          let body = null;
-          try { body = await res.json(); } catch { }
+          const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+          let body = null; try { body = await res.json(); } catch { }
           if (!res.ok || (body && body.ok === false)) {
             const msg = (body && (body.error || body.details)) || "Server xatosi";
             throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
           }
 
-          // OK
           const clearedIds = Object.keys(cart);
           cart = {}; saveCart(); renderCart();
           clearedIds.forEach(syncCatalogAction);
+          renderPlans();
           closeChk();
 
-          Toastify({
-            text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
-            duration: 4000,
-            close: true,
-            gravity: "top",
-            position: "left",
-            style: {
-              background: "linear-gradient(to right, #06B6D4, #0ea5e9)",
-              width: "90%"   // mobil uchun kengroq
-            }
-          }).showToast();
+          if (window.Toastify) {
+            Toastify({
+              text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
+              duration: 4000, close: true, gravity: "top", position: "left",
+              style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
+            }).showToast();
+          }
         } catch (err) {
-          clearTimeout(t);
           const reason = err.name === "AbortError" ? "So‘rov vaqti tugadi." : (err.message || "Xatolik yuz berdi.");
-          Toastify({
-            text: "Yuborishda xatolik: " + reason,
-            duration: 5000,
-            close: true,
-            gravity: "top",
-            position: "left",
-            style: {
-              background: "linear-gradient(to right, #ef4444, #dc2626)",
-              width: "90%"
-            }
-          }).showToast();
+          if (window.Toastify) {
+            Toastify({
+              text: "Yuborishda xatolik: " + reason,
+              duration: 5000, close: true, gravity: "top", position: "left",
+              style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
+            }).showToast();
+          }
         } finally {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = prevText || "Yuborish"; }
         }
       });
 
+      /* ================== Catalog <-> Cart sync ================== */
       function syncCatalogAction(id) {
         const card = catalogEl.querySelector(`.idk-card[data-card-id="${id}"]`);
         if (!card) return;
         const actions = card.querySelector(".idk-actions");
         if (!actions) return;
 
-        if (cart[id]) {
+        if (cart[id] && !cart[id].isPlan) {
           const qty = cart[id].qty;
           actions.innerHTML = `
-      <div class="idk-step">
-        <button type="button" data-idk="incart-minus" data-id="${id}" aria-label="Kamaytirish">−</button>
-        <span class="val">${qty}</span>
-        <button type="button" data-idk="incart-plus" data-id="${id}" aria-label="Oshirish">+</button>
-      </div>
-      <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-      </button>
-    `;
+        <div class="idk-step">
+          <button type="button" data-idk="incart-minus" data-id="${id}" aria-label="Kamaytirish">−</button>
+          <span class="val">${qty}</span>
+          <button type="button" data-idk="incart-plus" data-id="${id}" aria-label="Oshirish">+</button>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
+          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        </button>`;
         } else {
           actions.innerHTML = `
-      <button class="idk-add" data-idk="add" data-id="${id}">
-        <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
-      </button>
-      <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-      </button>
-    `;
+        <button class="idk-add" data-idk="add" data-id="${id}">
+          <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
+        </button>
+        <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
+          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        </button>`;
         }
       }
 
+      /* ================== Renderers ================== */
+      function renderCatalog() {
+        const q = searchEl.value.trim().toLowerCase();
+        const filtered = PRODUCTS.filter(p => {
+          const okCat = (activeCat === "all" || p.cat === activeCat);
+          const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
+          return okCat && okText;
+        });
 
+        catalogEl.innerHTML = "";
+        if (filtered.length === 0) { emptyEl.classList.remove("d-none"); return; }
+        emptyEl.classList.add("d-none");
 
-      // === Product modal ===
+        filtered.forEach(p => {
+          const inCart = !!cart[p.id];
+          const qty = inCart ? cart[p.id].qty : 1;
+
+          const card = document.createElement("div");
+          card.className = "idk-card";
+          card.dataset.cardId = p.id;
+          card.innerHTML = `
+        <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(p.title)}">
+        <div class="idk-card-body">
+          <div class="idk-title">${escapeHtml(p.title)}</div>
+          <div class="idk-sub" title="${escapeHtml(p.desc)}">${escapeHtml(p.desc)}</div>
+          <div class="d-flex align-items-center justify-content-between mt-1">
+            <div class="idk-price">${fmtUZS(p.price)}</div>
+            <div class="idk-actions">
+              ${inCart
+              ? `<div class="idk-step">
+                     <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
+                     <span class="val">${qty}</span>
+                     <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
+                   </div>`
+              : `<button class="idk-add" data-idk="add" data-id="${p.id}">
+                     <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
+                   </button>`
+            }
+              <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+              </button>
+            </div>
+          </div>
+        </div>`;
+          catalogEl.appendChild(card);
+        });
+      }
+
+      function renderCart() {
+        const items = Object.values(cart);
+        let devicesTotalUZS = 0, count = 0;
+        let planItem = null;
+
+        items.forEach(it => {
+          if (it.isPlan) {
+            planItem = it; // {priceUZS, cycle}
+          } else {
+            devicesTotalUZS += it.price * it.qty;
+            count += it.qty;
+          }
+        });
+
+        // Aside rows
+        cartRowsEl.innerHTML = "";
+        if (items.length === 0) {
+          cartEmptyEl.classList.remove("d-none");
+        } else {
+          cartEmptyEl.classList.add("d-none");
+          items.forEach(it => {
+            const isPlan = !!it.isPlan;
+            const sub = isPlan ? it.priceUZS : it.price * it.qty;
+
+            const row = document.createElement("div");
+            row.className = "idk-cart-row";
+            row.innerHTML = `
+          <img src="${it.images?.[0] || "assets/img/symbol.svg"}" alt="${escapeHtml(it.title)}">
+          <div class="flex-grow-1">
+            <div class="idk-cart-title">${escapeHtml(it.title)}</div>
+            <div class="idk-cart-meta">
+              ${isPlan
+                ? `${fmtUZS(it.priceUZS)} <span class="text-muted">/ ${getCycleUnit(it.cycle)}</span>`
+                : `${fmtUZS(it.price)} ×
+                   <div class="idk-step d-inline-flex align-middle ms-1">
+                     <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
+                     <span class="val">${it.qty}</span>
+                     <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
+                   </div>
+                   = <strong>${fmtUZS(sub)}</strong>`
+              }
+            </div>
+          </div>
+          <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
+            <i class="fa-solid fa-trash"></i>
+          </button>`;
+            cartRowsEl.appendChild(row);
+          });
+        }
+
+        // Aside totals
+        if (asideDevicesTotalEl) asideDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS);
+        if (badgeEl) badgeEl.textContent = String(count);
+
+        if (asidePlanLine && asidePlanEl) {
+          if (planItem) {
+            asidePlanLine.classList.remove("d-none");
+            asidePlanEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`;
+          } else {
+            asidePlanLine.classList.add("d-none");
+            asidePlanEl.textContent = "";
+          }
+        }
+        if (asideGrandEl) {
+          const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0);
+          asideGrandEl.textContent = fmtUZS(grand);
+        }
+
+        // FAB
+        if (fabCount) fabCount.textContent = String(count);
+
+        // Drawer
+        if (drawerRowsEl) {
+          drawerRowsEl.innerHTML = "";
+          if (items.length === 0) {
+            drawerRowsEl.innerHTML = `<div class="idk-cart-empty">Savatcha bo‘sh.</div>`;
+            drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(0));
+            drawerPlanLine && drawerPlanLine.classList.add("d-none");
+            if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = "";
+            if (drawerGrandEl) drawerGrandEl.textContent = fmtUZS(0);
+            if (drawer.classList.contains("is-open")) closeDrawer();
+          } else {
+            items.forEach(it => {
+              const isPlan = !!it.isPlan;
+              const sub = isPlan ? it.priceUZS : it.price * it.qty;
+
+              const row = document.createElement("div");
+              row.className = "idk-cart-row";
+              row.innerHTML = `
+            <img src="${it.images?.[0] || "assets/img/symbol.svg"}" alt="${escapeHtml(it.title)}">
+            <div class="flex-grow-1">
+              <div class="idk-cart-title">${escapeHtml(it.title)}</div>
+              <div class="idk-cart-meta">
+                ${isPlan
+                  ? `${fmtUZS(it.priceUZS)} <span class="text-muted">/ ${getCycleUnit(it.cycle)}</span>`
+                  : `${fmtUZS(it.price)} ×
+                     <div class="idk-step d-inline-flex align-middle ms-1">
+                       <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
+                       <span class="val">${it.qty}</span>
+                       <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
+                     </div>
+                     = <strong>${fmtUZS(sub)}</strong>`
+                }
+              </div>
+            </div>
+            <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
+              <i class="fa-solid fa-trash"></i>
+            </button>`;
+              drawerRowsEl.appendChild(row);
+            });
+
+            drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS));
+            if (planItem) {
+              drawerPlanLine && drawerPlanLine.classList.remove("d-none");
+              if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`;
+            } else {
+              drawerPlanLine && drawerPlanLine.classList.add("d-none");
+              if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = "";
+            }
+            if (drawerGrandEl) {
+              const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0);
+              drawerGrandEl.textContent = fmtUZS(grand);
+            }
+          }
+        }
+      }
+
+      /* ================== Storage & modal helpers ================== */
+      function addToCart(prod, qty) {
+        if (!cart[prod.id]) {
+          cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
+        }
+        cart[prod.id].qty += qty;
+        saveCart();
+      }
+      function saveCart() { localStorage.setItem(LS_KEY, JSON.stringify(cart)); }
+      function loadCart() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch { return {}; } }
+
+      // Product modal (slider)
       modalClose.addEventListener("click", closeModal);
       backdrop.addEventListener("click", closeModal);
       prevBtn.addEventListener("click", () => setSlide(slideIdx - 1));
@@ -1021,182 +1690,9 @@
         if (!modalProduct) return;
         addToCart(modalProduct, modalQty);
         closeModal();
-        renderCart(); // katalogni qayta chizmaymiz
+        renderCart();
       });
 
-      // === Checkout modal ===
-      chkClose.addEventListener("click", closeChk);
-      chkBackdrop.addEventListener("click", closeChk);
-
-      // === FAB / Drawer ===
-      if (fabBtn) {
-        fabBtn.addEventListener("click", openDrawer);
-        drawerBackdrop.addEventListener("click", closeDrawer);
-        drawerClose.addEventListener("click", closeDrawer);
-      }
-      drawerBackdrop.style.display = "none";
-      document.body.style.overflow = "";
-      function openDrawer() {
-        drawer.classList.add("is-open");
-        drawerBackdrop.style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-      function closeDrawer() {
-        drawer.classList.remove("is-open");
-        drawerBackdrop.style.display = "none";
-        document.body.style.overflow = "";
-      }
-      drawerCheckoutBtn?.addEventListener("click", () => {
-        closeDrawer();
-        if (Object.keys(cart).length === 0) {
-          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot tanlang.</div>`;
-          return;
-        }
-        openChk();
-      });
-
-      // ====== Renderers ======
-      function renderCatalog() {
-        const q = searchEl.value.trim().toLowerCase();
-        const filtered = PRODUCTS.filter(p => {
-          const okCat = (activeCat === "all" || p.cat === activeCat);
-          const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
-          return okCat && okText;
-        });
-
-        catalogEl.innerHTML = "";
-        if (filtered.length === 0) { emptyEl.classList.remove("d-none"); return; }
-        emptyEl.classList.add("d-none");
-
-        filtered.forEach(p => {
-          const inCart = !!cart[p.id];
-          const qty = inCart ? cart[p.id].qty : 1;
-
-          const card = document.createElement("div");
-          card.className = "idk-card";
-          card.dataset.cardId = p.id; // identifikator (joyida update uchun)
-          card.innerHTML = `
-        <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(p.title)}">
-        <div class="idk-card-body">
-          <div class="idk-title">${escapeHtml(p.title)}</div>
-          <div class="idk-sub" title="${escapeHtml(p.desc)}">${escapeHtml(p.desc)}</div>
-          <div class="d-flex align-items-center justify-content-between mt-1">
-            <div class="idk-price">${fmt(p.price)}</div>
-            <div class="idk-actions">
-              ${inCart
-              ? `<div class="idk-step">
-                     <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
-                     <span class="val">${qty}</span>
-                     <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
-                   </div>`
-              : `<button class="idk-add" data-idk="add" data-id="${p.id}">
-                     <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
-                   </button>`
-            }
-              <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
-                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-          catalogEl.appendChild(card);
-        });
-      }
-
-      function renderCart() {
-        const items = Object.values(cart);
-
-        // Hisob-kitob
-        let total = 0, count = 0;
-        items.forEach(it => { total += it.price * it.qty; count += it.qty; });
-
-        // ===== Aside (desktop)
-        cartRowsEl.innerHTML = "";
-        if (items.length === 0) {
-          cartEmptyEl.classList.remove("d-none");
-        } else {
-          cartEmptyEl.classList.add("d-none");
-          items.forEach(it => {
-            const sub = it.price * it.qty;
-            const row = document.createElement("div");
-            row.className = "idk-cart-row";
-            row.innerHTML = `
-          <img src="${it.images?.[0] || ""}" alt="${escapeHtml(it.title)}">
-          <div class="flex-grow-1">
-            <div class="idk-cart-title">${escapeHtml(it.title)}</div>
-            <div class="idk-cart-meta">
-              ${fmt(it.price)} ×
-              <div class="idk-step d-inline-flex align-middle ms-1">
-                <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
-                <span class="val">${it.qty}</span>
-                <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
-              </div>
-              = <strong>${fmt(sub)}</strong>
-            </div>
-          </div>
-          <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        `;
-            cartRowsEl.appendChild(row);
-          });
-        }
-        totalEl.textContent = fmt(total);
-        badgeEl.textContent = String(count);
-
-        // ===== FAB (mobile)
-        if (fabCount) fabCount.textContent = String(count);
-
-        // ===== Drawer (mobile)
-        if (drawerRowsEl) {
-          drawerRowsEl.innerHTML = "";
-          if (items.length === 0) {
-            drawerRowsEl.innerHTML = `<div class="idk-cart-empty">Savatcha bo‘sh.</div>`;
-            drawerTotalEl.textContent = fmt(0);
-            // agar bo'shab qolsa, ochiq bo'lsa yopamiz
-            if (drawer.classList.contains("is-open")) closeDrawer();
-          } else {
-            items.forEach(it => {
-              const sub = it.price * it.qty;
-              const row = document.createElement("div");
-              row.className = "idk-cart-row";
-              row.innerHTML = `
-            <img src="${it.images?.[0] || ""}" alt="${escapeHtml(it.title)}">
-            <div class="flex-grow-1">
-              <div class="idk-cart-title">${escapeHtml(it.title)}</div>
-              <div class="idk-cart-meta">
-                ${fmt(it.price)} ×
-                <div class="idk-step d-inline-flex align-middle ms-1">
-                  <button type="button" data-idk-qty="minus" data-id="${it.id}" aria-label="Kamaytirish">−</button>
-                  <span class="val">${it.qty}</span>
-                  <button type="button" data-idk-qty="plus" data-id="${it.id}" aria-label="Oshirish">+</button>
-                </div>
-                = <strong>${fmt(sub)}</strong>
-              </div>
-            </div>
-            <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          `;
-              drawerRowsEl.appendChild(row);
-            });
-            drawerTotalEl.textContent = fmt(total);
-          }
-        }
-      }
-
-      function addToCart(prod, qty) {
-        if (!cart[prod.id]) {
-          cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
-        }
-        cart[prod.id].qty += qty;
-        saveCart();
-      }
-      function saveCart() { localStorage.setItem(LS_KEY, JSON.stringify(cart)); }
-      function loadCart() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) { return {}; } }
-
-      // ===== Product modal helpers =====
       function openModal(id) {
         const p = PRODUCTS.find(x => x.id === id);
         if (!p) return;
@@ -1204,7 +1700,7 @@
         modalTitle.textContent = p.title;
         modalDesc.textContent = p.desc;
         modalCat.textContent = p.cat;
-        modalPrice.textContent = fmt(p.price);
+        modalPrice.textContent = fmtUZS(p.price);
         modalQtySpan.textContent = "1";
         buildSlider(p.images || []);
         slideIdx = 0; applySlide();
@@ -1242,7 +1738,9 @@
         thumbs.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
       }
 
-      // ===== Checkout modal helpers =====
+      // Checkout modal
+      chkClose.addEventListener("click", closeChk);
+      chkBackdrop.addEventListener("click", closeChk);
       function openChk() {
         chkModal.classList.add("is-open"); chkBackdrop.classList.add("is-open");
         document.body.style.overflow = "hidden";
@@ -1252,6 +1750,78 @@
         document.body.style.overflow = "";
         chkForm.reset();
       }
+
+      // Drawer
+      if (fabBtn) {
+        fabBtn.addEventListener("click", openDrawer);
+        drawerBackdrop.addEventListener("click", closeDrawer);
+        drawerClose.addEventListener("click", closeDrawer);
+      }
+      drawerBackdrop.style.display = "none";
+      document.body.style.overflow = "";
+      function openDrawer() {
+        drawer.classList.add("is-open");
+        drawerBackdrop.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        drawer.classList.remove("is-open");
+        drawerBackdrop.style.display = "none";
+        document.body.style.overflow = "";
+      }
+      drawerCheckoutBtn?.addEventListener("click", () => {
+        closeDrawer();
+        if (Object.keys(cart).length === 0) {
+          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
+          return;
+        }
+        openChk();
+      });
+    </script>
+
+    <script>
+/* ===== Deep-link: ?tab=plans&cycle=monthly|yearly ===== */
+(function openPlansFromLink() {
+  const qp = new URLSearchParams(window.location.search);
+  const tab = qp.get('tab');
+  const cyc = qp.get('cycle'); // optional
+
+  if (cyc === 'monthly' || cyc === 'yearly') {
+    activeCycle = cyc;
+    // kichik sub-switchni yetkazib qo'yamiz
+    const sub = document.getElementById('idk-plan-switch');
+    if (sub) {
+      sub.classList.remove('d-none');
+      sub.querySelectorAll('.idk-sub-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.cycle === activeCycle);
+      });
+    }
+  }
+
+  if (tab === 'plans') {
+    // UI: Ta'riflar tabini yoqish
+    activeTab = 'plans';
+    const sw = document.getElementById('idk-switch');
+    sw.dataset.active = 'plans';
+    sw.querySelectorAll('.idk-switch-btn').forEach(b => {
+      b.classList.toggle('is-active', b.dataset.tab === 'plans');
+    });
+
+    document.getElementById('idk-plans')?.classList.remove('d-none');
+    document.getElementById('idk-catalog')?.classList.add('d-none');
+    document.querySelector('.idk-filters')?.classList.add('d-none');
+    document.getElementById('idk-plan-switch')?.classList.remove('d-none');
+
+    // re-render
+    renderPlans();
+
+    // Ta'riflar bo'limiga skroll
+    setTimeout(() => {
+      document.getElementById('idk-plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  }
+})();
+
     </script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -1265,7 +1835,7 @@
       phoneInput.addEventListener('keypress', e => {
         const numericalInput = e.keyCode >= 48 && e.keyCode <= 57;
         const inputValue = phoneInput.value;
-        const requiresDashInsert = inputValue.length === 4 ||inputValue.length === 7 || inputValue.length === 11 || inputValue.length === 14;
+        const requiresDashInsert = inputValue.length === 4 || inputValue.length === 7 || inputValue.length === 11 || inputValue.length === 14;
         const maxChars = inputValue.length >= 17; // +998-XX-XXX-XX-XX (16 ta belgi)
 
         // Max uzunlikni cheklash
