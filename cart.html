@@ -765,11 +765,13 @@
       }
 
       /* optional – faqat ko‘rinish uchun */
-.idk-plan-card {
-  transition: box-shadow .2s, transform .2s;
-}
-.idk-plan-card:hover { transform: translateY(-2px); }
+      .idk-plan-card {
+        transition: box-shadow .2s, transform .2s;
+      }
 
+      .idk-plan-card:hover {
+        transform: translateY(-2px);
+      }
     </style>
 
   </head>
@@ -890,19 +892,27 @@
             <div class="idk-divider"></div>
             <!-- YANGI: Jami bloklari 2 qatordan (Qurilmalar USD, Tarif UZS/oy) -->
             <div class="idk-totals">
-              <div class="idk-total-line">
-                <span>Qurilmalar jami:</span>
-                <span id="idk-total">0$</span>
-              </div>
-              <div class="idk-total-line d-none" id="idk-plan-total-line">
-                <span>Abonent to‘lovi:</span>
-                <span id="idk-plan-total">0 so‘m/oy</span>
-              </div>
-              <div class="idk-total-line " id="idk-grand-line">
-                <span>Jami:</span>
-                <span id="idk-grand-total">0 so‘m</span>
-              </div>
-            </div>
+  <div class="idk-total-line">
+    <span>Qurilmalar jami:</span>
+    <span id="idk-total">0 so‘m</span>
+  </div>
+
+  <div class="idk-total-line d-none" id="idk-plan-total-line">
+    <span>Abonent to‘lovi:</span>
+    <span id="idk-plan-total">0 so‘m / oy</span>
+  </div>
+
+  <div class="idk-total-line d-none" id="idk-install-line">
+    <span>Ustanovka to‘lovi:</span>
+    <span id="idk-install-amount">0 so‘m</span>
+  </div>
+
+  <div class="idk-total-line" id="idk-grand-line">
+    <span>Jami:</span>
+    <span id="idk-grand-total">0 so‘m</span>
+  </div>
+</div>
+
             <div class="idk-divider"></div>
 
             <!-- Checkout modal ochuvchi tugma -->
@@ -1000,19 +1010,27 @@
         <div class="idk-divider"></div>
 
         <div class="idk-totals">
-          <div class="idk-total-line">
-            <span>Qurilmalar jami:</span>
-            <span id="idk-drawer-total">0 so‘m</span>
-          </div>
-          <div class="idk-total-line d-none" id="idk-drawer-plan-total-line">
-            <span>Abonent to‘lovi:</span>
-            <span id="idk-drawer-plan-monthly">0 so‘m / oy</span>
-          </div>
-          <div class="idk-total-line" id="idk-drawer-grand-line">
-            <span>Jami:</span>
-            <span id="idk-drawer-grand-total">0 so‘m</span>
-          </div>
-        </div>
+  <div class="idk-total-line">
+    <span>Qurilmalar jami:</span>
+    <span id="idk-drawer-total">0 so‘m</span>
+  </div>
+
+  <div class="idk-total-line d-none" id="idk-drawer-plan-total-line">
+    <span>Abonent to‘lovi:</span>
+    <span id="idk-drawer-plan-monthly">0 so‘m / oy</span>
+  </div>
+
+  <div class="idk-total-line d-none" id="idk-drawer-install-line">
+    <span>Ustanovka to‘lovi:</span>
+    <span id="idk-drawer-install-amount">0 so‘m</span>
+  </div>
+
+  <div class="idk-total-line" id="idk-drawer-grand-line">
+    <span>Jami:</span>
+    <span id="idk-drawer-grand-total">0 so‘m</span>
+  </div>
+</div>
+
 
         <div class="idk-divider"></div>
         <button class="idk-btn" id="idk-drawer-checkout">Buyurtma berish</button>
@@ -1021,227 +1039,263 @@
     </div>
 
 
-  
+
     <!-- JS -->
-    <script>
-      /* ================== Ma'lumotlar (SO'MDA) ================== */
-      const PRODUCTS = [
-        { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 3694875, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
-        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 5010000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
-        { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 751500, images: ["./assets/img/Oborodvniya/printer1.png"] },
-        { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 626250, images: ["./assets/img/Oborodvniya/printer2.png"] },
-        { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 751500, images: ["./assets/img/Oborodvniya/scanner1.png"] },
-        { id: "box-01", cat: "box", title: "Pul qo'yish uchun quti", desc: "Qulf turi: Elektromexanik, Ulanish: RJ-11, Bill Klamp: Ha, Banknotlar uchun kataklar soni: 5, Tangalar uyalari soni: 5, Material: metall, Qora rang, Og'irligi: 7.8 kg, Umumiy o'lchamlari: 410 × 100 × 415 mm", price: 751500, images: ["./assets/img/Oborodvniya/box1.png"] },
-        { id: "scale-01", cat: "scale", title: "Rongta tarozi", desc: "Barcode scale 1510, 15 kg, Sifat kafolati: 6 oy", price: 5886750, images: ["./assets/img/Oborodvniya/scale1.png"] },
-        { id: "scale-02", cat: "scale", title: "Shtrixli kodni va tovarlarning narxini kiritadigan tarozi", desc: "Ishlab chiqarilgan: Rossiya, Klaviaturalar soni: 77, Og'irlik chegarasi: 40 gr – 15 kg, Qog'oz kengligi: 58 mm, Sifat kafolati: 1 yil", price: 7142250, images: ["./assets/img/Oborodvniya/scale2.png"] },
-        { id: "scale-03", cat: "scale", title: "Tarozi TMA", desc: "Davlat: Xitoy 🇨🇳, Og'irlik ko‘tarishi: 30 kg, Kafolat: 6 oy, PLU: 4000 tagacha", price: 4383750, images: ["./assets/img/Oborodvniya/scale3.png", "./assets/img/Oborodvniya/scale3.1.png"] }
-      ];
+<script>
+  /* ================== Ma'lumotlar (so'mda) ================== */
+  const PRODUCTS = [
+    { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 3694875, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
+    { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 5010000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
+    { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 751500, images: ["./assets/img/Oborodvniya/printer1.png"] },
+    { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 626250, images: ["./assets/img/Oborodvniya/printer2.png"] },
+    { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 751500, images: ["./assets/img/Oborodvniya/scanner1.png"] },
+    { id: "box-01", cat: "box", title: "Pul qo'yish uchun quti", desc: "Qulf turi: Elektromexanik, Ulanish: RJ-11, Bill Klamp: Ha, Banknotlar uchun kataklar soni: 5, Tangalar uyalari soni: 5, Material: metall, Qora rang, Og'irligi: 7.8 kg, Umumiy o'lchamlari: 410 × 100 × 415 mm", price: 751500, images: ["./assets/img/Oborodvniya/box1.png"] },
+    { id: "scale-01", cat: "scale", title: "Rongta tarozi", desc: "Barcode scale 1510, 15 kg, Sifat kafolati: 6 oy", price: 5886750, images: ["./assets/img/Oborodvniya/scale1.png"] },
+    { id: "scale-02", cat: "scale", title: "Shtrixli kodni va tovarlarning narxini kiritadigan tarozi", desc: "Ishlab chiqarilgan: Rossiya, Klaviaturalar soni: 77, Og'irlik chegarasi: 40 gr – 15 kg, Qog'oz kengligi: 58 mm, Sifat kafolati: 1 yil", price: 7142250, images: ["./assets/img/Oborodvniya/scale2.png"] },
+    { id: "scale-03", cat: "scale", title: "Tarozi TMA", desc: "Davlat: Xitoy 🇨🇳, Og'irlik ko‘tarishi: 30 kg, Kafolat: 6 oy, PLU: 4000 tagacha", price: 4383750, images: ["./assets/img/Oborodvniya/scale3.png", "./assets/img/Oborodvniya/scale3.1.png"] }
+  ];
 
-      /* ====== Tariflar (oylik/yillik) ====== */
-      const PLANS = [
-        { id: "plan-start", tag: "Start", subtitle: "Kichik do‘konlar uchun", priceMonthly: 100000, priceYearly: 1000000, icon: "assets/img/symbol.svg", features: ["1 foydalanuvchi", "Ombor hisoboti", "Sotuv tahlili", "24/7 support"] },
-        { id: "plan-standard", tag: "Standard", subtitle: "Standart do‘konlar uchun", priceMonthly: 150000, priceYearly: 1500000, icon: "assets/img/symbol1.svg", badge: "Ommabop", features: ["3 foydalanuvchi", "Inventar boshqaruvi", "Hisobot & tahlil", "Cheksiz support"] },
-        { id: "plan-premium", tag: "Premium", subtitle: "Katta do‘konlar uchun", priceMonthly: 250000, priceYearly: 2500000, icon: "assets/img/symbol2.svg", features: ["Cheksiz foydalanuvchi", "Kengaytirilgan funksiyalar", "Bar code scanning", "VIP support"] }
-      ];
+  const PLANS = [
+    { id: "plan-start",    tag: "Start",    subtitle: "Kichik do‘konlar uchun",   priceMonthly: 100000, priceYearly: 1500000, icon: "assets/img/symbol.svg",  features: ["1 foydalanuvchi", "Ombor hisoboti", "Sotuv tahlili", "24/7 support"] },
+    { id: "plan-standard", tag: "Standard", subtitle: "Standart do‘konlar uchun", priceMonthly: 150000, priceYearly: 1800000, icon: "assets/img/symbol1.svg", badge: "Ommabop", features: ["3 foydalanuvchi", "Inventar boshqaruvi", "Hisobot & tahlil", "Cheksiz support"] },
+    { id: "plan-premium",  tag: "Premium",  subtitle: "Katta do‘konlar uchun",    priceMonthly: 250000, priceYearly: 3000000, icon: "assets/img/symbol2.svg",  features: ["Cheksiz foydalanuvchi", "Kengaytirilgan funksiyalar", "Bar code scanning", "VIP support"] }
+  ];
 
-      /* ================== Util ================== */
-      const fmtUZS = n => new Intl.NumberFormat("uz-UZ").format(Number(n || 0)) + " so‘m";
-      const $ = (s, root = document) => root.querySelector(s);
-      const $$ = (s, root = document) => [...root.querySelectorAll(s)];
-      const escapeHtml = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
-      const LS_KEY = "idokon_cart_v3";
-      const LS_CYCLE = "idokon_cycle_v1";
+  /* ================== Util ================== */
+  const fmtUZS = n => new Intl.NumberFormat("uz-UZ").format(Number(n || 0)) + " so‘m";
+  const $  = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+  const escapeHtml = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
+  const LS_CART  = "idokon_cart_v3";
+  const LS_CYCLE = "idokon_cycle_v1";
 
-      /* ================== State ================== */
-      let cart = loadCart();
-      let activeCat = "all";
-      let activeTab = "products";                           // 'products' | 'plans'
-      let activeCycle = localStorage.getItem(LS_CYCLE) || "monthly"; // 'monthly' | 'yearly'
+  /* ================== State ================== */
+  let cart = loadCart();
+  let activeCat  = "all";
+  let activeTab  = "products"; // 'products' | 'plans'
+  let activeCycle = localStorage.getItem(LS_CYCLE) || "monthly"; // 'monthly' | 'yearly'
 
-      /* ================== DOM refs ================== */
-      const catalogEl = $("#idk-catalog");
-      const plansEl = $("#idk-plans");
-      const emptyEl = $("#idk-empty");
-      const searchEl = $("#idk-search");
-      const filtersEl = $(".idk-filters");
-      const switchEl = $("#idk-switch");
-      const planSwitch = $("#idk-plan-switch"); // oylik/yillik sub-switch (bo'lsa)
+  /* ================== DOM refs ================== */
+  const catalogEl  = $("#idk-catalog");
+  const plansEl    = $("#idk-plans");
+  const emptyEl    = $("#idk-empty");
+  const searchEl   = $("#idk-search");
+  const filtersEl  = $(".idk-filters");
+  const switchEl   = $("#idk-switch");
+  const planSwitch = $("#idk-plan-switch");
 
-      // Aside
-      const cartRowsEl = $("#idk-cart-rows");
-      const cartEmptyEl = $("#idk-cart-empty");
-      const asideDevicesTotalEl = $("#idk-total");
-      const asidePlanLine = $("#idk-plan-total-line");
-      const asidePlanEl = $("#idk-plan-total");
-      const asideGrandEl = $("#idk-grand-total");
+  // Aside totals (abonent / install / grand)
+  const asideDevicesTotalEl = $("#idk-total");
+  const asidePlanLine   = $("#idk-plan-total-line");
+  const asidePlanEl     = $("#idk-plan-total");
 
-      const statusEl = $("#idk-status");
-      const openCheckoutBtn = $("#idk-open-checkout");
+  // Agar HTML’da yo‘q bo‘lsa, yaratib qo‘yamiz
+  const asideTotalsBox = document.querySelector(".idk-aside .idk-totals");
+  let asideInstallLine   = $("#idk-install-line");
+  let asideInstallAmount = $("#idk-install-amount");
+  if (!asideInstallLine && asideTotalsBox) {
+    const div = document.createElement("div");
+    div.className = "idk-total-line d-none";
+    div.id = "idk-install-line";
+    div.innerHTML = `<span>Ustanovka to‘lovi:</span><span id="idk-install-amount">0 so‘m</span>`;
+    asideTotalsBox.insertBefore(div, document.getElementById("idk-grand-line"));
+    asideInstallLine = div;
+    asideInstallAmount = $("#idk-install-amount");
+  }
+  const asideGrandEl = $("#idk-grand-total");
 
-      // Drawer
-      const fabBtn = $("#idk-fab");
-      const fabCount = $("#idk-fab-count");
-      const drawer = $("#idk-drawer");
-      const drawerBackdrop = $("#idk-drawer-backdrop");
-      const drawerClose = $("#idk-drawer-close");
-      const drawerRowsEl = $("#idk-drawer-rows");
-      const drawerDevicesTotalEl = $("#idk-drawer-total");
-      const drawerPlanLine = $("#idk-drawer-plan-total-line");
-      const drawerPlanMonthlyEl = $("#idk-drawer-plan-monthly") || $("#idk-drawer-plan-total");
-      const drawerGrandEl = $("#idk-drawer-grand-total");
-      const drawerCheckoutBtn = $("#idk-drawer-checkout");
+  // Drawer
+  const fabBtn           = $("#idk-fab");
+  const fabCount         = $("#idk-fab-count");
+  const drawer           = $("#idk-drawer");
+  const drawerBackdrop   = $("#idk-drawer-backdrop");
+  const drawerClose      = $("#idk-drawer-close");
+  const drawerRowsEl     = $("#idk-drawer-rows");
+  const drawerDevicesTotalEl = $("#idk-drawer-total");
+  const drawerPlanLine       = $("#idk-drawer-plan-total-line");
+  const drawerPlanMonthlyEl  = $("#idk-drawer-plan-monthly") || $("#idk-drawer-plan-total");
+  const drawerGrandEl        = $("#idk-drawer-grand-total");
 
-      // Product modal
-      const modal = $("#idk-modal");
-      const backdrop = $("#idk-backdrop");
-      const modalTitle = $("#idk-modal-title");
-      const modalDesc = $("#idk-modal-desc");
-      const modalCat = $("#idk-modal-cat");
-      const modalPrice = $("#idk-modal-price");
-      const modalQtySpan = $("#idk-modal-qty");
-      const modalAddBtn = $("#idk-modal-add");
-      const slider = $("#idk-slider");
-      const nav = $("#idk-nav");
-      const prevBtn = $("#idk-prev");
-      const nextBtn = $("#idk-next");
-      const modalClose = $("#idk-close");
-      let modalProduct = null, slideIdx = 0, modalQty = 1;
+  const drawerTotalsBox = $("#idk-drawer .idk-totals");
+  let drawerInstallLine   = $("#idk-drawer-install-line");
+  let drawerInstallAmount = $("#idk-drawer-install-amount");
+  if (!drawerInstallLine && drawerTotalsBox) {
+    const div = document.createElement("div");
+    div.className = "idk-total-line d-none";
+    div.id = "idk-drawer-install-line";
+    div.innerHTML = `<span>Ustanovka to‘lovi:</span><span id="idk-drawer-install-amount">0 so‘m</span>`;
+    drawerTotalsBox.insertBefore(div, $("#idk-drawer-grand-line"));
+    drawerInstallLine   = $("#idk-drawer-install-line");
+    drawerInstallAmount = $("#idk-drawer-install-amount");
+  }
 
-      // Checkout modal
-      const chkModal = $("#chk-modal");
-      const chkBackdrop = $("#chk-backdrop");
-      const chkClose = $("#chk-close");
-      const chkForm = $("#idk-checkout-form");
-      const chkName = $("#chk-name");
-      const chkPhone = $("#chk-phone");
-      const chkNote = $("#chk-note");
+  // Cart area
+  const cartRowsEl   = $("#idk-cart-rows");
+  const cartEmptyEl  = $("#idk-cart-empty");
+  const statusEl     = $("#idk-status");
+  const openCheckoutBtn = $("#idk-open-checkout");
 
-      /* ================== Init ================== */
-      // sub-switch aktiv klassini qayta tiklash
-      if (planSwitch) {
-        $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.toggle("is-active", b.dataset.cycle === activeCycle));
+  // Product modal
+  const modal = $("#idk-modal");
+  const backdrop = $("#idk-backdrop");
+  const modalTitle = $("#idk-modal-title");
+  const modalDesc  = $("#idk-modal-desc");
+  const modalCat   = $("#idk-modal-cat");
+  const modalPrice = $("#idk-modal-price");
+  const modalQtySpan = $("#idk-modal-qty");
+  const modalAddBtn  = $("#idk-modal-add");
+  const slider = $("#idk-slider");
+  const nav    = $("#idk-nav");
+  const prevBtn  = $("#idk-prev");
+  const nextBtn  = $("#idk-next");
+  const modalClose = $("#idk-close");
+  let modalProduct = null, slideIdx = 0, modalQty = 1;
+
+  // Checkout modal
+  const chkModal    = $("#chk-modal");
+  const chkBackdrop = $("#chk-backdrop");
+  const chkClose    = $("#chk-close");
+  const chkForm     = $("#idk-checkout-form");
+  const chkName     = $("#chk-name");
+  const chkPhone    = $("#chk-phone");
+  const chkNote     = $("#chk-note");
+
+  /* ================== Helpers (plans) ================== */
+  function getPlanPrice(plan, cycle = activeCycle) {
+    return cycle === "yearly" ? plan.priceYearly : plan.priceMonthly;
+  }
+  function getCycleUnit(cycle = activeCycle) {
+    return cycle === "yearly" ? "yil" : "oy";
+  }
+  // Ustanovka puli qoidalari:
+  //  - Oylik:    har qanday plan = 500 000
+  //  - Yillik:   Start = 300 000, Standard/Premium = 0
+  function getInstallFee(planId, cycle) {
+    if (!planId) return 0;
+    if (cycle === "monthly") return 500_000;
+    if (planId === "plan-start") return 300_000;
+    return 0;
+  }
+
+  function setCycle(cycle) {
+    activeCycle = cycle;
+    localStorage.setItem(LS_CYCLE, cycle);
+    updateSelectedPlanPriceFromCycle();
+    renderPlans();
+    renderCart();
+  }
+
+  function getSelectedPlan() {
+    const it = Object.values(cart).find(x => x.isPlan);
+    return it ? { id: it.id, tag: it.planTag, cycle: it.cycle, priceUZS: it.priceUZS } : null;
+  }
+
+  function addPlanToCart(plan) {
+    // eski planni o‘chiramiz
+    for (const k of Object.keys(cart)) if (cart[k].isPlan) delete cart[k];
+    cart[plan.id] = {
+      id: plan.id,
+      isPlan: true,
+      planTag: plan.tag,
+      title: `Tarif: ${plan.tag}`,
+      desc: plan.subtitle,
+      cycle: activeCycle,
+      priceUZS: getPlanPrice(plan, activeCycle),
+      price: 0,
+      qty: 1,
+      images: []
+    };
+    saveCart();
+  }
+
+  function updateSelectedPlanPriceFromCycle() {
+    const it = Object.values(cart).find(x => x.isPlan);
+    if (!it) return;
+    const plan = PLANS.find(p => p.id === it.id);
+    if (!plan) return;
+    it.cycle = activeCycle;
+    it.priceUZS = getPlanPrice(plan, activeCycle);
+    saveCart();
+  }
+
+  /* ================== Init ================== */
+  if (planSwitch) {
+    $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.toggle("is-active", b.dataset.cycle === activeCycle));
+  }
+  renderSwitch();
+  renderCatalog();
+  renderPlans();
+  renderCart();
+
+  /* ================== Switch (Qurilmalar/Tariflar) ================== */
+  function renderSwitch() {
+    switchEl.dataset.active = 'products';
+    switchEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.idk-switch-btn');
+      if (!btn) return;
+      $$('.idk-switch-btn', switchEl).forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeTab = btn.dataset.tab; // 'products' | 'plans'
+      switchEl.dataset.active = activeTab;
+
+      if (activeTab === 'products') {
+        plansEl.classList.add('d-none');
+        catalogEl.classList.remove('d-none');
+        filtersEl.classList.remove('d-none');
+        emptyEl.classList.add('d-none');
+        planSwitch?.classList.add("d-none");
+      } else {
+        catalogEl.classList.add('d-none');
+        filtersEl.classList.add('d-none');
+        plansEl.classList.remove('d-none');
+        emptyEl.classList.add('d-none');
+        planSwitch?.classList.remove("d-none");
       }
-      renderSwitch();
-      renderCatalog();
-      renderPlans();
-      renderCart();
+    });
 
-      /* ================== Helpers (plans) ================== */
-      function getPlanPrice(plan, cycle = activeCycle) {
-        return cycle === "yearly" ? plan.priceYearly : plan.priceMonthly;
-      }
-      function getCycleUnit(cycle = activeCycle) {
-        return cycle === "yearly" ? "yil" : "oy";
-      }
-      function setCycle(cycle) {
-        activeCycle = cycle;
-        localStorage.setItem(LS_CYCLE, cycle);
-        updateSelectedPlanPriceFromCycle();
-        renderPlans();
-        renderCart();
-      }
-      function getSelectedPlan() {
-        const it = Object.values(cart).find(x => x.isPlan);
-        return it ? { id: it.id, tag: it.planTag, cycle: it.cycle, priceUZS: it.priceUZS } : null;
-      }
-      function addPlanToCart(plan) {
-        // eski planni tozalaymiz
-        for (const k of Object.keys(cart)) if (cart[k].isPlan) delete cart[k];
-        cart[plan.id] = {
-          id: plan.id,
-          isPlan: true,
-          planTag: plan.tag,
-          title: `Tarif: ${plan.tag}`,
-          desc: plan.subtitle,
-          cycle: activeCycle,
-          priceUZS: getPlanPrice(plan, activeCycle),
-          price: 0, // qurilma hisob-kitobiga kirmasin
-          qty: 1,
-          images: []
-        };
-        saveCart();
-      }
-      function updateSelectedPlanPriceFromCycle() {
-        const it = Object.values(cart).find(x => x.isPlan);
-        if (!it) return;
-        const plan = PLANS.find(p => p.id === it.id);
-        if (!plan) return;
-        it.cycle = activeCycle;
-        it.priceUZS = getPlanPrice(plan, activeCycle);
-        saveCart();
-      }
+    // Oylik/Yillik sub-switch
+    planSwitch?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".idk-sub-btn");
+      if (!btn) return;
+      $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      setCycle(btn.dataset.cycle); // monthly | yearly
+    });
+  }
 
-      /* ================== Switch (Qurilmalar/Tariflar) ================== */
-      function renderSwitch() {
-        switchEl.dataset.active = 'products';
-        switchEl.addEventListener('click', (e) => {
-          const btn = e.target.closest('.idk-switch-btn');
-          if (!btn) return;
-          $$('.idk-switch-btn', switchEl).forEach(b => b.classList.remove('is-active'));
-          btn.classList.add('is-active');
-          activeTab = btn.dataset.tab; // 'products' | 'plans'
-          switchEl.dataset.active = activeTab;
+  /* ================== Filters ================== */
+  function safeRenderCatalog() {
+    const y = window.scrollY;
+    renderCatalog();
+    requestAnimationFrame(() => window.scrollTo(0, y));
+  }
+  searchEl?.addEventListener("input", safeRenderCatalog);
+  $$(".idk-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      $$(".idk-chip").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      activeCat = btn.dataset.idkCat;
+      safeRenderCatalog();
+    });
+  });
 
-          if (activeTab === 'products') {
-            plansEl.classList.add('d-none');
-            catalogEl.classList.remove('d-none');
-            filtersEl.classList.remove('d-none');
-            emptyEl.classList.add('d-none');
-            if (planSwitch) planSwitch.classList.add("d-none");
-          } else {
-            catalogEl.classList.add('d-none');
-            filtersEl.classList.add('d-none');
-            plansEl.classList.remove('d-none');
-            emptyEl.classList.add('d-none');
-            if (planSwitch) planSwitch.classList.remove("d-none");
-          }
-        });
+  /* ================== Catalog actions ================== */
+  catalogEl?.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-idk]");
+    if (!el) return;
+    const type = el.dataset.idk;
+    const id = el.dataset.id;
 
-        // Oylik/Yillik sub-switch
-        if (planSwitch) {
-          planSwitch.addEventListener("click", (e) => {
-            const btn = e.target.closest(".idk-sub-btn");
-            if (!btn) return;
-            $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.remove("is-active"));
-            btn.classList.add("is-active");
-            setCycle(btn.dataset.cycle); // monthly | yearly
-          });
-        }
-      }
+    if (type === "open") { openModal(id); return; }
 
-      /* ================== Filters ================== */
-      function safeRenderCatalog() {
-        const y = window.scrollY;
-        renderCatalog();
-        requestAnimationFrame(() => window.scrollTo(0, y));
-      }
-      searchEl.addEventListener("input", safeRenderCatalog);
-      $$(".idk-chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          $$(".idk-chip").forEach(b => b.classList.remove("is-active"));
-          btn.classList.add("is-active");
-          activeCat = btn.dataset.idkCat;
-          safeRenderCatalog();
-        });
-      });
+    if (type === "add") {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      addToCart(p, 1);
 
-      /* ================== Catalog actions ================== */
-      catalogEl.addEventListener("click", (e) => {
-        const el = e.target.closest("[data-idk]");
-        if (!el) return;
-        const type = el.dataset.idk;
-        const id = el.dataset.id;
-
-        if (type === "open") { openModal(id); return; }
-
-        if (type === "add") {
-          const p = PRODUCTS.find(x => x.id === id);
-          if (!p) return;
-          addToCart(p, 1);
-
-          const actions = el.closest(".idk-actions");
-          if (actions) {
-            actions.innerHTML = `
+      const actions = el.closest(".idk-actions");
+      if (actions) {
+        actions.innerHTML = `
           <div class="idk-step">
             <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
             <span class="val">${cart[p.id]?.qty || 1}</span>
@@ -1250,49 +1304,49 @@
           <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
           </button>`;
-          }
-          renderCart();
-          return;
-        }
+      }
+      renderCart();
+      return;
+    }
 
-        if (type === "incart-minus" || type === "incart-plus") {
-          const it = cart[id];
-          if (!it) return;
-          it.qty += (type === "incart-plus" ? 1 : -1);
-          if (it.qty <= 0) {
-            delete cart[id];
-            const actions = el.closest(".idk-actions");
-            if (actions) {
-              actions.innerHTML = `
+    if (type === "incart-minus" || type === "incart-plus") {
+      const it = cart[id];
+      if (!it) return;
+      it.qty += (type === "incart-plus" ? 1 : -1);
+      if (it.qty <= 0) {
+        delete cart[id];
+        const actions = el.closest(".idk-actions");
+        if (actions) {
+          actions.innerHTML = `
             <button class="idk-add" data-idk="add" data-id="${id}">
               <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
             </button>
             <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
               <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
             </button>`;
-            }
-          } else {
-            const stepVal = el.closest(".idk-actions")?.querySelector(".idk-step .val");
-            if (stepVal) stepVal.textContent = String(it.qty);
-          }
-          saveCart();
-          renderCart();
-          return;
         }
-      });
+      } else {
+        const stepVal = el.closest(".idk-actions")?.querySelector(".idk-step .val");
+        if (stepVal) stepVal.textContent = String(it.qty);
+      }
+      saveCart();
+      renderCart();
+      return;
+    }
+  });
 
-      /* ================== Plans render & pick ================== */
-      function renderPlans() {
-        plansEl.innerHTML = "";
-        const current = getSelectedPlan();
+  /* ================== Plans render & pick ================== */
+  function renderPlans() {
+    plansEl.innerHTML = "";
+    const current = getSelectedPlan();
 
-        PLANS.forEach(plan => {
-          const price = getPlanPrice(plan);
-          const unit = getCycleUnit();
+    PLANS.forEach(plan => {
+      const price = getPlanPrice(plan);
+      const unit  = getCycleUnit();
 
-          const col = document.createElement("div");
-          col.className = "col-lg-4";
-          col.innerHTML = `
+      const col = document.createElement("div");
+      col.className = "col-lg-4";
+      col.innerHTML = `
         <div class="idk-plan-card ${current && current.id === plan.id ? 'selected' : ''}" data-plan-id="${plan.id}">
           ${plan.badge ? `<div class="idk-plan-badge">${escapeHtml(plan.badge)}</div>` : ''}
           <div class="idk-plan-head">
@@ -1313,156 +1367,158 @@
             </button>
           </div>
         </div>`;
-          plansEl.appendChild(col);
-        });
-      }
+      plansEl.appendChild(col);
+    });
+  }
 
-      plansEl.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-pick-plan]");
-        if (!btn) return;
-        const plan = PLANS.find(p => p.id === btn.dataset.pickPlan);
-        if (!plan) return;
+  plansEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-pick-plan]");
+    if (!btn) return;
+    const plan = PLANS.find(p => p.id === btn.dataset.pickPlan);
+    if (!plan) return;
 
-        const prev = getSelectedPlan();
-        if (prev && prev.id === plan.id) return; // allaqachon tanlangan
+    const prev = getSelectedPlan();
+    if (prev && prev.id === plan.id) return; // allaqachon tanlangan
 
-        addPlanToCart(plan);
-        renderPlans();
+    addPlanToCart(plan);
+    renderPlans();
+    renderCart();
+
+    window.Toastify && Toastify({
+      text: prev ? `Tarif almashtirildi: ${prev.tag} → ${plan.tag}` : `Tarif tanlandi: ${plan.tag}`,
+      duration: 3000, close: true, gravity: "top", position: "left",
+      style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
+    }).showToast();
+  });
+
+  /* ================== Cart actions (delete/qty) ================== */
+  function handleCartContainerClick(e) {
+    const del = e.target.closest("[data-idk-del]");
+    if (del) {
+      const id = del.dataset.idkDel;
+      const wasPlan = cart[id]?.isPlan;
+      delete cart[id];
+      saveCart();
+      renderCart();
+      syncCatalogAction(id);
+      if (wasPlan) renderPlans();
+      return;
+    }
+
+    const qbtn = e.target.closest("[data-idk-qty]");
+    if (qbtn) {
+      const id = qbtn.dataset.id;
+      if (cart[id]?.isPlan) return; // plan uchun qty yo‘q
+      const kind = qbtn.dataset.idkQty;
+      if (!cart[id]) return;
+
+      cart[id].qty += (kind === "plus" ? 1 : -1);
+      if (cart[id].qty <= 0) {
+        delete cart[id];
+        saveCart();
         renderCart();
-
-        if (window.Toastify) {
-          Toastify({
-            text: prev ? `Tarif almashtirildi: ${prev.tag} → ${plan.tag}` : `Tarif tanlandi: ${plan.tag}`,
-            duration: 3000, close: true, gravity: "top", position: "left",
-            style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
-          }).showToast();
-        }
-      });
-
-      /* ================== Cart actions (delete/qty) ================== */
-      function handleCartContainerClick(e) {
-        const del = e.target.closest("[data-idk-del]");
-        if (del) {
-          const id = del.dataset.idkDel;
-          const wasPlan = cart[id]?.isPlan;
-          delete cart[id];
-          saveCart();
-          renderCart();
-          syncCatalogAction(id);
-          if (wasPlan) renderPlans();
-          return;
-        }
-
-        const qbtn = e.target.closest("[data-idk-qty]");
-        if (qbtn) {
-          const id = qbtn.dataset.id;
-          if (cart[id]?.isPlan) return; // plan uchun qty yo'q
-          const kind = qbtn.dataset.idkQty;
-          if (!cart[id]) return;
-
-          cart[id].qty += (kind === "plus" ? 1 : -1);
-          if (cart[id].qty <= 0) {
-            delete cart[id];
-            saveCart();
-            renderCart();
-            syncCatalogAction(id);
-            return;
-          }
-          saveCart();
-          renderCart();
-          syncCatalogAction(id);
-        }
+        syncCatalogAction(id);
+        return;
       }
-      cartRowsEl.addEventListener("click", handleCartContainerClick);
-      drawerRowsEl.addEventListener("click", handleCartContainerClick);
+      saveCart();
+      renderCart();
+      syncCatalogAction(id);
+    }
+  }
+  cartRowsEl.addEventListener("click", handleCartContainerClick);
+  drawerRowsEl.addEventListener("click", handleCartContainerClick);
 
-      /* ================== Checkout open/submit ================== */
-      openCheckoutBtn.addEventListener("click", () => {
-        if (Object.keys(cart).length === 0) {
-          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
-          return;
-        }
-        openChk();
-      });
+  /* ================== Checkout open/submit ================== */
+  openCheckoutBtn?.addEventListener("click", () => {
+    if (Object.keys(cart).length === 0) {
+      statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
+      return;
+    }
+    openChk();
+  });
 
-      chkForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = chkName.value.trim();
-        const phone = chkPhone.value.trim();
-        const note = chkNote.value.trim();
-        if (!name || !phone) { alert("Ism va telefon majburiy."); return; }
+  chkForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = chkName.value.trim();
+    const phone = chkPhone.value.trim();
+    const note = chkNote.value.trim();
+    if (!name || !phone) { alert("Ism va telefon majburiy."); return; }
 
-        const deviceItems = Object.values(cart).filter(x => !x.isPlan);
-        const items = deviceItems.map(({ id, title, price, qty }) =>
-          ({ id, title, price, qty, subtotal: price * qty })
-        );
-        if (items.length === 0 && !getSelectedPlan()) {
-          alert("Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.");
-          return;
-        }
+    const deviceItems = Object.values(cart).filter(x => !x.isPlan);
+    const items = deviceItems.map(({ id, title, price, qty }) =>
+      ({ id, title, price, qty, subtotal: price * qty })
+    );
 
-        const plan = getSelectedPlan(); // {id, tag, cycle, priceUZS} | null
-        const payload = {
-          customer: { name, phone, note },
-          items,
-          plan,
-          total: items.reduce((a, c) => a + c.subtotal, 0),
-          source: "idokon-cart",
-          createdAt: new Date().toISOString()
-        };
+    const plan = getSelectedPlan(); // {id, tag, cycle, priceUZS} | null
 
-        const API_BASE = "https://oborodvinya-bot-idokon.onrender.com";
-        const url = `${API_BASE}/api/telegram-order`;
+    if (items.length === 0 && !plan) {
+      alert("Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.");
+      return;
+    }
 
-        const submitBtn = chkForm.querySelector('button[type="submit"]');
-        const prevText = submitBtn?.textContent || "";
-        submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yuborilmoqda...");
+    const devicesTotal = items.reduce((a, c) => a + c.subtotal, 0);
+    const installFee = plan ? getInstallFee(plan.id, plan.cycle) : 0;
+    const grandFirstPaymentUZS = devicesTotal + (plan ? plan.priceUZS : 0) + installFee;
 
-        try {
-          const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-          let body = null; try { body = await res.json(); } catch { }
-          if (!res.ok || (body && body.ok === false)) {
-            const msg = (body && (body.error || body.details)) || "Server xatosi";
-            throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
-          }
+    const payload = {
+      customer: { name, phone, note },
+      items,
+      plan, // {id, tag, cycle, priceUZS}
+      install: plan ? { feeUZS: installFee, cycle: plan.cycle, planId: plan.id } : null,
+      total: devicesTotal, // faqat qurilma jami
+      grandFirstPaymentUZS,
+      source: "idokon-cart",
+      createdAt: new Date().toISOString()
+    };
 
-          const clearedIds = Object.keys(cart);
-          cart = {}; saveCart(); renderCart();
-          clearedIds.forEach(syncCatalogAction);
-          renderPlans();
-          closeChk();
+    const API_BASE = "https://oborodvinya-bot-idokon.onrender.com";
+    const url = `${API_BASE}/api/telegram-order`;
 
-          if (window.Toastify) {
-            Toastify({
-              text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
-              duration: 4000, close: true, gravity: "top", position: "left",
-              style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
-            }).showToast();
-          }
-        } catch (err) {
-          const reason = err.name === "AbortError" ? "So‘rov vaqti tugadi." : (err.message || "Xatolik yuz berdi.");
-          if (window.Toastify) {
-            Toastify({
-              text: "Yuborishda xatolik: " + reason,
-              duration: 5000, close: true, gravity: "top", position: "left",
-              style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
-            }).showToast();
-          }
-        } finally {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = prevText || "Yuborish"; }
-        }
-      });
+    const submitBtn = chkForm.querySelector('button[type="submit"]');
+    const prevText = submitBtn?.textContent || "";
+    submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yuborilmoqda...");
 
-      /* ================== Catalog <-> Cart sync ================== */
-      function syncCatalogAction(id) {
-        const card = catalogEl.querySelector(`.idk-card[data-card-id="${id}"]`);
-        if (!card) return;
-        const actions = card.querySelector(".idk-actions");
-        if (!actions) return;
+    try {
+      const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      let body = null; try { body = await res.json(); } catch { }
+      if (!res.ok || (body && body.ok === false)) {
+        const msg = (body && (body.error || body.details)) || "Server xatosi";
+        throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
+      }
 
-        if (cart[id] && !cart[id].isPlan) {
-          const qty = cart[id].qty;
-          actions.innerHTML = `
+      const clearedIds = Object.keys(cart);
+      cart = {}; saveCart(); renderCart();
+      clearedIds.forEach(syncCatalogAction);
+      renderPlans();
+      closeChk();
+
+      window.Toastify && Toastify({
+        text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
+        duration: 4000, close: true, gravity: "top", position: "left",
+        style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
+      }).showToast();
+    } catch (err) {
+      const reason = err.name === "AbortError" ? "So‘rov vaqti tugadi." : (err.message || "Xatolik yuz berdi.");
+      window.Toastify && Toastify({
+        text: "Yuborishda xatolik: " + reason,
+        duration: 5000, close: true, gravity: "top", position: "left",
+        style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
+      }).showToast();
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = prevText || "Yuborish"; }
+    }
+  });
+
+  /* ================== Catalog <-> Cart sync ================== */
+  function syncCatalogAction(id) {
+    const card = catalogEl?.querySelector(`.idk-card[data-card-id="${id}"]`);
+    if (!card) return;
+    const actions = card.querySelector(".idk-actions");
+    if (!actions) return;
+
+    if (cart[id] && !cart[id].isPlan) {
+      const qty = cart[id].qty;
+      actions.innerHTML = `
         <div class="idk-step">
           <button type="button" data-idk="incart-minus" data-id="${id}" aria-label="Kamaytirish">−</button>
           <span class="val">${qty}</span>
@@ -1471,38 +1527,39 @@
         <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
           <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
         </button>`;
-        } else {
-          actions.innerHTML = `
+    } else {
+      actions.innerHTML = `
         <button class="idk-add" data-idk="add" data-id="${id}">
           <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
         </button>
         <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
           <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
         </button>`;
-        }
-      }
+    }
+  }
 
-      /* ================== Renderers ================== */
-      function renderCatalog() {
-        const q = searchEl.value.trim().toLowerCase();
-        const filtered = PRODUCTS.filter(p => {
-          const okCat = (activeCat === "all" || p.cat === activeCat);
-          const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
-          return okCat && okText;
-        });
+  /* ================== Renderers ================== */
+  function renderCatalog() {
+    if (!catalogEl) return;
+    const q = (searchEl?.value || "").trim().toLowerCase();
+    const filtered = PRODUCTS.filter(p => {
+      const okCat = (activeCat === "all" || p.cat === activeCat);
+      const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
+      return okCat && okText;
+    });
 
-        catalogEl.innerHTML = "";
-        if (filtered.length === 0) { emptyEl.classList.remove("d-none"); return; }
-        emptyEl.classList.add("d-none");
+    catalogEl.innerHTML = "";
+    if (filtered.length === 0) { emptyEl?.classList.remove("d-none"); return; }
+    emptyEl?.classList.add("d-none");
 
-        filtered.forEach(p => {
-          const inCart = !!cart[p.id];
-          const qty = inCart ? cart[p.id].qty : 1;
+    filtered.forEach(p => {
+      const inCart = !!cart[p.id];
+      const qty = inCart ? cart[p.id].qty : 1;
 
-          const card = document.createElement("div");
-          card.className = "idk-card";
-          card.dataset.cardId = p.id;
-          card.innerHTML = `
+      const card = document.createElement("div");
+      card.className = "idk-card";
+      card.dataset.cardId = p.id;
+      card.innerHTML = `
         <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(p.title)}">
         <div class="idk-card-body">
           <div class="idk-title">${escapeHtml(p.title)}</div>
@@ -1511,52 +1568,52 @@
             <div class="idk-price">${fmtUZS(p.price)}</div>
             <div class="idk-actions">
               ${inCart
-              ? `<div class="idk-step">
+                ? `<div class="idk-step">
                      <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
                      <span class="val">${qty}</span>
                      <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
                    </div>`
-              : `<button class="idk-add" data-idk="add" data-id="${p.id}">
+                : `<button class="idk-add" data-idk="add" data-id="${p.id}">
                      <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
                    </button>`
-            }
+              }
               <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
                 <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
               </button>
             </div>
           </div>
         </div>`;
-          catalogEl.appendChild(card);
-        });
+      catalogEl.appendChild(card);
+    });
+  }
+
+  function renderCart() {
+    const items = Object.values(cart);
+    let devicesTotalUZS = 0, count = 0;
+    let planItem = null;
+
+    items.forEach(it => {
+      if (it.isPlan) {
+        planItem = it; // { id, cycle, priceUZS, ... }
+      } else {
+        devicesTotalUZS += it.price * it.qty;
+        count += it.qty;
       }
+    });
 
-      function renderCart() {
-        const items = Object.values(cart);
-        let devicesTotalUZS = 0, count = 0;
-        let planItem = null;
+    // Aside rows
+    cartRowsEl.innerHTML = "";
+    if (items.length === 0) {
+      cartEmptyEl?.classList.remove("d-none");
+    } else {
+      cartEmptyEl?.classList.add("d-none");
+      items.forEach(it => {
+        const isPlan = !!it.isPlan;
+        const sub = isPlan ? it.priceUZS : it.price * it.qty;
 
-        items.forEach(it => {
-          if (it.isPlan) {
-            planItem = it; // {priceUZS, cycle}
-          } else {
-            devicesTotalUZS += it.price * it.qty;
-            count += it.qty;
-          }
-        });
-
-        // Aside rows
-        cartRowsEl.innerHTML = "";
-        if (items.length === 0) {
-          cartEmptyEl.classList.remove("d-none");
-        } else {
-          cartEmptyEl.classList.add("d-none");
-          items.forEach(it => {
-            const isPlan = !!it.isPlan;
-            const sub = isPlan ? it.priceUZS : it.price * it.qty;
-
-            const row = document.createElement("div");
-            row.className = "idk-cart-row";
-            row.innerHTML = `
+        const row = document.createElement("div");
+        row.className = "idk-cart-row";
+        row.innerHTML = `
           <img src="${it.images?.[0] || "assets/img/symbol.svg"}" alt="${escapeHtml(it.title)}">
           <div class="flex-grow-1">
             <div class="idk-cart-title">${escapeHtml(it.title)}</div>
@@ -1576,48 +1633,64 @@
           <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
             <i class="fa-solid fa-trash"></i>
           </button>`;
-            cartRowsEl.appendChild(row);
-          });
-        }
+        cartRowsEl.appendChild(row);
+      });
+    }
 
-        // Aside totals
-        if (asideDevicesTotalEl) asideDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS);
+    // ===== Aside totals =====
+    asideDevicesTotalEl && (asideDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS));
 
-        if (asidePlanLine && asidePlanEl) {
-          if (planItem) {
-            asidePlanLine.classList.remove("d-none");
-            asidePlanEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`;
-          } else {
-            asidePlanLine.classList.add("d-none");
-            asidePlanEl.textContent = "";
-          }
-        }
-        if (asideGrandEl) {
-          const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0);
-          asideGrandEl.textContent = fmtUZS(grand);
-        }
+    if (asidePlanLine && asidePlanEl) {
+      if (planItem) {
+        asidePlanLine.classList.remove("d-none");
+        asidePlanEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`;
+      } else {
+        asidePlanLine.classList.add("d-none");
+        asidePlanEl.textContent = "";
+      }
+    }
 
-        // FAB
-        if (fabCount) fabCount.textContent = String(count);
+    // Ustanovka
+    const installFee = planItem ? getInstallFee(planItem.id, planItem.cycle) : 0;
+    if (asideInstallLine && asideInstallAmount) {
+      if (planItem && installFee > 0) {
+        asideInstallLine.classList.remove("d-none");
+        asideInstallAmount.textContent = fmtUZS(installFee);
+      } else {
+        asideInstallLine.classList.add("d-none");
+        asideInstallAmount.textContent = "";
+      }
+    }
 
-        // Drawer
-        if (drawerRowsEl) {
-          drawerRowsEl.innerHTML = "";
-          if (items.length === 0) {
-            drawerRowsEl.innerHTML = `<div class="idk-cart-empty">Savatcha bo‘sh.</div>`;
-            drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(0));
-            drawerPlanLine && drawerPlanLine.classList.add("d-none");
-            if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = "";
-            if (drawerGrandEl) drawerGrandEl.textContent = fmtUZS(0);
-            if (drawer.classList.contains("is-open")) closeDrawer();
-          } else {
-            items.forEach(it => {
-              const isPlan = !!it.isPlan;
-              const sub = isPlan ? it.priceUZS : it.price * it.qty;
+    // Jami (birinchi to‘lov)
+    if (asideGrandEl) {
+      const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0) + (planItem ? installFee : 0);
+      asideGrandEl.textContent = fmtUZS(grand);
+    }
 
-              const row = document.createElement("div");
-              row.className = "idk-cart-row";
-              row.innerHTML = `
+    // FAB
+    fabCount && (fabCount.textContent = String(count));
+
+    // ===== Drawer =====
+    if (drawerRowsEl) {
+      drawerRowsEl.innerHTML = "";
+      if (items.length === 0) {
+        drawerRowsEl.innerHTML = `<div class="idk-cart-empty">Savatcha bo‘sh.</div>`;
+        drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(0));
+        drawerPlanLine && drawerPlanLine.classList.add("d-none");
+        drawerInstallLine && drawerInstallLine.classList.add("d-none");
+        drawerPlanMonthlyEl && (drawerPlanMonthlyEl.textContent = "");
+        drawerInstallAmount && (drawerInstallAmount.textContent = "");
+        drawerGrandEl && (drawerGrandEl.textContent = fmtUZS(0));
+        drawer.classList.contains("is-open") && closeDrawer();
+      } else {
+        items.forEach(it => {
+          const isPlan = !!it.isPlan;
+          const sub = isPlan ? it.priceUZS : it.price * it.qty;
+
+          const row = document.createElement("div");
+          row.className = "idk-cart-row";
+          row.innerHTML = `
             <img src="${it.images?.[0] || "assets/img/symbol.svg"}" alt="${escapeHtml(it.title)}">
             <div class="flex-grow-1">
               <div class="idk-cart-title">${escapeHtml(it.title)}</div>
@@ -1637,187 +1710,227 @@
             <button class="idk-del" title="O‘chirish" data-idk-del="${it.id}">
               <i class="fa-solid fa-trash"></i>
             </button>`;
-              drawerRowsEl.appendChild(row);
-            });
-
-            drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS));
-            if (planItem) {
-              drawerPlanLine && drawerPlanLine.classList.remove("d-none");
-              if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`;
-            } else {
-              drawerPlanLine && drawerPlanLine.classList.add("d-none");
-              if (drawerPlanMonthlyEl) drawerPlanMonthlyEl.textContent = "";
-            }
-            if (drawerGrandEl) {
-              const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0);
-              drawerGrandEl.textContent = fmtUZS(grand);
-            }
-          }
-        }
-      }
-
-      /* ================== Storage & modal helpers ================== */
-      function addToCart(prod, qty) {
-        if (!cart[prod.id]) {
-          cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
-        }
-        cart[prod.id].qty += qty;
-        saveCart();
-      }
-      function saveCart() { localStorage.setItem(LS_KEY, JSON.stringify(cart)); }
-      function loadCart() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch { return {}; } }
-
-      // Product modal (slider)
-      modalClose.addEventListener("click", closeModal);
-      backdrop.addEventListener("click", closeModal);
-      prevBtn.addEventListener("click", () => setSlide(slideIdx - 1));
-      nextBtn.addEventListener("click", () => setSlide(slideIdx + 1));
-      nav.addEventListener("click", (e) => {
-        const t = e.target.closest("img[data-thumb]");
-        if (!t) return; setSlide(parseInt(t.dataset.thumb, 10));
-      });
-      modal.addEventListener("click", (e) => {
-        const q = e.target.closest("[data-modal-qty]");
-        if (q) {
-          modalQty = Math.max(1, modalQty + (q.dataset.modalQty === "plus" ? 1 : -1));
-          modalQtySpan.textContent = String(modalQty);
-        }
-      });
-      modalAddBtn.addEventListener("click", () => {
-        if (!modalProduct) return;
-        addToCart(modalProduct, modalQty);
-        closeModal();
-        renderCart();
-      });
-
-      function openModal(id) {
-        const p = PRODUCTS.find(x => x.id === id);
-        if (!p) return;
-        modalProduct = p; modalQty = 1;
-        modalTitle.textContent = p.title;
-        modalDesc.textContent = p.desc;
-        modalCat.textContent = p.cat;
-        modalPrice.textContent = fmtUZS(p.price);
-        modalQtySpan.textContent = "1";
-        buildSlider(p.images || []);
-        slideIdx = 0; applySlide();
-        modal.classList.add("is-open"); backdrop.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-      }
-      function closeModal() {
-        modal.classList.remove("is-open"); backdrop.classList.remove("is-open");
-        document.body.style.overflow = "";
-        modalProduct = null;
-      }
-      function buildSlider(imgs) {
-        slider.querySelectorAll(".idk-slide").forEach(el => el.remove());
-        nav.innerHTML = "";
-        imgs.forEach((src, i) => {
-          const s = document.createElement("div");
-          s.className = "idk-slide";
-          s.innerHTML = `<img src="${src}" alt="Rasm ${i + 1}">`;
-          slider.insertBefore(s, slider.querySelector(".idk-next"));
-          const tn = document.createElement("img");
-          tn.src = src; tn.dataset.thumb = String(i);
-          nav.appendChild(tn);
+          drawerRowsEl.appendChild(row);
         });
-      }
-      function setSlide(i) {
-        const thumbs = nav.querySelectorAll("img");
-        const n = thumbs.length || 1;
-        slideIdx = (i + n) % n;
-        applySlide();
-      }
-      function applySlide() {
-        const slides = slider.querySelectorAll(".idk-slide");
-        const thumbs = nav.querySelectorAll("img");
-        slides.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
-        thumbs.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
-      }
 
-      // Checkout modal
-      chkClose.addEventListener("click", closeChk);
-      chkBackdrop.addEventListener("click", closeChk);
-      function openChk() {
-        chkModal.classList.add("is-open"); chkBackdrop.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-      }
-      function closeChk() {
-        chkModal.classList.remove("is-open"); chkBackdrop.classList.remove("is-open");
-        document.body.style.overflow = "";
-        chkForm.reset();
-      }
+        // totals
+        drawerDevicesTotalEl && (drawerDevicesTotalEl.textContent = fmtUZS(devicesTotalUZS));
 
-      // Drawer
-      if (fabBtn) {
-        fabBtn.addEventListener("click", openDrawer);
-        drawerBackdrop.addEventListener("click", closeDrawer);
-        drawerClose.addEventListener("click", closeDrawer);
-      }
-      drawerBackdrop.style.display = "none";
-      document.body.style.overflow = "";
-      function openDrawer() {
-        drawer.classList.add("is-open");
-        drawerBackdrop.style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-      function closeDrawer() {
-        drawer.classList.remove("is-open");
-        drawerBackdrop.style.display = "none";
-        document.body.style.overflow = "";
-      }
-      drawerCheckoutBtn?.addEventListener("click", () => {
-        closeDrawer();
-        if (Object.keys(cart).length === 0) {
-          statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
-          return;
+        if (planItem) {
+          drawerPlanLine && drawerPlanLine.classList.remove("d-none");
+          drawerPlanMonthlyEl && (drawerPlanMonthlyEl.textContent = `${fmtUZS(planItem.priceUZS)} / ${getCycleUnit(planItem.cycle)}`);
+        } else {
+          drawerPlanLine && drawerPlanLine.classList.add("d-none");
+          drawerPlanMonthlyEl && (drawerPlanMonthlyEl.textContent = "");
         }
-        openChk();
-      });
-    </script>
 
-    <script>
-/* ===== Deep-link: ?tab=plans&cycle=monthly|yearly ===== */
-(function openPlansFromLink() {
-  const qp = new URLSearchParams(window.location.search);
-  const tab = qp.get('tab');
-  const cyc = qp.get('cycle'); // optional
+        if (planItem && installFee > 0) {
+          drawerInstallLine && drawerInstallLine.classList.remove("d-none");
+          drawerInstallAmount && (drawerInstallAmount.textContent = fmtUZS(installFee));
+        } else {
+          drawerInstallLine && drawerInstallLine.classList.add("d-none");
+          drawerInstallAmount && (drawerInstallAmount.textContent = "");
+        }
 
-  if (cyc === 'monthly' || cyc === 'yearly') {
-    activeCycle = cyc;
-    // kichik sub-switchni yetkazib qo'yamiz
-    const sub = document.getElementById('idk-plan-switch');
-    if (sub) {
-      sub.classList.remove('d-none');
-      sub.querySelectorAll('.idk-sub-btn').forEach(b => {
-        b.classList.toggle('is-active', b.dataset.cycle === activeCycle);
-      });
+        if (drawerGrandEl) {
+          const grand = devicesTotalUZS + (planItem ? planItem.priceUZS : 0) + (planItem ? installFee : 0);
+          drawerGrandEl.textContent = fmtUZS(grand);
+        }
+      }
     }
   }
 
-  if (tab === 'plans') {
-    // UI: Ta'riflar tabini yoqish
-    activeTab = 'plans';
-    const sw = document.getElementById('idk-switch');
-    sw.dataset.active = 'plans';
-    sw.querySelectorAll('.idk-switch-btn').forEach(b => {
-      b.classList.toggle('is-active', b.dataset.tab === 'plans');
-    });
-
-    document.getElementById('idk-plans')?.classList.remove('d-none');
-    document.getElementById('idk-catalog')?.classList.add('d-none');
-    document.querySelector('.idk-filters')?.classList.add('d-none');
-    document.getElementById('idk-plan-switch')?.classList.remove('d-none');
-
-    // re-render
-    renderPlans();
-
-    // Ta'riflar bo'limiga skroll
-    setTimeout(() => {
-      document.getElementById('idk-plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
+  /* ================== Storage & modal helpers ================== */
+  function addToCart(prod, qty) {
+    if (!cart[prod.id]) {
+      cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
+    }
+    cart[prod.id].qty += qty;
+    saveCart();
   }
-})();
+  function saveCart() { localStorage.setItem(LS_CART, JSON.stringify(cart)); }
+  function loadCart() { try { return JSON.parse(localStorage.getItem(LS_CART) || "{}"); } catch { return {}; } }
+
+  // Product modal (slider)
+  modalClose?.addEventListener("click", closeModal);
+  backdrop?.addEventListener("click", closeModal);
+  prevBtn?.addEventListener("click", () => setSlide(slideIdx - 1));
+  nextBtn?.addEventListener("click", () => setSlide(slideIdx + 1));
+  nav?.addEventListener("click", (e) => {
+    const t = e.target.closest("img[data-thumb]");
+    if (!t) return; setSlide(parseInt(t.dataset.thumb, 10));
+  });
+  modal?.addEventListener("click", (e) => {
+    const q = e.target.closest("[data-modal-qty]");
+    if (q) {
+      modalQty = Math.max(1, modalQty + (q.dataset.modalQty === "plus" ? 1 : -1));
+      modalQtySpan.textContent = String(modalQty);
+    }
+  });
+  modalAddBtn?.addEventListener("click", () => {
+    if (!modalProduct) return;
+    addToCart(modalProduct, modalQty);
+    closeModal();
+    renderCart();
+  });
+
+  function openModal(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    modalProduct = p; modalQty = 1;
+    modalTitle.textContent = p.title;
+    modalDesc.textContent  = p.desc;
+    modalCat.textContent   = p.cat;
+    modalPrice.textContent = fmtUZS(p.price);
+    modalQtySpan.textContent = "1";
+    buildSlider(p.images || []);
+    slideIdx = 0; applySlide();
+    modal.classList.add("is-open"); backdrop.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    modal.classList.remove("is-open"); backdrop.classList.remove("is-open");
+    document.body.style.overflow = "";
+    modalProduct = null;
+  }
+  function buildSlider(imgs) {
+    slider.querySelectorAll(".idk-slide").forEach(el => el.remove());
+    nav.innerHTML = "";
+    imgs.forEach((src, i) => {
+      const s = document.createElement("div");
+      s.className = "idk-slide";
+      s.innerHTML = `<img src="${src}" alt="Rasm ${i + 1}">`;
+      slider.insertBefore(s, slider.querySelector(".idk-next"));
+      const tn = document.createElement("img");
+      tn.src = src; tn.dataset.thumb = String(i);
+      nav.appendChild(tn);
+    });
+  }
+  function setSlide(i) {
+    const thumbs = nav.querySelectorAll("img");
+    const n = thumbs.length || 1;
+    slideIdx = (i + n) % n;
+    applySlide();
+  }
+  function applySlide() {
+    const slides = slider.querySelectorAll(".idk-slide");
+    const thumbs = nav.querySelectorAll("img");
+    slides.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
+    thumbs.forEach((el, i) => el.classList.toggle("is-active", i === slideIdx));
+  }
+
+  // Checkout modal
+  chkClose?.addEventListener("click", closeChk);
+  chkBackdrop?.addEventListener("click", closeChk);
+  function openChk() {
+    chkModal.classList.add("is-open"); chkBackdrop.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeChk() {
+    chkModal.classList.remove("is-open"); chkBackdrop.classList.remove("is-open");
+    document.body.style.overflow = "";
+    chkForm.reset();
+  }
+
+  // Drawer
+  if (fabBtn) {
+    fabBtn.addEventListener("click", openDrawer);
+    drawerBackdrop?.addEventListener("click", closeDrawer);
+    drawerClose?.addEventListener("click", closeDrawer);
+  }
+  drawerBackdrop && (drawerBackdrop.style.display = "none");
+  document.body.style.overflow = "";
+  function openDrawer() {
+    drawer.classList.add("is-open");
+    if (drawerBackdrop) drawerBackdrop.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+  function closeDrawer() {
+    drawer.classList.remove("is-open");
+    if (drawerBackdrop) drawerBackdrop.style.display = "none";
+    document.body.style.overflow = "";
+  }
+  $("#idk-drawer-checkout")?.addEventListener("click", () => {
+    closeDrawer();
+    if (Object.keys(cart).length === 0) {
+      statusEl.innerHTML = `<div class="alert alert-warning">Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.</div>`;
+      return;
+    }
+    openChk();
+  });
+
+  /* ===== Deep-link: ?tab=plans&cycle=monthly|yearly ===== */
+  (function openPlansFromLink() {
+    const qp = new URLSearchParams(window.location.search);
+    const tab = qp.get('tab');
+    const cyc = qp.get('cycle');
+    if (cyc === 'monthly' || cyc === 'yearly') {
+      activeCycle = cyc;
+      planSwitch?.classList.remove('d-none');
+      planSwitch?.querySelectorAll('.idk-sub-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.cycle === activeCycle);
+      });
+    }
+    if (tab === 'plans') {
+      activeTab = 'plans';
+      switchEl.dataset.active = 'plans';
+      switchEl.querySelectorAll('.idk-switch-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.tab === 'plans');
+      });
+      $("#idk-plans")?.classList.remove('d-none');
+      $("#idk-catalog")?.classList.add('d-none');
+      $(".idk-filters")?.classList.add('d-none');
+      planSwitch?.classList.remove('d-none');
+      renderPlans();
+      setTimeout(() => $("#idk-plans")?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+    }
+  })();
+</script>
+
+
+
+    <script>
+      /* ===== Deep-link: ?tab=plans&cycle=monthly|yearly ===== */
+      (function openPlansFromLink() {
+        const qp = new URLSearchParams(window.location.search);
+        const tab = qp.get('tab');
+        const cyc = qp.get('cycle'); // optional
+
+        if (cyc === 'monthly' || cyc === 'yearly') {
+          activeCycle = cyc;
+          // kichik sub-switchni yetkazib qo'yamiz
+          const sub = document.getElementById('idk-plan-switch');
+          if (sub) {
+            sub.classList.remove('d-none');
+            sub.querySelectorAll('.idk-sub-btn').forEach(b => {
+              b.classList.toggle('is-active', b.dataset.cycle === activeCycle);
+            });
+          }
+        }
+
+        if (tab === 'plans') {
+          // UI: Ta'riflar tabini yoqish
+          activeTab = 'plans';
+          const sw = document.getElementById('idk-switch');
+          sw.dataset.active = 'plans';
+          sw.querySelectorAll('.idk-switch-btn').forEach(b => {
+            b.classList.toggle('is-active', b.dataset.tab === 'plans');
+          });
+
+          document.getElementById('idk-plans')?.classList.remove('d-none');
+          document.getElementById('idk-catalog')?.classList.add('d-none');
+          document.querySelector('.idk-filters')?.classList.add('d-none');
+          document.getElementById('idk-plan-switch')?.classList.remove('d-none');
+
+          // re-render
+          renderPlans();
+
+          // Ta'riflar bo'limiga skroll
+          setTimeout(() => {
+            document.getElementById('idk-plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 0);
+        }
+      })();
 
     </script>
 
