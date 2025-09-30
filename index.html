@@ -103,17 +103,17 @@
                   tubdan o‘zgartirish uchun ishlab chiqilgan. Uning kuchli xususiyatlari va foydalanuvchiga qulay
                   interfeysi yordamida mijozlar tajribasini yaxshilang va umumiy samaradorligingizni oshiring.</p>
                 <div class="cs_btn_group cs_version_2 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.25s">
-                  <a href="#" aria-label="Click to view demo" data-i18n="hero.demo"
+                  <button id="demoBtn" aria-label="Click to view demo" data-i18n="hero.demo"
                     class="cs_btn cs_bg_heading cs_dark_hover">Demo ishlatib
-                    ko'rish</a>
-                  <a href="#" aria-label="Click to start free trial" class="cs_btn cs_bg_accent cs_dark_hover"
-                    data-i18n="hero.contact">Bog'lanish</a>
+                    ko'rish</button>
+                  <a href="tel:+998991180999" aria-label="Click to start free trial"
+                    class="cs_btn cs_bg_accent cs_dark_hover" data-i18n="hero.contact">Bog'lanish</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-5">
               <div class="cs_hero_thumb">
-                <img src="assets/img/idokon-hero.png" alt="Hero Image">
+                <img src="assets/img/logo.png" alt="Hero Image">
               </div>
             </div>
           </div>
@@ -192,10 +192,28 @@
         <div class="container">
           <div class="row align-items-center cs_gap_y_40">
             <div class="col-xl-6 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
-              <div class="cs_pr_45 text-center">
-                <img src="assets/img/idokon-feature.png" alt="Image">
+              <div class="cs_pr_45 text-center gallery-wrapper">
+
+                <div class="gallery-card card1">
+                  <img src="assets/img/admin.png" alt="Kassa 1">
+                </div>
+                <div class="gallery-card card2">
+                  <img src="assets/img/admin3.png" alt="Kassa 2">
+                </div>
+                <div class="gallery-card card3">
+                  <img src="assets/img/admin2.png" alt="Kassa 3">
+                </div>
+                <div class="gallery-card card4">
+                  <img src="assets/img/admin1.png" alt="Kassa 4">
+                </div>
+
+                <!-- Lightbox -->
+                <div class="lightbox" id="lightbox">
+                  <img src="" alt="Katta rasm">
+                </div>
               </div>
             </div>
+
             <div class="col-xl-6 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
               <div class="cs_section_heading cs_style_1">
                 <p class="cs_section_subtitle cs_text_accent" data-i18n="soft.subtitle">
@@ -269,30 +287,30 @@
               <div class="cs_height_60 cs_height_lg_40"></div>
               <ul class="cs_list cs_style_1 cs_mp0">
                 <li>
-                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
-                  <span class="cs_list_text" data-i18n="users.1">Chakana do‘konlar</span>
+                  <span class="cs_list_icon" style="font-size:25px;">🏪</span>
+                  <span class="cs_list_text" data-i18n="users.1"> Chakana do‘konlar</span>
                 </li>
                 <li>
-                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_icon" style="font-size:25px;">🛒</span>
                   <span class="cs_list_text" data-i18n="users.2">Supermarketlar</span>
                 </li>
                 <li>
-                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_icon" style="font-size:25px;">🏤</span>
                   <span class="cs_list_text" data-i18n="users.3">Mini-marketlar</span>
                 </li>
                 <li>
-                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_icon" style="font-size:25px;">💻</span>
                   <span class="cs_list_text" data-i18n="users.4">Onlayn savdo</span>
                 </li>
                 <li>
-                  <span class="cs_list_icon"><img src="assets/img/arrow.svg" alt="Icon"></span>
+                  <span class="cs_list_icon" style="font-size:25px;">🌐</span>
                   <span class="cs_list_text" data-i18n="users.5">Yana ko‘plab sohalar</span>
                 </li>
               </ul>
             </div>
             <div class="col-xl-6 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s">
               <div class="cs_feature_thumb_1 text-center">
-                <img src="assets/img/idokon-industries.png" alt="Image">
+                <img src="assets/img/Retail-Data-Analytics.jpg" alt="Image">
               </div>
             </div>
           </div>
@@ -345,22 +363,11 @@
                   </h3>
                 </div>
                 <div class="cs_pricing_feature">
-                  <ul class="cs_pricing_feature_list cs_mp0">
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.only_one_user">Only for one
-                        user</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.inventory">Inventory
-                        management</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.sales_reports">Sales report &
-                        analysis</span></li>
-                    <li><i class="fa-solid fa-xmark"></i><span data-i18n="pricing.f.advanced">Advanced
-                        functionality</span></li>
-                    <li><i class="fa-solid fa-xmark"></i><span data-i18n="pricing.f.barcode">Bar code scanning</span>
-                    </li>
-                    <li><i class="fa-solid fa-xmark"></i><span data-i18n="pricing.f.support">Free 24/7 support</span>
-                    </li>
+                  <ul id="startFeatures" class="cs_pricing_feature_list cs_mp0" style="font-size: 14px;">
+
                   </ul>
-                  <a class="cs_pricing_btn cs_up_3_hover"
-   href="/cart.html?tab=plans&cycle=monthly">Ta'rifni tanlang</a>
+                  <a class="cs_pricing_btn cs_up_3_hover" data-i18n="pricing.choose_plan"
+                    href="/cart.html?tab=plans&cycle=monthly">Ta'rifni tanlang</a>
                 </div>
               </div>
             </div>
@@ -383,22 +390,11 @@
                   </h3>
                 </div>
                 <div class="cs_pricing_feature">
-                  <ul class="cs_pricing_feature_list cs_mp0">
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.only_one_user">Only for one
-                        user</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.inventory">Inventory
-                        management</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.sales_reports">Sales report &
-                        analysis</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.advanced">Advanced
-                        functionality</span></li>
-                    <li><i class="fa-solid fa-xmark"></i><span data-i18n="pricing.f.barcode">Bar code scanning</span>
-                    </li>
-                    <li><i class="fa-solid fa-xmark"></i><span data-i18n="pricing.f.support">Free 24/7 support</span>
-                    </li>
+                  <ul id="standardFeatures" class="cs_pricing_feature_list cs_mp0" style="font-size: 14px;">
+
                   </ul>
-                 <a class="cs_pricing_btn cs_up_3_hover"
-   href="/cart.html?tab=plans&cycle=monthly">Ta'rifni tanlang</a>
+                  <a class="cs_pricing_btn cs_up_3_hover" data-i18n="pricing.choose_plan"
+                    href="/cart.html?tab=plans&cycle=monthly">Ta'rifni tanlang</a>
                 </div>
                 <div class="cs_pricing_badge" data-i18n="pricing.popular">Ommabop</div>
               </div>
@@ -422,22 +418,11 @@
                   </h3>
                 </div>
                 <div class="cs_pricing_feature">
-                  <ul class="cs_pricing_feature_list cs_mp0">
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.only_one_user">Only for one
-                        user</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.inventory">Inventory
-                        management</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.sales_reports">Sales report &
-                        analysis</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.advanced">Advanced
-                        functionality</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.barcode">Bar code scanning</span>
-                    </li>
-                    <li><i class="fa-solid fa-check"></i><span data-i18n="pricing.f.support">Free 24/7 support</span>
-                    </li>
+                  <ul id="premiumFeatures" class="cs_pricing_feature_list cs_mp0">
+
                   </ul>
-                 <a class="cs_pricing_btn cs_up_3_hover"
-   href="/cart.html?tab=plans&cycle=yearly">Ta'rifni tanlang</a>
+                  <a class="cs_pricing_btn cs_up_3_hover" data-i18n="pricing.choose_plan"
+                    href="/cart.html?tab=plans&cycle=yearly">Ta'rifni tanlang</a>
                 </div>
               </div>
             </div>
@@ -448,139 +433,52 @@
 
       <!-- End Pricing section -->
       <!--Start Testimonial Section -->
-      <section id="testimonial">
-        <div class="cs_height_143 cs_height_lg_75"></div>
+      <section id="idokon-course" class="cs_course_section position-relative"
+        style="background:linear-gradient(90deg,#f9fbfd 0%,#eef2f6 100%);padding:80px 0;">
         <div class="container">
-          <div class="cs_section_heading cs_style_1 text-center">
-            <p class="cs_section_subtitle cs_text_accent wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"
-              data-i18n="testimonials.subtitle">
-              Mijozlarimiz fikrlari
-            </p>
-            <h2 class="cs_section_title mb-0 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s"
-              data-i18n="testimonials.title">
-              Bizning a’loligimizni tasdiqlovchi <br> mamnun mijozlar sharhlari
-            </h2>
-          </div>
+          <div class="row align-items-center">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
+              <div class="cs_course_img text-center position-relative gallery-wrapper">
 
-          <div class="cs_height_85 cs_height_lg_60"></div>
+                <div class="gallery-card card1">
+                  <img src="./assets/img/course.png" alt="Screenshot 1">
+                </div>
+                <div class="gallery-card card2">
+                  <img src="./assets/img/course2.png" alt="Screenshot 2">
+                </div>
+                <div class="gallery-card card3">
+                  <img src="./assets/img/course3.png" alt="Screenshot 3">
+                </div>
+                <div class="gallery-card card4">
+                  <img src="./assets/img/course4.png" alt="Screenshot 4">
+                </div>
+
+                <!-- lightbox -->
+                <div class="lightbox" id="lightbox">
+                  <img src="" alt="Katta rasm">
+                </div>
+              </div>
+            </div>
+
+            <!-- O‘ng tomondagi matn -->
+            <div class="col-lg-6 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.3s">
+              <div class="cs_section_heading cs_style_1">
+                <h2 class="cs_section_title mb-3" data-i18n="course.title"
+                  style="color:#3C7A89;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.5px;"></h2>
+                <p class="cs_section_subtitle" data-i18n="course.desc"
+                  style="font-size:1.1rem;color:#444;line-height:1.75;font-weight:400;max-width:90%;"></p>
+                <a href="https://idokon-course.vercel.app/" target="_blank" class="cs_btn cs_bg_accent"
+                  data-i18n="course.btn"
+                  style="margin-top:28px;font-size:1.15rem;padding:14px 36px;border-radius:10px;box-shadow:0 4px 14px rgba(60,122,137,0.18);font-weight:600;"></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="cs_slider wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Shahnoza Karimova</h4>
-                <p class="mb-0">Lazzat Cafe</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Interfeysi juda sodda, karta va QR to‘lovlar muammosiz o‘tadi. Kassa yopish va qaytarishlar ham yengil.
-            </p>
-            <div class="cs_rating" data-rating="5">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Sanjar Nurmatov</h4>
-                <p class="mb-0">Baraka Market</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Hisobotlar real vaqtda — aylanma va foydani kunma-kun ko‘ramiz. Terminal integratsiyasi zo‘r ishlaydi.
-            </p>
-            <div class="cs_rating" data-rating="4.8">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Dilshod Rahimov</h4>
-                <p class="mb-0">Grand Hotel Tashkent</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Xizmat haqi, ko‘p xonali hisob-kitob va cheklar tartibda. Mehmonlar tez to‘laydi, navbat yo‘q.
-            </p>
-            <div class="cs_rating" data-rating="4.6">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://i.pravatar.cc/160?img=68" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Malika Rasulova</h4>
-                <p class="mb-0">Click&Shop e-commerce</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Ombor bilan sinxron ishlaydi, onlayn buyurtmalar va chegirmalar bir tizimda. Juda qulay.
-            </p>
-            <div class="cs_rating" data-rating="5">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://i.pravatar.cc/160?img=28" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Bekzod Islomov</h4>
-                <p class="mb-0">MiniMarket 24/7</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Dastur tez, skaner bilan qidiruv ancha osonlashdi. Kechasi ham barqaror ishladi.
-            </p>
-            <div class="cs_rating" data-rating="4.5">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-          <div class="cs_testimonial cs_style_1">
-            <div class="cs_client_info">
-              <div class="cs_client_img">
-                <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="avatar">
-              </div>
-              <div class="cs_client_meta">
-                <h4 class="cs_client_name">Nodira Abdullaeva</h4>
-                <p class="mb-0">Belle Spa & Salon</p>
-              </div>
-            </div>
-            <p class="cs_client_review">
-              Dashboard chiroyli, mijoz bazasi va bonus tizimi qulay. Qo‘llab-quvvatlash jamoasi e’tiborli.
-            </p>
-            <div class="cs_rating" data-rating="4.7">
-              <div class="cs_rating_percentage"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="cs_height_143 cs_height_lg_75"></div>
       </section>
-      <!--End Testimonial Section -->
+
+      <!--End Idokon Course Section -->
       <!-- Start Brands section -->
-      <div id="blog" class="container">
+      <div id="blog" class="container mt-5">
         <div class="cs_section_heading cs_style_2 text-center">
           <h2 class="cs_section_subtitle mb-0 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"
             data-i18n="partners.title">
@@ -625,9 +523,9 @@
                 </p>
               </div>
               <div class="cs_btn_group text-center">
-                <a href="#" class="cs_btn cs_bg_white" data-i18n="cta.demo"
-                  data-i18n-attr="aria-label:cta.demo_aria">Demo ishlatib ko'rish</a>
-                <a href="#" class="cs_btn cs_bg_accent" data-i18n="cta.contact"
+                <button id="demoBtn2" class="cs_btn cs_bg_white" data-i18n="cta.demo"
+                  data-i18n-attr="aria-label:cta.demo_aria">Demo ishlatib ko'rish</button>
+                <a href="tel:+998991180999" class="cs_btn cs_bg_accent" data-i18n="cta.contact"
                   data-i18n-attr="aria-label:cta.contact_aria">Bog'lanish</a>
               </div>
             </div>
@@ -730,7 +628,7 @@
           <div class="row align-items-center">
             <div class="col-xl-6 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
               <div class="cs_contact_thumb text-center">
-                <img src="assets/img/idokon-contact.png" alt="Image">
+                <img src="assets/img/contact_us.avif" alt="Image">
               </div>
             </div>
 
@@ -746,46 +644,30 @@
 
               <div class="cs_height_50 cs_height_lg_40"></div>
 
-              <form action="https://api.web3forms.com/submit" method="POST" id="cs_form" class="row">
-                <input type="hidden" name="access_key" value="cd98b256-0db3-478c-ab2asd8-1ec94f8aqwsq0447c">
-
+              <form id="cs_form" class="row">
                 <div class="col-sm-6">
-                  <input type="text" name="name" class="cs_form_field" required
-                    data-i18n-attr="placeholder:contact.name_ph" placeholder="Ismingiz">
-                  <div class="cs_height_30 cs_height_lg_30"></div>
+                  <input type="text" name="name" id="name" class="cs_form_field" required
+                    data-i18n-attr="placeholder:contact.form.name" placeholder="Ismingiz">
+                  <div class="cs_height_30"></div>
                 </div>
-
                 <div class="col-sm-6">
-                  <input type="tel" name="phone" class="cs_form_field" required
-                    data-i18n-attr="placeholder:contact.phone_ph" placeholder="Telefon raqamingiz*">
-                  <div class="cs_height_30 cs_height_lg_30"></div>
+                  <input type="tel" name="phone" id="phone" class="cs_form_field" required
+                    data-i18n-attr="placeholder:contact.form.phone" placeholder="Telefon raqamingiz*">
+                  <div class="cs_height_30"></div>
                 </div>
-
-                <!-- Optional fields (commented) — i18n tayyor -->
-                <!--
-          <div class="col-sm-6">
-            <input type="text" name="subject" class="cs_form_field"
-                   data-i18n-attr="placeholder:contact.subject_ph"
-                   placeholder="Mavzu">
-            <div class="cs_height_30 cs_height_lg_30"></div>
-          </div>
-          -->
-
                 <div class="col-lg-12">
-                  <textarea name="message" rows="7" class="cs_form_field m-0" required
-                    data-i18n-attr="placeholder:contact.message_ph"
+                  <textarea name="message" id="message" rows="7" class="cs_form_field m-0" required
+                    data-i18n-attr="placeholder:contact.form.message"
                     placeholder="Murojaatingiz haqida batafsil*"></textarea>
-                  <div class="cs_height_30 cs_height_lg_30"></div>
+                  <div class="cs_height_30"></div>
                 </div>
-
                 <div class="col-lg-12">
-                  <button type="submit" class="cs_btn cs_bg_accent cs_dark_hover" data-i18n="contact.submit"
-                    data-i18n-attr="aria-label:contact.submit_aria">
-                    Yuborish
-                  </button>
-                  <div id="cs_result"></div>
+                  <button type="submit" class="cs_btn cs_bg_accent cs_dark_hover" data-i18n="contact.form.submit"
+                    data-i18n-attr="aria-label:contact.submit_aria">Yuborish</button>
+                  <div id="cs_result" class="mt-2"></div>
                 </div>
               </form>
+
             </div>
           </div>
         </div>
@@ -819,7 +701,7 @@
 
               <div class="cs_footer_widget">
                 <div class="cs_social_btn cs_style_1 d-flex">
-                  <a href="https://www.facebook.com/" target="_blank"
+                  <!-- <a href="https://www.facebook.com/" target="_blank"
                     data-i18n-attr="aria-label:footer.social.facebook_aria">
                     <i class="fa-brands fa-facebook-f"></i>
                   </a>
@@ -830,8 +712,8 @@
                   <a href="https://www.facebook.com/" target="_blank"
                     data-i18n-attr="aria-label:footer.social.linkedin_aria">
                     <i class="fa-brands fa-linkedin-in"></i>
-                  </a>
-                  <a href="https://www.facebook.com/" target="_blank"
+                  </a> -->
+                  <a href="https://www.instagram.com/idokon_uz/" target="_blank"
                     data-i18n-attr="aria-label:footer.social.instagram_aria">
                     <i class="fa-brands fa-instagram"></i>
                   </a>
@@ -868,10 +750,10 @@
                 <ul class="cs_footer_widget_nav cs_mp0">
                   <li><a href="/#faq" data-i18n="footer.support.faq"
                       data-i18n-attr="aria-label:footer.quick.link_aria">Ko‘p beriladigan savollar (FAQ)</a></li>
-                  <li><a href="#" data-i18n="footer.support.articles"
+                  <!-- <li><a href="#" data-i18n="footer.support.articles"
                       data-i18n-attr="aria-label:footer.quick.link_aria">Maqolalar</a></li>
                   <li><a href="#" data-i18n="footer.support.livechat"
-                      data-i18n-attr="aria-label:footer.quick.link_aria">Jonli chat</a></li>
+                      data-i18n-attr="aria-label:footer.quick.link_aria">Jonli chat</a></li> -->
                 </ul>
               </div>
               <div class="cs_height_0 cs_height_lg_30"></div>
@@ -879,22 +761,27 @@
 
             <!-- Newsletter -->
             <div class="col-lg-4 col-xl-3 offset-xl-1">
-              <div class="cs_footer_widget">
-                <h2 class="cs_footer_widget_title" data-i18n="footer.news.title">Yangiliklarga obuna bo‘ling</h2>
-                <form class="cs_newsletter position-relative">
-                  <input type="email" class="cs_form_field" data-i18n-attr="placeholder:footer.news.placeholder"
-                    placeholder="Email manzilingiz">
-                  <button type="submit" class="cs_btn cs_bg_accent cs_send" data-i18n="footer.news.submit"
-                    data-i18n-attr="aria-label:footer.news.submit_aria">
-                    Yuborish
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true">
-                      <path d="M10.147 1.75739C10.147 1.28795 9.76649 0.907395..." fill="currentColor"></path>
-                    </svg>
-                  </button>
-                </form>
+              <div class="cs_footer_widget newsletter-dark">
+                <h2 class="cs_footer_widget_title" data-i18n="footer.news.title"></h2>
+                <div class="cs_newsletter">
+                  <div class="newsletter-content">
+                    <div class="icon-text">
+                      <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="16" fill="#58B0C6" />
+                        <path
+                          d="M23.5 10.5L19.5 22.5C19.5 22.5 19 23.5 18 23.5C17 23.5 16.5 22.5 16.5 22.5L14.5 18.5L11.5 17.5C11.5 17.5 10.5 17 10.5 16C10.5 15 11.5 14.5 11.5 14.5L22.5 10.5C22.5 10.5 23.5 10 23.5 10.5Z"
+                          fill="#fff" />
+                      </svg>
+                      <span data-i18n="footer.telegram.title"></span>
+                    </div>
+                    <a href="https://t.me/idokonuz" target="_blank" class="cs_btn subscribe-btn"
+                      data-i18n="footer.telegram.btn"></a>
+                  </div>
+                </div>
               </div>
             </div>
+
+
           </div>
 
           <div class="cs_height_110 cs_height_lg_50"></div>
@@ -931,7 +818,7 @@
       });
     </script>
 
-     <script>
+    <script>
       let phoneInputElement = document.querySelector('.phone-input');
       let phoneInput = document.querySelector('.phone-input__input');
 
@@ -941,7 +828,7 @@
       phoneInput.addEventListener('keypress', e => {
         const numericalInput = e.keyCode >= 48 && e.keyCode <= 57;
         const inputValue = phoneInput.value;
-        const requiresDashInsert = inputValue.length === 4 ||inputValue.length === 7 || inputValue.length === 11 || inputValue.length === 14;
+        const requiresDashInsert = inputValue.length === 4 || inputValue.length === 7 || inputValue.length === 11 || inputValue.length === 14;
         const maxChars = inputValue.length >= 17; // +998-XX-XXX-XX-XX (16 ta belgi)
 
         // Max uzunlikni cheklash
@@ -976,6 +863,45 @@
       });
     </script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("cs_form");
+        const resultEl = document.getElementById("cs_result");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          resultEl.textContent = "Yuborilmoqda...";
+
+          const payload = {
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            message: document.getElementById("message").value.trim()
+          };
+
+          const API_BASE = "https://oborodvinya-bot-idokon.onrender.com";
+
+          try {
+            const res = await fetch(`${API_BASE}/api/contact`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (data.ok) {
+              resultEl.textContent = "✅ Xabaringiz yuborildi!";
+              form.reset();
+            } else {
+              resultEl.textContent = "❌ Xatolik: " + (data.error || "Yuborilmadi");
+            }
+          } catch (err) {
+            resultEl.textContent = "❌ Serverga ulanishda xatolik.";
+          }
+        });
+      });
+    </script>
+
+
     <div id="cs_backtotop"><i class="fa-solid fa-arrow-up"></i></div>
     <!-- All Scripts Files -->
     <script src="/features.js"></script>
@@ -985,5 +911,252 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/lang.js"></script>
   </body>
+
+  <!-- Demo Button -->
+  <!-- <button id="demoBtn" class="cs_btn cs_bg_white" data-i18n="cta.demo" data-i18n-attr="aria-label:cta.demo_aria">Demo ishlatib ko'rish</button> -->
+  <!-- Modal Structure -->
+  <div id="demoModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div id="copyToast"
+        style="display:none;position:absolute;top:-40px;left:50%;transform:translateX(-50%);background:#58B0C6;color:#fff;padding:8px 24px;border-radius:8px;font-size:16px;box-shadow:0 2px 8px rgba(88,176,198,0.12);z-index:10001;">
+        Nusxa olindi!</div>
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2 style="text-align:center; font-size:2rem; font-weight:700; margin-bottom:18px; color:#58B0C6;">Demo bo'limini
+        tanlang</h2>
+      <div class="modal-tabs">
+        <button id="tabKassa" class="modal-tab active">Kassa</button>
+        <button id="tabAdmin" class="modal-tab">Admin</button>
+      </div>
+      <div id="modalKassa" class="modal-section">
+        <p style="font-size:1.1rem; margin-bottom:18px;">Kassani yuklab olish uchun quyidagi tugmani bosing:</p>
+        <a href="https://github.com/JaMeS-18-18/updater_test/releases/download/1.2.1/Idokon1.2.1.x64.exe"
+          class="cs_btn cs_bg_accent" style="font-size:1.1rem; padding:10px 24px;">Kassani yuklab olish</a>
+      </div>
+      <div id="modalAdmin" class="modal-section" style="display:none;">
+        <p style="font-size:1.1rem; margin-bottom:18px;">Admin panelga kirish uchun quyidagi link va login-paroldan
+          foydalaning:</p>
+        <a href="https://my.idokon.uz/#/auth/login" target="_blank" class="cs_btn cs_bg_accent"
+          style="font-size:1.1rem; padding:10px 24px; margin-bottom:14px;">Admin panelga o'tish</a>
+        <div class="modal-credentials" style="margin-top:18px;">
+          <span>Login: <b id="adminLogin">hp</b> <span class="copy-icon" onclick="copyText('adminLogin', this)"
+              title="Nusxa olish"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                style="vertical-align:middle;cursor:pointer;">
+                <rect x="5" y="5" width="10" height="12" rx="3" fill="#58B0C6" />
+                <rect x="2" y="2" width="10" height="12" rx="3" fill="#e3e8ee" />
+              </svg></span></span><br>
+          <span>Parol: <b id="adminPass">hp112233</b> <span class="copy-icon" onclick="copyText('adminPass', this)"
+              title="Nusxa olish"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                style="vertical-align:middle;cursor:pointer;">
+                <rect x="5" y="5" width="10" height="12" rx="3" fill="#58B0C6" />
+                <rect x="2" y="2" width="10" height="12" rx="3" fill="#e3e8ee" />
+              </svg></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 9999;
+      padding-top: 5%;
+      display: grid;
+      align-items: start;
+      box-sizing: border-box;
+      justify-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      padding: 32px 24px 24px 24px;
+      min-width: 320px;
+      max-width: 95vw;
+      width: 600px;
+      position: relative;
+      animation: modalFadeIn 0.3s;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 28px;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #d33;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .modal-tab {
+      flex: 1;
+      padding: 10px 0;
+      background: #f3f6fa;
+      border: none;
+      border-radius: 6px 6px 0 0;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .modal-tab.active {
+      background: #58B0C6;
+      color: #fff;
+    }
+
+    .modal-section {
+      margin-top: 8px;
+    }
+
+    .modal-link {
+      display: inline-block;
+      margin: 10px 0 0 0;
+      color: #58B0C6;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .modal-credentials {
+      background: #f3f6fa;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0 0 0;
+      font-size: 15px;
+    }
+
+    .copy-btn {
+      background: #f3f6fa;
+      color: #58B0C6;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-left: 8px;
+      padding: 2px 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #e3e8ee;
+    }
+
+    .copy-icon {
+      margin-left: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .copy-icon:active {
+      transform: scale(0.9);
+    }
+
+    .copied-text {
+      color: #58B0C6 !important;
+      font-weight: 600;
+      margin-left: 8px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      .modal-content {
+        width: 95vw;
+        min-width: unset;
+        padding: 18px 8px 16px 8px;
+      }
+    }
+  </style>
+  <script>
+    // Modal logic
+    const demoBtn = document.getElementById('demoBtn');
+    const demoModal = document.getElementById('demoModal');
+    const closeModal = document.getElementById('closeModal');
+    const tabKassa = document.getElementById('tabKassa');
+    const tabAdmin = document.getElementById('tabAdmin');
+    const modalKassa = document.getElementById('modalKassa');
+    const modalAdmin = document.getElementById('modalAdmin');
+    const demoBtn2 = document.getElementById('demoBtn2');
+
+    if (demoBtn2) demoBtn2.onclick = () => { demoModal.style.display = 'block'; };
+
+    demoBtn.onclick = () => { demoModal.style.display = 'block'; };
+    closeModal.onclick = () => { demoModal.style.display = 'none'; };
+    window.onclick = (e) => { if (e.target === demoModal) demoModal.style.display = 'none'; };
+
+    tabKassa.onclick = () => {
+      tabKassa.classList.add('active');
+      tabAdmin.classList.remove('active');
+      modalKassa.style.display = '';
+      modalAdmin.style.display = 'none';
+    };
+    tabAdmin.onclick = () => {
+      tabAdmin.classList.add('active');
+      tabKassa.classList.remove('active');
+      modalAdmin.style.display = '';
+      modalKassa.style.display = 'none';
+    };
+
+    function copyText(id, iconEl) {
+      const el = document.getElementById(id);
+      if (el) {
+        const text = el.textContent;
+        navigator.clipboard.writeText(text);
+        // Toast
+        const toast = document.getElementById('copyToast');
+        if (toast) {
+          toast.style.display = 'block';
+          setTimeout(() => { toast.style.display = 'none'; }, 1200);
+        }
+        // Change icon to text
+        if (iconEl) {
+          const original = iconEl.innerHTML;
+          iconEl.innerHTML = '<span class="copied-text">Nusxa olindi!</span>';
+          setTimeout(() => { iconEl.innerHTML = original; }, 1200);
+        }
+      }
+    }
+  </script>
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = "";
+    });
+  </script>
 
 </html>

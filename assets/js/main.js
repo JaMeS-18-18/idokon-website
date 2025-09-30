@@ -285,6 +285,45 @@
       var modalData = $(this).parents('.cs_modal').attr('data-modal');
       $(`[data-modal='${modalData}']`).removeClass('active');
     });
+      // Demo Modal Logic
+      document.addEventListener('DOMContentLoaded', function() {
+        var demoBtn = document.getElementById('demoBtn');
+        var demoModal = document.getElementById('demoModal');
+        var closeModal = document.getElementById('closeModal');
+        var tabKassa = document.getElementById('tabKassa');
+        var tabAdmin = document.getElementById('tabAdmin');
+        var modalKassa = document.getElementById('modalKassa');
+        var modalAdmin = document.getElementById('modalAdmin');
+
+        demoBtn.addEventListener('click', function() {
+          demoModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', function() {
+          demoModal.style.display = 'none';
+        });
+
+        tabKassa.addEventListener('click', function() {
+          tabKassa.classList.add('active');
+          tabAdmin.classList.remove('active');
+          modalKassa.style.display = 'block';
+          modalAdmin.style.display = 'none';
+        });
+
+        tabAdmin.addEventListener('click', function() {
+          tabAdmin.classList.add('active');
+          tabKassa.classList.remove('active');
+          modalAdmin.style.display = 'block';
+          modalKassa.style.display = 'none';
+        });
+
+        // Close modal when clicking outside content
+        demoModal.addEventListener('click', function(e) {
+          if (e.target === demoModal) {
+            demoModal.style.display = 'none';
+          }
+        });
+      });
   }
 
   /*--------------------------------------------------------------
@@ -376,44 +415,44 @@
     const form = document.getElementById('cs_form');
     const result = document.getElementById('cs_result');
 
-    form.addEventListener('submit', function (e) {
-      const formData = new FormData(form);
-      e.preventDefault();
-      var object = {};
-      formData.forEach((value, key) => {
-        object[key] = value;
-      });
-      var json = JSON.stringify(object);
-      result.innerHTML = 'Please wait...';
+    // form.addEventListener('submit', function (e) {
+    //   const formData = new FormData(form);
+    //   e.preventDefault();
+    //   var object = {};
+    //   formData.forEach((value, key) => {
+    //     object[key] = value;
+    //   });
+    //   var json = JSON.stringify(object);
+    //   result.innerHTML = 'Please wait...';
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: json,
-      })
-        .then(async response => {
-          let json = await response.json();
-          if (response.status == 200) {
-            result.innerHTML = json.message;
-          } else {
-            console.log(response);
-            result.innerHTML = json.message;
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          result.innerHTML = 'Something went wrong!';
-        })
-        .then(function () {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = 'none';
-          }, 5000);
-        });
-    });
+    //   fetch('https://api.web3forms.com/submit', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Accept: 'application/json',
+    //     },
+    //     body: json,
+    //   })
+    //     .then(async response => {
+    //       let json = await response.json();
+    //       if (response.status == 200) {
+    //         result.innerHTML = json.message;
+    //       } else {
+    //         console.log(response);
+    //         result.innerHTML = json.message;
+    //       }
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //       result.innerHTML = 'Something went wrong!';
+    //     })
+    //     .then(function () {
+    //       form.reset();
+    //       setTimeout(() => {
+    //         result.style.display = 'none';
+    //       }, 5000);
+    //     });
+    // });
   }
 
 })(jQuery); // End of use strict

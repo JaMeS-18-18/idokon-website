@@ -65,6 +65,114 @@
   text-align: center;
 }
 
+.newsletter-dark {
+  background: #111; /* qora fon */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #f1f1f1;
+}
+
+.newsletter-dark .cs_footer_widget_title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.newsletter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.subscribe-btn {
+  background: #58B0C6;
+  color: #fff !important;
+  font-size: 1rem;
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(88,176,198,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(88,176,198,0.35);
+}
+
+
+.gallery-wrapper {
+  position: relative;
+  height: 420px; /* joylashish balandligi */
+}
+
+.gallery-card {
+  position: absolute;
+  width: 60%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-card:hover {
+  transform: scale(1.07) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+/* Har bir kartochkani noodatiy joylashtirish */
+.card1 { top: 0; left: 5%; transform: rotate(-6deg); }
+.card2 { top: 50px; right: 5%; transform: rotate(5deg); }
+.card3 { bottom: 50px; left: 10%; transform: rotate(-8deg); }
+.card4 { bottom: 0; right: 10%; transform: rotate(7deg); }
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.lightbox.active { display: flex; }
+.lightbox:after {
+  content: "✕";
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
 /*--------------------------------------------------------------
 1. Typography
 ----------------------------------------------------------------*/
@@ -3209,7 +3317,7 @@ textarea {
 .cs_hero.cs_style_2 {
   height: 100%;
   min-height: 1000px;
-  padding: 200px 0px 140px;
+  padding: 0px 0px 140px;
   display: flex;
   align-items: center;
   overflow: hidden;
