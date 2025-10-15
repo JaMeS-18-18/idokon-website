@@ -4,7 +4,7 @@
   const LANGS = {
     uz: { name: "O'zbekcha", flag: "https://flagcdn.com/w20/uz.png" },
     ru: { name: "Русский", flag: "https://flagcdn.com/w20/ru.png" },
-    en: { name: "English", flag: "https://flagcdn.com/w20/gb.png" },
+    en: { name: "English", flag: "https://flagcdn.com/w20/gb.png" }
   };
 
 
@@ -443,6 +443,73 @@
       "footer.telegram.title": "Наш Telegram-канал",
       "footer.telegram.btn": "Перейти в канал",
 
+      // Cart translations
+      "cart.search": "Поиск: 'printer', 'штрих', 'monoblok'...",
+      "cart.filter.all": "Все",
+      "cart.filter.monoblok": "Моноблок",
+      "cart.filter.printer": "X-printer / Чек",
+      "cart.filter.scanner": "Штрих сканер", 
+      "cart.filter.scale": "Весы",
+      "cart.filter.box": "Денежный ящик",
+      "cart.sidebar.title": "Корзина",
+      "cart.sidebar.empty": "Корзина пуста.",
+      "cart.sidebar.devices": "Всего устройств:",
+      "cart.sidebar.plan": "Абонентская плата:",
+      "cart.sidebar.install": "Установка:",
+      "cart.sidebar.grand": "Итого:",
+      "cart.sidebar.order": "Оформить заказ",
+      "cart.sidebar.share": "Скопировать ссылку корзины",
+      "cart.modal.product": "Товар",
+      "cart.modal.close": "Закрыть",
+      "cart.modal.add": "Добавить в корзину",
+      "cart.modal.checkout": "Подтвердить заказ",
+      "cart.form.name": "Ваше имя",
+      "cart.form.name_ph": "Например: Петров Петр",
+      "cart.form.phone": "Номер телефона",
+      "cart.form.phone_ph": "+7 XXX XXX-XX-XX",
+      "cart.form.note": "Примечание (необязательно)",
+      "cart.form.note_ph": "Например: Доставка в Москву.",
+      "cart.form.submit": "Отправить",
+      "cart.form.submit_aria": "Отправить заказ",
+      "cart.form.manager": "Наш менеджер скоро свяжется с вами.",
+      "cart.nav.home": "Ссылка на главную страницу",
+      "cart.nav.lang": "Выбор языка",
+      "cart.nav.cart": "Корзина",
+      "cart.slider.prev": "Предыдущий",
+      "cart.slider.next": "Следующий",
+      "cart.qty.minus": "Уменьшить",
+      "cart.qty.plus": "Увеличить",
+      "cart.fab.view": "Посмотреть корзину",
+
+      // Products translations
+      "product.mb-01.title": "Моноблок J/s pos", 
+      "product.mb-01.desc": "Удобный моноблок для кассы с сенсорным дисплеем. SSD 8/128 ГБ Wifi+ Windows 10Pro Ламинатная пленка+ intel core i5 (3,5) поколение Гарантия качества 1 год",
+      "product.mb-02.title": "Pos моноблок",
+      "product.mb-02.desc": "Мощная конфигурация для высоких нагрузок. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6",
+      "product.xp-80.title": "Принтер штрих-кодов - Xprinter 365B",
+      "product.xp-80.desc": "Ширина бумаги: 20-82 мм, Скорость: 127 мм/сек, Интерфейс: USB + LAN, Гарантия качества: 1 год",
+      "product.xp-58.title": "Xprinter чек",
+      "product.xp-58.desc": "USB +Lan 80mm Q-80",
+      "product.sc-01.title": "WINSON A780",
+      "product.sc-01.desc": "USB ☑️, QR КОД ☑️, ШТРИХ КОД ☑️, МАРКИРОВКА ☑️ Гарантия качества 1 год ☑️",
+      "product.box-01.title": "Ящик для денег",
+      "product.box-01.desc": "Тип замка: Электромеханический, Подключение: RJ-11, Bill Klamp: Да, Количество отделений для банкнот: 5, Количество отделений для монет: 5, Материал: металл, Черный цвет, Вес: 7.8 кг, Общие размеры: 410 × 100 × 415 мм",
+      "product.scale-01.title": "Весы Rongta",
+      "product.scale-01.desc": "Barcode scale 1510, 15 кг, Гарантия качества: 6 месяцев",
+      "product.scale-02.title": "Весы со штрих-кодом и ценами",
+      "product.scale-02.desc": "Производство: Россия, Количество клавиш: 77, Предел веса: 40 гр – 15 кг, Ширина бумаги: 58 мм, Гарантия качества: 1 год",
+      "product.scale-03.title": "Весы TMA",
+      "product.scale-03.desc": "Страна: Китай 🇨🇳, Грузоподъемность: 30 кг, Гарантия: 6 месяцев, PLU: до 4000",
+
+      // Plans translations
+      "plan.start.title": "Start",
+      "plan.start.subtitle": "Для небольших магазинов",
+      "plan.standard.title": "Standard", 
+      "plan.standard.subtitle": "Для стандартных магазинов",
+      "plan.premium.title": "Premium",
+      "plan.premium.subtitle": "Для крупных магазинов",
+      "plan.popular": "Популярно",
+
     },
 
     en: {
@@ -657,6 +724,73 @@
       "footer.telegram.title": "Our Telegram channel",
       "footer.telegram.btn": "Go to channel",
 
+      // Cart translations
+      "cart.search": "Search: 'printer', 'barcode', 'monoblok'...",
+      "cart.filter.all": "All",
+      "cart.filter.monoblok": "Monoblock",
+      "cart.filter.printer": "X-printer / Receipt",
+      "cart.filter.scanner": "Barcode scanner", 
+      "cart.filter.scale": "Scales",
+      "cart.filter.box": "Cash drawer",
+      "cart.sidebar.title": "Cart",
+      "cart.sidebar.empty": "Cart is empty.",
+      "cart.sidebar.devices": "Total devices:",
+      "cart.sidebar.plan": "Subscription fee:",
+      "cart.sidebar.install": "Installation fee:",
+      "cart.sidebar.grand": "Grand total:",
+      "cart.sidebar.order": "Place order",
+      "cart.sidebar.share": "Copy cart link",
+      "cart.modal.product": "Product",
+      "cart.modal.close": "Close",
+      "cart.modal.add": "Add to cart",
+      "cart.modal.checkout": "Confirm order",
+      "cart.form.name": "Your name",
+      "cart.form.name_ph": "Example: John Smith",
+      "cart.form.phone": "Phone number",
+      "cart.form.phone_ph": "+1 XXX XXX-XXXX",
+      "cart.form.note": "Note (optional)",
+      "cart.form.note_ph": "Example: Delivery to New York.",
+      "cart.form.submit": "Submit",
+      "cart.form.submit_aria": "Submit order",
+      "cart.form.manager": "Our manager will contact you soon.",
+      "cart.nav.home": "Home page link",
+      "cart.nav.lang": "Language selector",
+      "cart.nav.cart": "Cart",
+      "cart.slider.prev": "Previous",
+      "cart.slider.next": "Next",
+      "cart.qty.minus": "Decrease",
+      "cart.qty.plus": "Increase",
+      "cart.fab.view": "View cart",
+
+      // Products translations
+      "product.mb-01.title": "Monoblock J/s pos", 
+      "product.mb-01.desc": "Convenient monoblock for cash register with touch display. SSD 8/128 GB Wifi+ Windows 10Pro Laminate film+ intel core i5 (3.5) generation Quality warranty 1 year",
+      "product.mb-02.title": "Pos monoblock",
+      "product.mb-02.desc": "Powerful configuration for high loads. i5-3230M, 15 x2, RAM 8GB, 128SSD, WiFi, Bluetooth, HDMI, VGA, USB x6",
+      "product.xp-80.title": "Barcode printer - Xprinter 365B",
+      "product.xp-80.desc": "Paper width: 20-82 mm, Speed: 127 mm/sec, Interface: USB + LAN, Quality warranty: 1 year",
+      "product.xp-58.title": "Xprinter receipt",
+      "product.xp-58.desc": "USB +Lan 80mm Q-80",
+      "product.sc-01.title": "WINSON A780",
+      "product.sc-01.desc": "USB ☑️, QR CODE ☑️, BARCODE ☑️, MARKING ☑️ Quality warranty 1 year ☑️",
+      "product.box-01.title": "Cash drawer",
+      "product.box-01.desc": "Lock type: Electromechanical, Connection: RJ-11, Bill Clamp: Yes, Number of bill compartments: 5, Number of coin compartments: 5, Material: metal, Black color, Weight: 7.8 kg, Overall dimensions: 410 × 100 × 415 mm",
+      "product.scale-01.title": "Rongta scales",
+      "product.scale-01.desc": "Barcode scale 1510, 15 kg, Quality warranty: 6 months",
+      "product.scale-02.title": "Scales with barcode and price input",
+      "product.scale-02.desc": "Manufactured: Russia, Number of keys: 77, Weight limit: 40 gr – 15 kg, Paper width: 58 mm, Quality warranty: 1 year",
+      "product.scale-03.title": "TMA scales",
+      "product.scale-03.desc": "Country: China 🇨🇳, Load capacity: 30 kg, Warranty: 6 months, PLU: up to 4000",
+
+      // Plans translations
+      "plan.start.title": "Start",
+      "plan.start.subtitle": "For small stores",
+      "plan.standard.title": "Standard", 
+      "plan.standard.subtitle": "For standard stores",
+      "plan.premium.title": "Premium",
+      "plan.premium.subtitle": "For large stores",
+      "plan.popular": "Popular",
+
     }
   };
 
@@ -792,6 +926,21 @@
   }
 
 
+
+  // Helper function to get translated text
+  function getTranslation(key, fallback = '') {
+    const currentLang = loadLang() || DEFAULT_LANG;
+    const dict = i18n[currentLang] || i18n[DEFAULT_LANG];
+    return dict[key] || fallback;
+  }
+
+  // Make it globally available
+  window.getTranslation = getTranslation;
+  window.applyTranslations = applyTranslations;
+  window.i18n = i18n;
+  window.initI18n = function() {
+    setupLanguageMenu();
+  };
 
   // 4) Init
   document.addEventListener('DOMContentLoaded', () => {

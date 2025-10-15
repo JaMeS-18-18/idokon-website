@@ -795,29 +795,29 @@
         <div class="container">
           <div class="cs_main_header_in">
             <div class="cs_main_header_left">
-              <a class="cs_site_branding" href="index.html" aria-label="Home page link">
+              <a class="cs_site_branding" href="index.html" data-i18n-attr="aria-label:cart.nav.home" aria-label="Asosiy sahifa havolasi">
                 <img src="assets/img/logo.png" alt="Logo">
               </a>
             </div>
             <div class="cs_main_header_center">
               <nav class="cs_nav cs_medium cs_primary_font">
                 <ul class="cs_nav_list cs_onepage_nav">
-                  <li class="menu-item">
-                    <a href="./index.html#home" aria-label="Home link">Asosiy</a>
-                  </li>
-                  <li><a href="./index.html#features" aria-label="Menu link">Xususiyatlar</a></li>
-                  <li><a href="./index.html#pricing" aria-label="Menu link">Ta'riflar</a></li>
-                  <li><a href="./index.html#testimonial" aria-label="Menu link">Ta'ssurotlar</a></li>
-                  <li><a href="./index.html#faq" aria-label="Menu link">FAQ</a></li>
-                  <li><a href="./index.html#blog" aria-label="Menu link">Blog</a></li>
-                  <li><a href="./index.html#contact" aria-label="Menu link">Aloqa</a></li>
+
+                  <li class="menu-item"><a href="./index.html#home" data-i18n="nav.home">Asosiy</a></li>
+                  <li><a href="./index.html#features" data-i18n="nav.features">Xususiyatlar</a></li>
+                  <li><a href="#" onclick="window.location.href='cart.html'; return false;" data-i18n="nav.equipment">Qurilmalar</a></li>
+                  <li><a href="./index.html#integrations" data-i18n="nav.integrations">Integratsiyalar</a></li>
+                  <li><a href="./index.html#pricing" data-i18n="nav.pricing">Ta'riflar</a></li>
+                  <!-- <li><a href="./index.html#faq" data-i18n="nav.faq">FAQ</a></li> -->
+                  <!-- <li><a href="./index.html#blog" data-i18n="nav.blog">Blog</a></li> -->
+                  <li><a href="./index.html#contact" data-i18n="nav.contact">Aloqa</a></li>
                 </ul>
               </nav>
             </div>
             <div class="cs_main_header_right">
               <div class="cs_header_actions">
                 <!-- Language selector -->
-                <div class="cs_lang" aria-label="Language selector">
+                <div class="cs_lang" data-i18n-attr="aria-label:cart.nav.lang" aria-label="Til tanlash">
                   <button type="button" class="cs_lang_btn" aria-haspopup="listbox" aria-expanded="false">
                     <img src="https://flagcdn.com/w20/uz.png" alt="O'zbekcha bayroq">
                     <span class="cs_lang_code">O'zbekcha</span>
@@ -837,7 +837,7 @@
                 </div>
 
                 <!-- Cart -->
-                <a href="/cart.html" class="cs_cart" aria-label="Savatcha">
+                <a href="/cart.html" class="cs_cart" data-i18n-attr="aria-label:cart.nav.cart" aria-label="Savatcha">
                   <i class="fa-solid fa-cart-shopping"></i>
                 </a>
               </div>
@@ -853,8 +853,8 @@
 
         <!-- Segmented Switch: Qurilmalar | Ta'riflar -->
         <div class="idk-switch" id="idk-switch">
-          <button class="idk-switch-btn is-active" data-tab="products">Qurilmalar</button>
-          <button class="idk-switch-btn" data-tab="plans">Ta'riflar</button>
+          <button class="idk-switch-btn is-active" data-tab="products" data-i18n="nav.equipment">Qurilmalar</button>
+          <button class="idk-switch-btn" data-tab="plans" data-i18n="nav.pricing">Ta'riflar</button>
           <span class="idk-switch-indicator"></span>
         </div>
         <div class="idk-sub-switch d-none" id="idk-plan-switch">
@@ -916,6 +916,12 @@
 
             <!-- Checkout modal ochuvchi tugma -->
             <button id="idk-open-checkout" class="idk-btn" data-i18n="cart.sidebar.order">Buyurtma berish</button>
+            
+            <!-- URL ulashish tugmasi -->
+            <button id="idk-share-cart" class="idk-btn mt-2" style="background: #10b981; border-color: #10b981;" data-i18n="cart.sidebar.share">
+              <i class="fa-solid fa-share me-1"></i>Savatcha havolasini ko'chirish
+            </button>
+            
             <div id="idk-status" class="mt-2"></div>
           </aside>
         </div>
@@ -941,8 +947,8 @@
           <div class="row g-3">
             <div class="col-12 col-md-6">
               <div class="idk-slider" id="idk-slider">
-                <button class="idk-prev" id="idk-prev" aria-label="Oldingi">&#8249;</button>
-                <button class="idk-next" id="idk-next" aria-label="Keyingi">&#8250;</button>
+                <button class="idk-prev" id="idk-prev" data-i18n-attr="aria-label:cart.slider.prev" aria-label="Oldingi">&#8249;</button>
+                <button class="idk-next" id="idk-next" data-i18n-attr="aria-label:cart.slider.next" aria-label="Keyingi">&#8250;</button>
               </div>
               <div class="idk-nav mt-2" id="idk-nav"></div>
             </div>
@@ -953,9 +959,9 @@
 
               <div class="d-flex align-items-center gap-2 mt-2">
                 <div class="idk-step">
-                  <button type="button" data-modal-qty="minus" aria-label="Kamaytirish">−</button>
+                  <button type="button" data-modal-qty="minus" data-i18n-attr="aria-label:cart.qty.minus" aria-label="Kamaytirish">−</button>
                   <span class="val" id="idk-modal-qty">1</span>
-                  <button type="button" data-modal-qty="plus" aria-label="Oshirish">+</button>
+                  <button type="button" data-modal-qty="plus" data-i18n-attr="aria-label:cart.qty.plus" aria-label="Oshirish">+</button>
                 </div>
                 <button class="idk-btn" id="idk-modal-add" data-i18n="cart.modal.add"><i class="fa-solid fa-cart-plus me-1"></i>Savatga qo‘shish</button>
               </div>
@@ -1038,6 +1044,32 @@
     <!-- JS -->
     <script>
       /* ================== Ma'lumotlar (so'mda) ================== */
+      
+      // Function to get translated product data
+      function getTranslatedProduct(product, lang = 'uz') {
+        const currentLang = lang || localStorage.getItem('site_lang') || 'uz';
+        const dict = window.i18n?.[currentLang] || window.i18n?.['uz'] || {};
+        
+        return {
+          ...product,
+          title: dict[`product.${product.id}.title`] || product.title,
+          desc: dict[`product.${product.id}.desc`] || product.desc
+        };
+      }
+      
+      // Function to get translated plan data
+      function getTranslatedPlan(plan, lang = 'uz') {
+        const currentLang = lang || localStorage.getItem('site_lang') || 'uz';
+        const dict = window.i18n?.[currentLang] || window.i18n?.['uz'] || {};
+        
+        return {
+          ...plan,
+          tag: dict[`plan.${plan.id.replace('plan-', '')}.title`] || plan.tag,
+          subtitle: dict[`plan.${plan.id.replace('plan-', '')}.subtitle`] || plan.subtitle,
+          badge: plan.badge === 'Ommabop' ? (dict['plan.popular'] || plan.badge) : plan.badge
+        };
+      }
+
       const PRODUCTS = [
         { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 3694875, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
         { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 5010000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
@@ -1214,6 +1246,9 @@
       }
 
       /* ================== Init ================== */
+      // Load cart from URL if present (must be before renderCart)
+      loadCartFromUrl();
+      
       if (planSwitch) {
         $$(".idk-sub-btn", planSwitch).forEach(b => b.classList.toggle("is-active", b.dataset.cycle === activeCycle));
       }
@@ -1221,6 +1256,42 @@
       renderCatalog();
       renderPlans();
       renderCart();
+
+      // Share cart button event
+      const shareCartBtn = document.getElementById('idk-share-cart');
+      shareCartBtn?.addEventListener('click', () => {
+        if (Object.keys(cart).length === 0) {
+          window.Toastify && Toastify({
+            text: "Savatcha bo'sh. Avval mahsulot qo'shing.",
+            duration: 3000, close: true, gravity: "top", position: "left",
+            style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
+          }).showToast();
+          return;
+        }
+        
+        const cartUrl = generateCartUrl();
+        navigator.clipboard.writeText(cartUrl).then(() => {
+          window.Toastify && Toastify({
+            text: "Savatcha havolasi ko'chirildi! ✅",
+            duration: 3000, close: true, gravity: "top", position: "left",
+            style: { background: "linear-gradient(to right, #10b981, #059669)", width: "90%" }
+          }).showToast();
+        }).catch(() => {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = cartUrl;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          window.Toastify && Toastify({
+            text: "Savatcha havolasi ko'chirildi! ✅",
+            duration: 3000, close: true, gravity: "top", position: "left",
+            style: { background: "linear-gradient(to right, #10b981, #059669)", width: "90%" }
+          }).showToast();
+        });
+      });
 
       /* ================== Switch (Qurilmalar/Tariflar) ================== */
       function renderSwitch() {
@@ -1292,9 +1363,9 @@
           if (actions) {
             actions.innerHTML = `
           <div class="idk-step">
-            <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
+            <button type="button" data-idk="incart-minus" data-id="${p.id}" data-i18n-attr="aria-label:cart.qty.minus" aria-label="Kamaytirish">−</button>
             <span class="val">${cart[p.id]?.qty || 1}</span>
-            <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
+            <button type="button" data-idk="incart-plus" data-id="${p.id}" data-i18n-attr="aria-label:cart.qty.plus" aria-label="Oshirish">+</button>
           </div>
           <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${p.id}" title="Batafsil">
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
@@ -1334,8 +1405,10 @@
       function renderPlans() {
         plansEl.innerHTML = "";
         const current = getSelectedPlan();
+        const currentLang = localStorage.getItem('site_lang') || 'uz';
 
         PLANS.forEach(plan => {
+          const translatedPlan = getTranslatedPlan(plan, currentLang);
           const price = getPlanPrice(plan);
           const unit = getCycleUnit();
 
@@ -1343,12 +1416,12 @@
           col.className = "col-lg-4";
           col.innerHTML = `
         <div class="idk-plan-card ${current && current.id === plan.id ? 'selected' : ''}" data-plan-id="${plan.id}">
-          ${plan.badge ? `<div class="idk-plan-badge">${escapeHtml(plan.badge)}</div>` : ''}
+          ${translatedPlan.badge ? `<div class="idk-plan-badge">${escapeHtml(translatedPlan.badge)}</div>` : ''}
           <div class="idk-plan-head">
             <div class="idk-plan-icon"><img src="${plan.icon}" alt=""></div>
             <div>
-              <h3 class="idk-plan-title">${escapeHtml(plan.tag)}</h3>
-              <p class="idk-plan-sub">${escapeHtml(plan.subtitle)}</p>
+              <h3 class="idk-plan-title">${escapeHtml(translatedPlan.tag)}</h3>
+              <p class="idk-plan-sub">${escapeHtml(translatedPlan.subtitle)}</p>
             </div>
           </div>
           <div class="idk-plan-sep"></div>
@@ -1423,6 +1496,75 @@
       cartRowsEl.addEventListener("click", handleCartContainerClick);
       drawerRowsEl.addEventListener("click", handleCartContainerClick);
 
+      /* ================== Cart URL Generation ================== */
+      function generateCartUrl() {
+        const baseUrl = window.location.origin + window.location.pathname;
+        const items = Object.values(cart).filter(x => !x.isPlan);
+        const plan = getSelectedPlan();
+        
+        const params = new URLSearchParams();
+        
+        // Add device items
+        if (items.length > 0) {
+          const cartData = items.map(item => `${item.id}:${item.qty}`).join(',');
+          params.set('items', cartData);
+        }
+        
+        // Add plan if selected
+        if (plan) {
+          params.set('plan', `${plan.id}:${plan.cycle}`);
+        }
+        
+        return `${baseUrl}?${params.toString()}`;
+      }
+
+      function loadCartFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const itemsParam = params.get('items');
+        const planParam = params.get('plan');
+        
+        // Only proceed if there are URL parameters, and clear cart first
+        if (itemsParam || planParam) {
+          cart = {}; // Clear existing cart
+        }
+        
+        // Load items from URL
+        if (itemsParam) {
+          const itemPairs = itemsParam.split(',');
+          itemPairs.forEach(pair => {
+            const [id, qty] = pair.split(':');
+            const product = PRODUCTS.find(p => p.id === id);
+            if (product && qty > 0) {
+              cart[id] = {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                qty: parseInt(qty),
+                images: product.images, // To'liq images array
+                isPlan: false
+              };
+            }
+          });
+        }
+        
+        // Load plan from URL
+        if (planParam) {
+          const [planId, cycle] = planParam.split(':');
+          const plan = PLANS.find(p => p.id === planId);
+          if (plan) {
+            addPlanToCart({ ...plan, cycle });
+          }
+        }
+        
+        // Only save and render if we loaded something from URL
+        if (itemsParam || planParam) {
+          saveCart();
+          renderCart();
+          renderCatalog();
+          renderPlans();
+        }
+      }
+
       /* ================== Checkout open/submit ================== */
       openCheckoutBtn?.addEventListener("click", () => {
         if (Object.keys(cart).length === 0) {
@@ -1455,6 +1597,9 @@
         const installFee = plan ? getInstallFee(plan.id, plan.cycle) : 0;
         const grandFirstPaymentUZS = devicesTotal + (plan ? plan.priceUZS : 0) + installFee;
 
+        // Generate cart URL for sharing
+        const cartUrl = generateCartUrl();
+
         const payload = {
           customer: { name, phone, note },
           items,
@@ -1462,6 +1607,7 @@
           install: plan ? { feeUZS: installFee, cycle: plan.cycle, planId: plan.id } : null,
           total: devicesTotal, // faqat qurilma jami
           grandFirstPaymentUZS,
+          cartUrl, // Savatcha URL ni bot ga yuborish uchun
           source: "idokon-cart",
           createdAt: new Date().toISOString()
         };
@@ -1515,9 +1661,9 @@
           const qty = cart[id].qty;
           actions.innerHTML = `
         <div class="idk-step">
-          <button type="button" data-idk="incart-minus" data-id="${id}" aria-label="Kamaytirish">−</button>
+          <button type="button" data-idk="incart-minus" data-id="${id}" data-i18n-attr="aria-label:cart.qty.minus" aria-label="Kamaytirish">−</button>
           <span class="val">${qty}</span>
-          <button type="button" data-idk="incart-plus" data-id="${id}" aria-label="Oshirish">+</button>
+          <button type="button" data-idk="incart-plus" data-id="${id}" data-i18n-attr="aria-label:cart.qty.plus" aria-label="Oshirish">+</button>
         </div>
         <button class="btn btn-outline-secondary btn-sm" data-idk="open" data-id="${id}" title="Batafsil">
           <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
@@ -1537,9 +1683,12 @@
       function renderCatalog() {
         if (!catalogEl) return;
         const q = (searchEl?.value || "").trim().toLowerCase();
+        const currentLang = localStorage.getItem('site_lang') || 'uz';
+        
         const filtered = PRODUCTS.filter(p => {
+          const translatedProduct = getTranslatedProduct(p, currentLang);
           const okCat = (activeCat === "all" || p.cat === activeCat);
-          const okText = [p.title, p.desc, p.cat].some(x => x.toLowerCase().includes(q));
+          const okText = [translatedProduct.title, translatedProduct.desc, p.cat].some(x => x.toLowerCase().includes(q));
           return okCat && okText;
         });
 
@@ -1548,6 +1697,7 @@
         emptyEl?.classList.add("d-none");
 
         filtered.forEach(p => {
+          const translatedProduct = getTranslatedProduct(p, currentLang);
           const inCart = !!cart[p.id];
           const qty = inCart ? cart[p.id].qty : 1;
 
@@ -1555,10 +1705,10 @@
           card.className = "idk-card";
           card.dataset.cardId = p.id;
           card.innerHTML = `
-        <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(p.title)}">
+        <img class='idk-card-img' src="${p.images[0]}" alt="${escapeHtml(translatedProduct.title)}">
         <div class="idk-card-body">
-          <div class="idk-title">${escapeHtml(p.title)}</div>
-          <div class="idk-sub" title="${escapeHtml(p.desc)}">${escapeHtml(p.desc)}</div>
+          <div class="idk-title">${escapeHtml(translatedProduct.title)}</div>
+          <div class="idk-sub" title="${escapeHtml(translatedProduct.desc)}">${escapeHtml(translatedProduct.desc)}</div>
           <div class="d-flex align-items-center justify-content-between mt-1">
             <div class="idk-price">${fmtUZS(p.price)}</div>
             <div class="idk-actions">
@@ -1733,14 +1883,33 @@
             }
           }
         }
+        
+        // Re-apply translations to newly created dynamic elements
+        setTimeout(() => {
+          const currentLang = localStorage.getItem('site_lang') || 'uz';
+          if (window.applyTranslations) {
+            window.applyTranslations(currentLang);
+          }
+        }, 10);
       }
 
       /* ================== Storage & modal helpers ================== */
       function addToCart(prod, qty) {
+        const currentLang = localStorage.getItem('site_lang') || 'uz';
+        const translatedProduct = getTranslatedProduct(prod, currentLang);
+        
         if (!cart[prod.id]) {
-          cart[prod.id] = { id: prod.id, title: prod.title, price: prod.price, qty: 0, images: prod.images };
+          cart[prod.id] = { 
+            id: prod.id, 
+            title: translatedProduct.title, 
+            price: prod.price, 
+            qty: 0, 
+            images: prod.images 
+          };
         }
         cart[prod.id].qty += qty;
+        // Update title with current translation
+        cart[prod.id].title = translatedProduct.title;
         saveCart();
       }
       function saveCart() { localStorage.setItem(LS_CART, JSON.stringify(cart)); }
@@ -1772,9 +1941,13 @@
       function openModal(id) {
         const p = PRODUCTS.find(x => x.id === id);
         if (!p) return;
+        
+        const currentLang = localStorage.getItem('site_lang') || 'uz';
+        const translatedProduct = getTranslatedProduct(p, currentLang);
+        
         modalProduct = p; modalQty = 1;
-        modalTitle.textContent = p.title;
-        modalDesc.textContent = p.desc;
+        modalTitle.textContent = translatedProduct.title;
+        modalDesc.textContent = translatedProduct.desc;
         modalCat.textContent = p.cat;
         modalPrice.textContent = fmtUZS(p.price);
         modalQtySpan.textContent = "1";
@@ -1991,14 +2164,22 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/lang.js"></script>
     <script>
-    // Language sync and translation for cart.html
+    // Initialize translations and language sync for cart.html
     (function() {
+      // Initialize i18n system first
+      if (window.initI18n) {
+        window.initI18n();
+      }
+      
       // Load selected language from localStorage
       var lang = localStorage.getItem('site_lang') || 'uz';
       document.documentElement.setAttribute('lang', lang);
+      
+      // Apply translations
       if (window.applyTranslations) {
         window.applyTranslations(lang);
       }
+      
       // Language menu logic
       var btn = document.querySelector('.cs_lang_btn');
       var menu = document.querySelector('.cs_lang_menu');
