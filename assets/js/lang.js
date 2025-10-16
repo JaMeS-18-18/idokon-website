@@ -123,9 +123,12 @@
       "nav.faq": "FAQ", "nav.blog": "Mijozlarimiz", "nav.contact": "Aloqa",
 
       "hero.title": "POS terminalimiz yordamida savdo muvaffaqiyatini oshirish",
-      "hero.subtitle": "Bizning zamonaviy POS dasturiy ta’minotimiz sizning biznes faoliyatingizni tubdan o‘zgartirish uchun ishlab chiqilgan. Uning kuchli xususiyatlari va foydalanuvchiga qulay interfeysi yordamida mijozlar tajribasini yaxshilang va umumiy samaradorligingizni oshiring.",
+      "hero.subtitle": "Bizning zamonaviy POS dasturiy ta'minotimiz sizning biznes faoliyatingizni tubdan o'zgartirish uchun ishlab chiqilgan. Uning kuchli xususiyatlari va foydalanuvchiga qulay interfeysi yordamida mijozlar tajribasini yaxshilang va umumiy samaradorligingizni oshiring.",
       "hero.demo": "Demo ishlatib ko'rish",
       "hero.contact": "Bog'lanish",
+      "hero.stats.sales": "+45% Savdo",
+      "hero.stats.customers": "1000+ Mijoz", 
+      "hero.stats.support": "24/7 Yordam",
 
       "features.subtitle": "I-Dokon bilan biznesingizni rivojlantiring",
       "features.title": "Sodda ammo ayni paytda murakkab<br> Bizning savdo nuqtasi tizimimiz",
@@ -344,6 +347,9 @@
       "hero.subtitle": "Наш современный POS-софт создан, чтобы прокачать процессы: улучшайте опыт клиентов и повышайте эффективность благодаря мощным функциям и простому интерфейсу.",
       "hero.demo": "Попробовать демо",
       "hero.contact": "Связаться",
+      "hero.stats.sales": "+45% Продаж",
+      "hero.stats.customers": "1000+ Клиентов", 
+      "hero.stats.support": "24/7 Поддержка",
 
       "features.subtitle": "Развивайте бизнес с I-Dokon",
       "features.title": "Простой и в то же время мощный<br> наш кассовый POS-комплекс",
@@ -626,6 +632,9 @@
       "hero.subtitle": "Our modern POS software is built to transform your operations. Enhance customer experience and increase efficiency with powerful features and a friendly UI.",
       "hero.demo": "Try Demo",
       "hero.contact": "Contact Us",
+      "hero.stats.sales": "+45% Sales",
+      "hero.stats.customers": "1000+ Customers", 
+      "hero.stats.support": "24/7 Support",
 
       "features.subtitle": "Grow your business with I-Dokon",
       "features.title": "Simple yet powerful<br> Point-of-Sale system",

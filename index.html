@@ -5,11 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AwesomeThemez">
-    <meta name="description" content="Poze - Point of Sale Landing Page HTML Template">
-    <title>I-Dokon - Point of Sale</title>
-    <!-- Favicon Icon -->
+    
+    <!-- SEO Meta Tags -->
+    <title>I-Dokon - Zamonaviy POS Tizimi | Kassa va Do'kon Boshqaruvi</title>
+    <meta name="description" content="I-Dokon - O'zbekistondagi eng yaxshi POS tizimi. Kassa, inventar boshqaruvi, hisobotlar va integrasiyalar. Biznesingizni rivojlantiring, samaradorligingizni oshiring!">
+    <meta name="keywords" content="POS tizimi, kassa tizimi, do'kon boshqaruvi, inventar nazorati, savdo avtomatlashtirish, biznes dastur, O'zbekiston POS, kassa dasturi, savdo hisoboti">
+    <meta name="author" content="I-Dokon Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="uz">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="I-Dokon - Zamonaviy POS Tizimi | Kassa va Do'kon Boshqaruvi">
+    <meta property="og:description" content="O'zbekistondagi eng yaxshi POS tizimi. Biznesingizni rivojlantiring, samaradorligingizni oshiring!">
+    <meta property="og:image" content="https://idokon.uz/assets/img/home.png">
+    <meta property="og:url" content="https://idokon.uz">
+    <meta property="og:site_name" content="I-Dokon">
+    <meta property="og:locale" content="uz_UZ">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I-Dokon - Zamonaviy POS Tizimi">
+    <meta name="twitter:description" content="O'zbekistondagi eng yaxshi POS tizimi. Biznesingizni rivojlantiring!">
+    <meta name="twitter:image" content="https://idokon.uz/assets/img/home.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://idokon.uz">
+    
+    <!-- Favicon Icons -->
     <link rel="icon" href="assets/img/logo_only.jpg" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo_only.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo_only.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo_only.jpg">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "I-Dokon",
+      "url": "https://idokon.uz",
+      "logo": "https://idokon.uz/assets/img/logo.png",
+      "description": "O'zbekistondagi eng yaxshi POS tizimi. Kassa, inventar boshqaruvi, hisobotlar va integrasiyalar.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998991180999",
+        "contactType": "customer service",
+        "availableLanguage": ["uz", "ru", "en"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/idokon_uz/",
+        "https://t.me/idokonuz"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "UZ",
+        "addressLocality": "Toshkent"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "I-Dokon POS",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Windows, Web",
+      "description": "Zamonaviy POS tizimi - kassa, inventar boshqaruvi va hisobotlar",
+      "offers": {
+        "@type": "Offer",
+        "price": "100000",
+        "priceCurrency": "UZS",
+        "priceValidUntil": "2025-12-31"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150"
+      }
+    }
+    </script>
     <!-- CSS plugins files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
@@ -21,6 +98,17 @@
   </head>
 
   <body>
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVXCPFLERG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PVXCPFLERG');
+    </script>
+    
     <!-- Start Preloader -->
     <div class="cs_perloader">
       <div class="cs_perloader_in">
@@ -38,20 +126,17 @@
           <div class="cs_main_header_in">
             <div class="cs_main_header_left">
               <a class="cs_site_branding" href="index.html" aria-label="Home page link">
-                <img src="assets/img/logo.png" alt="Logo">
+                <img src="assets/img/logo.png" alt="I-Dokon Logo - POS Tizimi">
               </a>
             </div>
             <div class="cs_main_header_center">
-              <nav class="cs_nav cs_medium cs_primary_font">
+              <nav class="cs_nav cs_medium cs_primary_font" role="navigation" aria-label="Main navigation">
                 <ul class="cs_nav_list cs_onepage_nav">
-
                   <li class="menu-item"><a href="./index.html#home" data-i18n="nav.home">Asosiy</a></li>
                   <li><a href="./index.html#features" data-i18n="nav.features">Xususiyatlar</a></li>
                   <li><a href="#" onclick="window.location.href='cart.html'; return false;" data-i18n="nav.equipment">Qurilmalar</a></li>
                   <li><a href="./index.html#integrations" data-i18n="nav.integrations">Integratsiyalar</a></li>
                   <li><a href="./index.html#pricing" data-i18n="nav.pricing">Ta'riflar</a></li>
-                  <!-- <li><a href="./index.html#faq" data-i18n="nav.faq">FAQ</a></li> -->
-                  <!-- <li><a href="./index.html#blog" data-i18n="nav.blog">Blog</a></li> -->
                   <li><a href="./index.html#contact" data-i18n="nav.contact">Aloqa</a></li>
                 </ul>
               </nav>
@@ -114,16 +199,16 @@
             </div>
             <div class="col-lg-5">
               <div class="cs_hero_thumb">
-                <img src="assets/img/logo.png" alt="Hero Image">
+                <img src="assets/img/home.png" alt="I-Dokon POS tizimi interfeysi - Hero rasm">
               </div>
             </div>
           </div>
         </div>
         <div class="cs_hero_shape1">
-          <img src="assets/img/hero_bg3.png" alt="Polygon Icon">
+          <img src="assets/img/hero_bg3.png" alt="Dekorativ shaql elementi">
         </div>
         <div class="cs_hero_shape2">
-          <img src="assets/img/hero_bg2.png" alt="Polygon Icon">
+          <img src="assets/img/hero_bg2.png" alt="Dekorativ shaql elementi">
         </div>
       </section>
       <!-- End Hero section -->
@@ -272,18 +357,10 @@
           .cs_nav {
             overflow: visible;
           }
-          
-          .cs_nav_list {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-          }
         }
       </style>
 
-      <section class="cs_business_feature position-relative" id="features">
+      <section class="cs_business_feature position-relative" id="features" aria-label="Xususiyatlar bo'limi">
         <div class="cs_height_143 cs_height_lg_75"></div>
         <div class="container">
           <div class="cs_section_heading cs_style_1 text-center">
@@ -300,7 +377,7 @@
           <div id="features-row" class=" row cs_gap_y_30 wow fadeIn" data-wow-duration="0.8s" data-wow-delay="0.2s">
           </div>
           <div class="cs_featured_shape">
-            <img src="assets/img/Vector.svg" alt="Image">
+            <img src="assets/img/Vector.svg" alt="Dekorativ vektor shakl">
           </div>
         </div>
         <div class="cs_height_150 cs_height_lg_80"></div>
@@ -989,10 +1066,10 @@
       </div>
 
       <!--End contact Section -->
-    </div>
-    <footer class="cs_site_footer cs_color_1 cs_sticky_footer">
+    </main>
+    <footer class="cs_site_footer cs_color_1 cs_sticky_footer" role="contentinfo" aria-label="Footer bo'limi">
       <div class="cs_footer_shape1">
-        <img src="assets/img/Vector1.svg" alt="Vector-Icon">
+        <img src="assets/img/Vector1.svg" alt="Footer dekorativ shakl">
       </div>
       <div class="cs_height_140 cs_height_lg_70"></div>
 
@@ -1003,7 +1080,7 @@
             <div class="col-lg-3 col-xl-4">
               <div class="cs_footer_widget">
                 <div class="cs_text_field">
-                  <img src="assets/img/logo.png" alt="Logo" class="cs_footer_logo">
+                  <img src="assets/img/logo.png" alt="I-Dokon Logo" class="cs_footer_logo">
                   <p class="cs_text_white mb-0" data-i18n="footer.about">
                     Bizning POS dasturimiz biznes jarayonlaringizni soddalashtirib, samaradorlikni oshiradigan yakuniy
                     yechimdir.

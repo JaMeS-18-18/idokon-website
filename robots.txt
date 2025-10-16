@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Disallow certain pages
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /*.pdf$
+
+# Allow important pages
+Allow: /assets/
+Allow: /cart.html
+Allow: /index.html
+
+# Sitemap location
+Sitemap: https://idokon.uz/sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 1

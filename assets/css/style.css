@@ -3448,6 +3448,7 @@ textarea {
   background-color: #EAFFF1;
   overflow: hidden;
 }
+
 @media (max-width: 1199px) {
   .cs_hero.cs_style_3 {
     padding: 200px 0 100px;
@@ -3479,8 +3480,8 @@ textarea {
   }
 }
 @media (max-width: 575px) {
-  .cs_hero.cs_style_3 .cs_hero_title {
-    font-size: 42px;
+   .cs_hero_title {
+    font-size: 28px !important;
   }
 }
 .cs_hero.cs_style_3 .cs_hero_subtitle {
