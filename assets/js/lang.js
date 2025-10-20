@@ -127,7 +127,7 @@
       "hero.demo": "Demo ishlatib ko'rish",
       "hero.contact": "Bog'lanish",
       "hero.stats.sales": "+45% Savdo",
-      "hero.stats.customers": "1000+ Mijoz", 
+      "hero.stats.customers": "1000+ Mijoz",
       "hero.stats.support": "24/7 Yordam",
 
       "features.subtitle": "I-Dokon bilan biznesingizni rivojlantiring",
@@ -151,7 +151,7 @@
       "integrations.description": "Bizning POS tizimimiz mavjud kassa tizimlari bilan oson integratsiya qilinadi. Ma'lumotlaringizni yo'qotmasdan va yangi tizimga tez o'tish imkoniyati.",
       "integrations.feature1.title": "Tez ulanish",
       "integrations.feature1.desc": "Mavjud tizimga 1-2 kun ichida ulanish",
-      "integrations.feature2.title": "Ma'lumotlar xavfsizligi", 
+      "integrations.feature2.title": "Ma'lumotlar xavfsizligi",
       "integrations.feature2.desc": "Barcha ma'lumotlar saqlanib qoladi",
       "integrations.feature3.title": "Texnik yordam",
       "integrations.feature3.desc": "Integratsiya jarayonida to'liq qo'llab-quvvatlash",
@@ -159,7 +159,7 @@
       "integrations.multikassa.desc": "Soliq idorasi bilan bog'langan onlayn kassa tizimi",
       "integrations.arco.desc": "Keng tarqalgan kassa va <br/> hisobot tizimi",
       "integrations.eimzo.desc": "E-imzo orqali SMS xabarnoma yuborish tizimi",
-      "integrations.other.title": "Boshqa tizimlar", 
+      "integrations.other.title": "Boshqa tizimlar",
       "integrations.other.desc": "Sizning mavjud tizimingiz ro'yxatda yo'qmi? Biz bilan bog'laning, integratsiya imkoniyatlarini muhokama qilamiz.",
 
       "pricing.subtitle": "Bizning Ta'riflar",
@@ -188,17 +188,17 @@
 
 
 
-      "features.0.title": "Savdo tezligi ↑",
-      "features.0.subtitle": "Bir bosishda to‘lov — kam xatolik va tez navbat. Kunning oxirida natijalar darhol ko‘rinadi.",
+      "features.1.title": "Savdo tezligi ↑",
+      "features.1.subtitle": "Bir bosishda to‘lov — kam xatolik va tez navbat. Kunning oxirida natijalar darhol ko‘rinadi.",
 
-      "features.1.title": "Kassirlar uchun sodda",
-      "features.1.subtitle": "Skaner bilan tez qidiruv, chegirma va bonuslar. Interfeys oddiy — yangi kassir ham tez o‘rganadi.",
+      "features.2.title": "Kassirlar uchun sodda",
+      "features.2.subtitle": "Skaner bilan tez qidiruv, chegirma va bonuslar. Interfeys oddiy — yangi kassir ham tez o‘rganadi.",
 
-      "features.2.title": "Hisobot va nazorat",
-      "features.2.subtitle": "Aylanma, foyda va top mahsulotlar onlayn. Filiallar kesimida ko‘rish va eksport bir tugmada.",
+      "features.3.title": "Hisobot va nazorat",
+      "features.3.subtitle": "Aylanma, foyda va top mahsulotlar onlayn. Filiallar kesimida ko‘rish va eksport bir tugmada.",
 
-      "features.3.title": "O‘rnatish va integratsiya",
-      "features.3.subtitle": "Windows’da 10 daqiqada ishga tushadi. Printer, skaner, terminal, Tez QR va API bilan kengayadi.",
+      "features.4.title": "O‘rnatish va integratsiya",
+      "features.4.subtitle": "Windows’da 10 daqiqada ishga tushadi. Printer, skaner, terminal, Tez QR va API bilan kengayadi.",
       "pricing.start.features": [
         "Cheksiz mahsulot qo‘shish",
         "Excel orqali tovarlarni bir zumda yuklash",
@@ -348,7 +348,7 @@
       "hero.demo": "Попробовать демо",
       "hero.contact": "Связаться",
       "hero.stats.sales": "+45% Продаж",
-      "hero.stats.customers": "1000+ Клиентов", 
+      "hero.stats.customers": "1000+ Клиентов",
       "hero.stats.support": "24/7 Поддержка",
 
       "features.subtitle": "Развивайте бизнес с I-Dokon",
@@ -374,7 +374,7 @@
       "integrations.feature1.desc": "Подключение к существующей системе за 1-2 дня",
       "integrations.feature2.title": "Безопасность данных",
       "integrations.feature2.desc": "Все данные сохраняются",
-      "integrations.feature3.title": "Техническая поддержка", 
+      "integrations.feature3.title": "Техническая поддержка",
       "integrations.feature3.desc": "Полная поддержка в процессе интеграции",
       "integrations.systems.title": "Поддерживаемые системы",
       "integrations.multikassa.desc": "Онлайн касса, связанная с налоговой службой",
@@ -407,17 +407,17 @@
 
       "preloader.text": "Загрузка...",
 
-      "features.0.title": "Скорость продаж ↑",
-      "features.0.subtitle": "Оплата в один клик — меньше ошибок и быстрее очередь. Итоги сразу видны в конце дня.",
+      "features.1.title": "Скорость продаж ↑",
+      "features.1.subtitle": "Оплата в один клик — меньше ошибок и быстрее очередь. Итоги сразу видны в конце дня.",
 
-      "features.1.title": "Просто для кассиров",
-      "features.1.subtitle": "Поиск по сканеру, скидки и бонусы. Интерфейс понятный — даже новичок быстро освоит.",
+      "features.2.title": "Просто для кассиров",
+      "features.2.subtitle": "Поиск по сканеру, скидки и бонусы. Интерфейс понятный — даже новичок быстро освоит.",
 
-      "features.2.title": "Отчеты и контроль",
-      "features.2.subtitle": "Оборот, прибыль и топ-товары онлайн. Фильтры по филиалам и экспорт одним кликом.",
+      "features.3.title": "Отчеты и контроль",
+      "features.3.subtitle": "Оборот, прибыль и топ-товары онлайн. Фильтры по филиалам и экспорт одним кликом.",
 
-      "features.3.title": "Установка и интеграции",
-      "features.3.subtitle": "Запуск за 10 минут на Windows. Поддержка принтера, сканера, терминала, QR и API.",
+      "features.4.title": "Установка и интеграции",
+      "features.4.subtitle": "Запуск за 10 минут на Windows. Поддержка принтера, сканера, терминала, QR и API.",
 
       "pricing.start.features": [
         "Добавление неограниченного количества товаров",
@@ -454,7 +454,7 @@
       "cart.filter.all": "Все",
       "cart.filter.monoblok": "Моноблок",
       "cart.filter.printer": "X-printer / Чек",
-      "cart.filter.scanner": "Штрих сканер", 
+      "cart.filter.scanner": "Штрих сканер",
       "cart.filter.scale": "Весы",
       "cart.filter.box": "Денежный ящик",
       "cart.sidebar.title": "Корзина",
@@ -488,7 +488,7 @@
       "cart.fab.view": "Посмотреть корзину",
 
       // Products translations
-      "product.mb-01.title": "Моноблок J/s pos", 
+      "product.mb-01.title": "Моноблок J/s pos",
       "product.mb-01.desc": "Удобный моноблок для кассы с сенсорным дисплеем. SSD 8/128 ГБ Wifi+ Windows 10Pro Ламинатная пленка+ intel core i5 (3,5) поколение Гарантия качества 1 год",
       "product.mb-02.title": "Pos моноблок",
       "product.mb-02.desc": "Мощная конфигурация для высоких нагрузок. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6",
@@ -510,7 +510,7 @@
       // Plans translations
       "plan.start.title": "Start",
       "plan.start.subtitle": "Для небольших магазинов",
-      "plan.standard.title": "Standard", 
+      "plan.standard.title": "Standard",
       "plan.standard.subtitle": "Для стандартных магазинов",
       "plan.premium.title": "Premium",
       "plan.premium.subtitle": "Для крупных магазинов",
@@ -633,7 +633,7 @@
       "hero.demo": "Try Demo",
       "hero.contact": "Contact Us",
       "hero.stats.sales": "+45% Sales",
-      "hero.stats.customers": "1000+ Customers", 
+      "hero.stats.customers": "1000+ Customers",
       "hero.stats.support": "24/7 Support",
 
       "features.subtitle": "Grow your business with I-Dokon",
@@ -692,17 +692,17 @@
 
       "preloader.text": "Loading...",
 
-      "features.0.title": "Sales speed ↑",
-      "features.0.subtitle": "One-click payment — fewer errors and faster checkout. Results visible at the end of the day.",
+      "features.1.title": "Sales speed ↑",
+      "features.1.subtitle": "One-click payment — fewer errors and faster checkout. Results visible at the end of the day.",
 
-      "features.1.title": "Easy for cashiers",
-      "features.1.subtitle": "Quick search via scanner, discounts and bonuses. Simple interface — even new staff learns fast.",
+      "features.2.title": "Easy for cashiers",
+      "features.2.subtitle": "Quick search via scanner, discounts and bonuses. Simple interface — even new staff learns fast.",
 
-      "features.2.title": "Reports and control",
-      "features.2.subtitle": "Turnover, profit and top products online. View by branches and export in one click.",
+      "features.3.title": "Reports and control",
+      "features.3.subtitle": "Turnover, profit and top products online. View by branches and export in one click.",
 
-      "features.3.title": "Setup & integration",
-      "features.3.subtitle": "Runs in 10 minutes on Windows. Supports printer, scanner, terminal, QR and API extensions.",
+      "features.4.title": "Setup & integration",
+      "features.4.subtitle": "Runs in 10 minutes on Windows. Supports printer, scanner, terminal, QR and API extensions.",
       "pricing.start.features": [
         "Add unlimited products",
         "Instant bulk upload via Excel",
@@ -738,7 +738,7 @@
       "cart.filter.all": "All",
       "cart.filter.monoblok": "Monoblock",
       "cart.filter.printer": "X-printer / Receipt",
-      "cart.filter.scanner": "Barcode scanner", 
+      "cart.filter.scanner": "Barcode scanner",
       "cart.filter.scale": "Scales",
       "cart.filter.box": "Cash drawer",
       "cart.sidebar.title": "Cart",
@@ -772,7 +772,7 @@
       "cart.fab.view": "View cart",
 
       // Products translations
-      "product.mb-01.title": "Monoblock J/s pos", 
+      "product.mb-01.title": "Monoblock J/s pos",
       "product.mb-01.desc": "Convenient monoblock for cash register with touch display. SSD 8/128 GB Wifi+ Windows 10Pro Laminate film+ intel core i5 (3.5) generation Quality warranty 1 year",
       "product.mb-02.title": "Pos monoblock",
       "product.mb-02.desc": "Powerful configuration for high loads. i5-3230M, 15 x2, RAM 8GB, 128SSD, WiFi, Bluetooth, HDMI, VGA, USB x6",
@@ -794,7 +794,7 @@
       // Plans translations
       "plan.start.title": "Start",
       "plan.start.subtitle": "For small stores",
-      "plan.standard.title": "Standard", 
+      "plan.standard.title": "Standard",
       "plan.standard.subtitle": "For standard stores",
       "plan.premium.title": "Premium",
       "plan.premium.subtitle": "For large stores",
@@ -947,7 +947,7 @@
   window.getTranslation = getTranslation;
   window.applyTranslations = applyTranslations;
   window.i18n = i18n;
-  window.initI18n = function() {
+  window.initI18n = function () {
     setupLanguageMenu();
   };
 
