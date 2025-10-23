@@ -999,6 +999,22 @@
       </div>
     </div>
 
+    <!-- PAYMENT SUCCESS MODAL -->
+    <div class="idk-backdrop" id="pay-success-backdrop"></div>
+    <div class="idk-modal" id="pay-success-modal" role="dialog" aria-modal="true" aria-labelledby="pay-success-title">
+      <div class="idk-card-modal" style="max-width:560px">
+        <div class="idk-modal-head">
+          <h5 id="pay-success-title" class="m-0">To‘lov muvaffaqiyatli</h5>
+          <button class="idk-close" id="pay-success-close" aria-label="Yopish">&times;</button>
+        </div>
+        <div class="idk-modal-body">
+          <p>To‘lovingiz muvaffaqiyatli amalga oshdi. Tez orada operatorlarimiz siz bilan bog‘lanadi.</p>
+          <div class="fw-semibold">To‘lov summasi: <span id="pay-success-amount">0 so‘m</span></div>
+          <button class="idk-btn mt-3" id="pay-success-ok">Yopish</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Mobile Cart Drawer -->
     <div class="idk-drawer-backdrop" id="idk-drawer-backdrop"></div>
     <div class="idk-drawer" id="idk-drawer" role="dialog" aria-modal="true" aria-labelledby="idk-drawer-title">
@@ -1095,6 +1111,7 @@
       const escapeHtml = s => String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
       const LS_CART = "idokon_cart_v3";
       const LS_CYCLE = "idokon_cycle_v1";
+      const LS_PENDING = "idokon_pending_order_v1";
 
       /* ================== State ================== */
       let cart = loadCart();
@@ -1597,9 +1614,7 @@
         const installFee = plan ? getInstallFee(plan.id, plan.cycle) : 0;
         const grandFirstPaymentUZS = devicesTotal + (plan ? plan.priceUZS : 0) + installFee;
 
-        // Generate cart URL for sharing
-        const cartUrl = generateCartUrl();
-
+        // Build payload but DO NOT send to Telegram yet
         const payload = {
           customer: { name, phone, note },
           items,
@@ -1607,47 +1622,22 @@
           install: plan ? { feeUZS: installFee, cycle: plan.cycle, planId: plan.id } : null,
           total: devicesTotal, // faqat qurilma jami
           grandFirstPaymentUZS,
-          cartUrl, // Savatcha URL ni bot ga yuborish uchun
           source: "idokon-cart",
           createdAt: new Date().toISOString()
         };
 
-        const API_BASE = "https://idokon.uz";
-        const url = `${API_BASE}/api/telegram-order`;
-
         const submitBtn = chkForm.querySelector('button[type="submit"]');
-        const prevText = submitBtn?.textContent || "";
-        submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yuborilmoqda...");
+        submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yo‘naltirilmoqda...");
 
-        try {
-          const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-          let body = null; try { body = await res.json(); } catch { }
-          if (!res.ok || (body && body.ok === false)) {
-            const msg = (body && (body.error || body.details)) || "Server xatosi";
-            throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
-          }
+        // Save pending order to restore after payment callback
+        try { localStorage.setItem(LS_PENDING, JSON.stringify({ payload, amount: grandFirstPaymentUZS })); } catch {}
 
-          const clearedIds = Object.keys(cart);
-          cart = {}; saveCart(); renderCart();
-          clearedIds.forEach(syncCatalogAction);
-          renderPlans();
-          closeChk();
-
-          window.Toastify && Toastify({
-            text: "Buyurtma qabul qilindi! Tez orada bog‘lanamiz ✅",
-            duration: 4000, close: true, gravity: "top", position: "left",
-            style: { background: "linear-gradient(to right, #06B6D4, #0ea5e9)", width: "90%" }
-          }).showToast();
-        } catch (err) {
-          const reason = err.name === "AbortError" ? "So‘rov vaqti tugadi." : (err.message || "Xatolik yuz berdi.");
-          window.Toastify && Toastify({
-            text: "Yuborishda xatolik: " + reason,
-            duration: 5000, close: true, gravity: "top", position: "left",
-            style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
-          }).showToast();
-        } finally {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = prevText || "Yuborish"; }
-        }
+        // Redirect to MultiCard payment with the computed amount and return/cancel URLs
+        const baseReturn = window.location.origin + window.location.pathname;
+        const returnUrl = `${baseReturn}?payment=success`;
+        const cancelUrl = `${baseReturn}?payment=cancel`;
+        const paymentUrl = `https://checkout.multicard.uz/?store_id=2668&invoice_id=idokon.uz&amount=${grandFirstPaymentUZS}00&return_url=${encodeURIComponent(returnUrl)}&callback_url=${encodeURIComponent(returnUrl)}&cancel_url=${encodeURIComponent(cancelUrl)}`;
+        window.location.href = paymentUrl;
       });
 
       /* ================== Catalog <-> Cart sync ================== */
@@ -1682,6 +1672,7 @@
       /* ================== Renderers ================== */
       function renderCatalog() {
         if (!catalogEl) return;
+       
         const q = (searchEl?.value || "").trim().toLowerCase();
         const currentLang = localStorage.getItem('site_lang') || 'uz';
         
@@ -1716,8 +1707,7 @@
               ? `<div class="idk-step">
                      <button type="button" data-idk="incart-minus" data-id="${p.id}" aria-label="Kamaytirish">−</button>
                      <span class="val">${qty}</span>
-                     <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button>
-                   </div>`
+                     <button type="button" data-idk="incart-plus" data-id="${p.id}" aria-label="Oshirish">+</button                   </div>`
               : `<button class="idk-add" data-idk="add" data-id="${p.id}">
                      <i class="fa-solid fa-cart-plus me-1"></i>Qo‘shish
                    </button>`
@@ -2055,51 +2045,81 @@
       })();
     </script>
 
-
+    <script>
+      // Payment success modal helpers
+      const payModal = document.getElementById('pay-success-modal');
+      const payBackdrop = document.getElementById('pay-success-backdrop');
+      const payClose = document.getElementById('pay-success-close');
+      const payOk = document.getElementById('pay-success-ok');
+      const payAmountEl = document.getElementById('pay-success-amount');
+      function openPaySuccess(amountUZS) {
+        if (payAmountEl) payAmountEl.textContent = fmtUZS(amountUZS || 0);
+        payModal?.classList.add('is-open');
+        payBackdrop?.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closePaySuccess() {
+        payModal?.classList.remove('is-open');
+        payBackdrop?.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      payClose?.addEventListener('click', closePaySuccess);
+      payBackdrop?.addEventListener('click', closePaySuccess);
+      payOk?.addEventListener('click', closePaySuccess);
+    </script>
 
     <script>
-      /* ===== Deep-link: ?tab=plans&cycle=monthly|yearly ===== */
-      (function openPlansFromLink() {
-        const qp = new URLSearchParams(window.location.search);
-        const tab = qp.get('tab');
-        const cyc = qp.get('cycle'); // optional
+      // Handle return from payment provider via query param (?payment=success|cancel)
+      (async function handlePaymentReturn() {
+        try {
+          const qp = new URLSearchParams(window.location.search);
+          const status = qp.get('payment');
+          if (!status) return;
 
-        if (cyc === 'monthly' || cyc === 'yearly') {
-          activeCycle = cyc;
-          // kichik sub-switchni yetkazib qo'yamiz
-          const sub = document.getElementById('idk-plan-switch');
-          if (sub) {
-            sub.classList.remove('d-none');
-            sub.querySelectorAll('.idk-sub-btn').forEach(b => {
-              b.classList.toggle('is-active', b.dataset.cycle === activeCycle);
-            });
+          // Clean URL
+          const clean = window.location.origin + window.location.pathname;
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState({}, document.title, clean);
           }
-        }
 
-        if (tab === 'plans') {
-          // UI: Ta'riflar tabini yoqish
-          activeTab = 'plans';
-          const sw = document.getElementById('idk-switch');
-          sw.dataset.active = 'plans';
-          sw.querySelectorAll('.idk-switch-btn').forEach(b => {
-            b.classList.toggle('is-active', b.dataset.tab === 'plans');
-          });
+          if (status === 'success') {
+            let pend = null;
+            try { pend = JSON.parse(localStorage.getItem('idokon_pending_order_v1') || 'null'); } catch {}
 
-          document.getElementById('idk-plans')?.classList.remove('d-none');
-          document.getElementById('idk-catalog')?.classList.add('d-none');
-          document.querySelector('.idk-filters')?.classList.add('d-none');
-          document.getElementById('idk-plan-switch')?.classList.remove('d-none');
+            // Show success modal first
+            openPaySuccess(pend?.amount || 0);
 
-          // re-render
-          renderPlans();
+            // Then notify Telegram order that payment completed
+            const notifyPayload = pend?.payload ? { ...pend.payload } : { source: 'idokon-cart' };
+            notifyPayload.payment = { status: 'success', amount: pend?.amount || 0, at: new Date().toISOString() };
+            notifyPayload.event = 'payment-success';
 
-          // Ta'riflar bo'limiga skroll
-          setTimeout(() => {
-            document.getElementById('idk-plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 0);
-        }
+            try {
+              await fetch('https://idokon.uz/api/telegram-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(notifyPayload)
+              });
+            } catch {}
+
+            // Clear cart and pending data
+            try { localStorage.removeItem('idokon_pending_order_v1'); } catch {}
+            const clearedIds = Object.keys(cart || {});
+            cart = {}; saveCart && saveCart(); renderCart && renderCart();
+            clearedIds.forEach(id => { try { syncCatalogAction && syncCatalogAction(id); } catch {} });
+            try { renderPlans && renderPlans(); } catch {}
+
+          } else if (status === 'cancel') {
+            if (window.Toastify) {
+              Toastify({
+                text: "To‘lov bekor qilindi.",
+                duration: 4000, close: true, gravity: "top", position: "left",
+                style: { background: "linear-gradient(to right, #ef4444, #dc2626)", width: "90%" }
+              }).showToast();
+            }
+          }
+        } catch {}
       })();
-
     </script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
