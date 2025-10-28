@@ -1,57 +1,96 @@
-# Enable compression for better loading speed
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-</IfModule>
+# ==========================================================
+# 🌐 IDOKON.UZ — Optimized .htaccess
+# Versiya: 2025-10-28
+# Maqsad: HTTPS majburiy, SPA routing, SEO, xavfsizlik, tezlik
+# ==========================================================
 
-# Set expire headers for better caching
-<IfModule mod_expires.c>
-    ExpiresActive on
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-</IfModule>
-
-# Force HTTPS redirect
+# 1️⃣ Force HTTPS
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remove trailing slash
+# 2️⃣ Remove trailing slash (e.g. /about/ → /about)
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} /(.+)/$
-RewriteRule ^ https://%{HTTP_HOST}/%1 [R=301,L]
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
 
-# SEO-friendly URL redirects
-RewriteRule ^pos-terminal/?$ / [R=301,L]
-RewriteRule ^kassa-tizimi/?$ / [R=301,L]
-RewriteRule ^savdo-avtomatlashtirish/?$ / [R=301,L]
+# 3️⃣ SPA (Single Page Application) routing — barcha 404'lar index.html’ga qaytadi
+# Bu IDOKON React/Vite/SPA loyihalar uchun kerak
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L,R=302]
 
-# Security headers
-<IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# 4️⃣ Custom 404 (fallback)
+ErrorDocument 404 /index.html
+
+# ==========================================================
+# ⚙️ PERFORMANCE (Tezlik optimizatsiyasi)
+# ==========================================================
+
+# 🔹 Compression (gzip)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/javascript application/json
 </IfModule>
 
-# Prevent access to sensitive files
-<Files ~ "^\.">
-    Order allow,deny
-    Deny from all
-</Files>
+# 🔹 Browser caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
 
-# Custom 404 error page
-ErrorDocument 404 /index.html
+# 🔹 ETag off (tejamkor cache)
+FileETag None
+
+# ==========================================================
+# 🧭 SEO (Yo‘nalishlar, canonical redirectlar)
+# ==========================================================
+
+# Eskirgan sahifalarni bosh sahifaga yo‘naltirish
+RewriteRule ^pos-tizimi/?$ / [R=301,L]
+RewriteRule ^dokoni-uchun-pos/?$ / [R=301,L]
+
+# Sitemap joylashuvi (Google uchun)
+<IfModule mod_headers.c>
+  Header set Link "</sitemap_index.xml>; rel=\"sitemap\""
+</IfModule>
+
+# ==========================================================
+# 🔒 SECURITY (Xavfsizlik sozlamalari)
+# ==========================================================
+
+<IfModule mod_headers.c>
+  # Clickjacking’ni oldini olish
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # MIME sniffing’ni bloklash
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Xavfsiz havolalar siyosati
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Maxfiylik ruxsatlari (Permissions Policy)
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+
+  # HTTPS’ni majburlash (mixed contentni tozalaydi)
+  Header always set Content-Security-Policy "upgrade-insecure-requests"
+</IfModule>
+
+# Dotfile va konfiguratsion fayllarni yashirish
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# ==========================================================
+# ✅ Qo‘shimcha tavsiyalar
+# ==========================================================
+# - Favicon, robots.txt, sitemap_index.xml kabi fayllar public papkada tursin.
+# - Google Search Console’da faqat sitemap_index.xml ni qo‘shing.
+# - Yangi bo‘limlar qo‘shilganda sitemaplarni yangilang.
+# ==========================================================

@@ -1,18 +1,30 @@
 User-agent: *
 Allow: /
 
-# Disallow certain pages
+# Disallow sensitive/admin areas
 Disallow: /admin/
 Disallow: /temp/
 Disallow: /*.pdf$
+Disallow: /old/
+Disallow: /backup/
 
-# Allow important pages
+# Allow static resources
 Allow: /assets/
-Allow: /cart.html
 Allow: /index.html
+Allow: /cart.html
 
-# Sitemap location
+# Sitemap and crawl settings
 Sitemap: https://idokon.uz/sitemap.xml
-
-# Crawl-delay for bots
 Crawl-delay: 1
+
+# Special rules for bots
+User-agent: Googlebot-Image
+Disallow:
+Allow: /*.jpg$
+Allow: /*.png$
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Host directive (for Yandex)
+Host: idokon.uz

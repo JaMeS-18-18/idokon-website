@@ -1,66 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-        
-  <!-- Home Page -->
-  <url>
-    <loc>https://idokon.uz/</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- Cart Page -->
-  <url>
-    <loc>https://idokon.uz/cart.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Key Sections -->
-  <url>
-    <loc>https://idokon.uz/#features</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://idokon.uz/#equipment</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://idokon.uz/#integrations</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://idokon.uz/#pricing</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://idokon.uz/#faq</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://idokon.uz/#contact</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://idokon.uz/sitemap-pages.xml</loc>
+    <lastmod>2025-10-28</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://idokon.uz/sitemap-products.xml</loc>
+    <lastmod>2025-10-28</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://idokon.uz/sitemap-blog.xml</loc>
+    <lastmod>2025-10-28</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://idokon.uz/sitemap-course.xml</loc>
+    <lastmod>2025-10-28</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://idokon.uz/sitemap-images.xml</loc>
+    <lastmod>2025-10-28</lastmod>
+  </sitemap>
+</sitemapindex>

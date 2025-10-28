@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Asosiy banner -->
+  <url>
+    <loc>https://idokon.uz/</loc>
+    <image:image>
+      <image:loc>https://idokon.uz/assets/img/home.png</image:loc>
+      <image:caption>IDOKON POS — do‘kon avtomatlashtirish tizimi</image:caption>
+      <image:title>Do‘kon uchun POS dasturi O‘zbekistonda</image:title>
+    </image:image>
+  </url>
+
+  <!-- Kassa interfeysi -->
+  <url>
+    <loc>https://idokon.uz/#features</loc>
+    <image:image>
+      <image:loc>https://idokon.uz/assets/img/pos-interface.jpg</image:loc>
+      <image:caption>IDOKON POS tizimi — kassir interfeysi va savdo jarayoni</image:caption>
+      <image:title>IDOKON POS kassa interfeysi</image:title>
+    </image:image>
+  </url>
+
+  <!-- Uskunalar -->
+  <url>
+    <loc>https://idokon.uz/#equipment</loc>
+    <image:image>
+      <image:loc>https://idokon.uz/assets/img/pos-equipment.jpg</image:loc>
+      <image:caption>POS uskunalar to‘plami: printer, skaner, terminal</image:caption>
+      <image:title>POS uskunalar — printer, skaner, kassa</image:title>
+    </image:image>
+  </url>
+
+  <!-- Demo sahifasi -->
+  <url>
+    <loc>https://idokon.uz/#demo</loc>
+    <image:image>
+      <image:loc>https://idokon.uz/assets/img/demo.jpg</image:loc>
+      <image:caption>IDOKON POS demo — bepul sinov versiyasi</image:caption>
+      <image:title>Do‘kon avtomatlashtirish demo dasturi</image:title>
+    </image:image>
+  </url>
+
+  <!-- Jamoa yoki logo -->
+  <url>
+    <loc>https://idokon.uz/#contact</loc>
+    <image:image>
+      <image:loc>https://idokon.uz/assets/img/logo.png</image:loc>
+      <image:caption>IDOKON — O‘zbekiston uchun ishlab chiqilgan POS tizimi</image:caption>
+      <image:title>IDOKON logotipi</image:title>
+    </image:image>
+  </url>
+
+</urlset>
