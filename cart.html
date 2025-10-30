@@ -890,6 +890,8 @@
                   <li><a href="./index.html#features" data-i18n="nav.features">Xususiyatlar</a></li>
                   <li><a href="#" onclick="window.location.href='cart.html'; return false;"
                       data-i18n="nav.equipment">Qurilmalar</a></li>
+                      <li><a href="#idokon-course" data-i18n="nav.course" style="color: #00AEEF;">I-Do'kon Kurs</a></li>
+
                   <li><a href="./index.html#integrations" data-i18n="nav.integrations">Integratsiyalar</a></li>
                   <li><a href="./index.html#pricing" data-i18n="nav.pricing">Ta'riflar</a></li>
                   <!-- <li><a href="./index.html#faq" data-i18n="nav.faq">FAQ</a></li> -->
@@ -1191,7 +1193,7 @@
 
       const PRODUCTS = [
         { id: "mb-01", cat: "monoblok", title: "Monoblok J/s pos", desc: "Kassa uchun qulay monoblok, sensor displey bilan. SSD 8/128 GB Wifi+ Windows 10Pro Laminat plenka+ intel core i5 (3,5) generation Sifat kafolati 1 yil", price: 3694875, images: ["./assets/img/Oborodvniya/monoblok1.png", "./assets/img/Oborodvniya/monoblok1.2.png"] },
-        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 1000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
+        { id: "mb-02", cat: "monoblok", title: "Pos monoblok", desc: "Kuchli konfiguratsiya, yuqori yuklama uchun. i5-3230M, 15 x2, Оперативка 8ГБ, 128ССД, WiFi, Bluetooth, HDMI, VGA, USB x6 ", price: 4802000, images: ["./assets/img/Oborodvniya/monoblok2.png"] },
         { id: "xp-80", cat: "printer", title: "Shtrix kod chiqaruvchi barkod printer - Xprinter 365B", desc: "Qog'oz kengligi: 20-82 mm, Tezligi: 127 mm/sek, Interfeys: USB + LAN, Sifat kafolati: 1 yil", price: 751500, images: ["./assets/img/Oborodvniya/printer1.png"] },
         { id: "xp-58", cat: "printer", title: "Xprinter check", desc: "USB +Lan 80mm Q-80", price: 626250, images: ["./assets/img/Oborodvniya/printer2.png"] },
         { id: "sc-01", cat: "scanner", title: "WINSON A780", desc: "USB ☑️, QR KOD ☑️, SHTRIX KOD ☑️, MARKIROVKA ☑️ Sifat kafolati 1yil ☑️", price: 751500, images: ["./assets/img/Oborodvniya/scanner1.png"] },
@@ -1694,54 +1696,124 @@
         openChk();
       });
 
-      chkForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = chkName.value.trim();
-        const phone = chkPhone.value.trim();
-        const note = chkNote.value.trim();
-        if (!name || !phone) { alert("Ism va telefon majburiy."); return; }
+     chkForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = chkName.value.trim();
+  const phone = chkPhone.value.trim();
+  const note = chkNote.value.trim();
 
-        const deviceItems = Object.values(cart).filter(x => !x.isPlan);
-        const items = deviceItems.map(({ id, title, price, qty }) =>
-          ({ id, title, price, qty, subtotal: price * qty })
-        );
+  if (!name || !phone) {
+    alert("Ism va telefon majburiy.");
+    return;
+  }
 
-        const plan = getSelectedPlan(); // {id, tag, cycle, priceUZS} | null
+  const deviceItems = Object.values(cart).filter(x => !x.isPlan);
+  const items = deviceItems.map(({ id, title, price, qty }) => ({
+    id,
+    title,
+    price,
+    qty,
+    subtotal: price * qty,
+  }));
 
-        if (items.length === 0 && !plan) {
-          alert("Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.");
-          return;
-        }
+  const plan = getSelectedPlan(); // {id, tag, cycle, priceUZS} | null
 
-        const devicesTotal = items.reduce((a, c) => a + c.subtotal, 0);
-        const installFee = plan ? getInstallFee(plan.id, plan.cycle) : 0;
-        const grandFirstPaymentUZS = devicesTotal + (plan ? plan.priceUZS : 0) + installFee;
+  if (items.length === 0 && !plan) {
+    alert("Savatcha bo‘sh. Avval mahsulot yoki tarif tanlang.");
+    return;
+  }
 
-        // Build payload but DO NOT send to Telegram yet
-        const payload = {
-          customer: { name, phone, note },
-          items,
-          plan, // {id, tag, cycle, priceUZS}
-          install: plan ? { feeUZS: installFee, cycle: plan.cycle, planId: plan.id } : null,
-          total: devicesTotal, // faqat qurilma jami
-          grandFirstPaymentUZS,
-          source: "idokon-cart",
-          createdAt: new Date().toISOString()
-        };
+  const devicesTotal = items.reduce((a, c) => a + c.subtotal, 0);
+  const installFee = plan ? getInstallFee(plan.id, plan.cycle) : 0;
+  const grandFirstPaymentUZS = devicesTotal + (plan ? plan.priceUZS : 0) + installFee;
 
-        const submitBtn = chkForm.querySelector('button[type="submit"]');
-        submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Yo‘naltirilmoqda...");
+  const submitBtn = chkForm.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Yo‘naltirilmoqda...";
+  }
 
-        // Save pending order to restore after payment callback
-        try { localStorage.setItem(LS_PENDING, JSON.stringify({ payload, amount: grandFirstPaymentUZS })); } catch { }
+  try {
+    // 1️⃣ Token olish
+    const tokenRes = await fetch("https://my.idokon.uz/services/web/api/multicard/token");
+    const tokenData = await tokenRes.json();
+    const token = tokenData?.token;
+    if (!token) throw new Error("Token olinmadi");
 
-        // Redirect to MultiCard payment with the computed amount and return/cancel URLs
-        const baseReturn = window.location.origin + window.location.pathname;
-        const returnUrl = `${baseReturn}?payment=success`;
-        const cancelUrl = `${baseReturn}?payment=cancel`;
-        const paymentUrl = `https://checkout.multicard.uz/?store_id=2668&invoice_id=idokon.uz&amount=${grandFirstPaymentUZS}00&redirect_url=${encodeURIComponent(returnUrl)}`;
-        window.location.href = paymentUrl;
+    // 2️⃣ OFD ro‘yxatini tuzish (mahsulotlar)
+    const ofdList = items.map((it) => ({
+      name: it.title,
+      price: it.price * 100,
+      qty: it.qty,
+      spic: "10305008003000000",
+      package_code: 1546532,
+      total: it.subtotal * 100,
+    }));
+
+    // 3️⃣ Tarifni qo‘shish (agar tanlangan bo‘lsa)
+    if (plan) {
+      ofdList.push({
+        name: `${plan.tag} tarif (${plan.cycle === "yearly" ? "Yillik" : "Oylik"})`,
+        price: plan.priceUZS * 100,
+        qty: 1,
+        spic: "10305008003000000",
+        package_code: 1546532,
+        total: plan.priceUZS * 100,
       });
+    }
+
+    // 4️⃣ O‘rnatish to‘lovini qo‘shish (agar mavjud bo‘lsa)
+    if (installFee > 0) {
+      ofdList.push({
+        name: "Ustanovka xizmati",
+        price: installFee * 100,
+        qty: 1,
+        spic: "10305008003000000",
+        package_code: 1546532,
+        total: installFee * 100,
+      });
+    }
+
+    // 5️⃣ Yakuniy payload
+    const payload = {
+      store_id: 2735,
+      amount: grandFirstPaymentUZS * 100, // umumiy summa tiyinda
+      invoice_id: "idokon.uz",
+      return_url: window.location.origin + window.location.pathname + "?payment=success",
+      ofd: ofdList,
+    };
+
+    // 6️⃣ To‘lovni yaratish
+    const res = await fetch("https://mesh.multicard.uz/payment/invoice", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (data?.success && data?.data?.checkout_url) {
+      window.location.href = data.data.checkout_url;
+    } else {
+      console.error("To‘lov yaratishda xatolik:", data);
+      alert("To‘lovni yaratishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Yuborish";
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Server yoki internet bilan bog‘liq xatolik.");
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Yuborish";
+    }
+  }
+});
 
       /* ================== Catalog <-> Cart sync ================== */
       function syncCatalogAction(id) {
