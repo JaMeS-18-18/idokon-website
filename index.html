@@ -367,6 +367,32 @@
           }
         }
 
+        /* Desktop navbar: menyu hech qachon pastga tushmasin (bitta qatorda qolsin) */
+        @media screen and (min-width: 1200px) {
+          .cs_nav .cs_nav_list {
+            flex-wrap: nowrap;
+          }
+
+          .cs_nav .cs_nav_list>li {
+            margin-right: clamp(14px, 1.8vw, 40px);
+          }
+
+          .cs_nav .cs_nav_list>li>a {
+            white-space: nowrap;
+          }
+        }
+
+        /* 1200-1499px oralig'ida joy tor - shrift va oraliqni biroz kichraytiramiz */
+        @media screen and (min-width: 1200px) and (max-width: 1499px) {
+          .cs_nav .cs_nav_list>li {
+            margin-right: clamp(16px, 2vw, 32px);
+          }
+
+          .cs_nav .cs_nav_list>li>a {
+            font-size: 15px;
+          }
+        }
+
         /* Navigation responsive fixes */
         @media (max-width: 1200px) {
           .cs_nav_list li a {
@@ -1023,55 +1049,55 @@
                 <!-- Q1 -->
                 <div class="cs_accordian active">
                   <h2 class="cs_accordian_title" data-i18n="faq.q1.title">
-                    POS tizimi biznesimga qanday foyda keltiradi?
+                    Ushbu POS tizimi savdo hajmini va daromadni qanday oshirib beradi?
                     <span class="cs_accordian_toggle"><span></span></span>
                   </h2>
                   <div class="cs_accordian_body" data-i18n="faq.q1.body">
-                    To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni...
+                    Tizimimiz kassa oldida navbatlarni 2 baravarga kamaytiradi, eng ko‘p sotilayotgan va daromad keltirayotgan mahsulotlarni aniqlab beradi hamda mijozlar uchun keshbek va sodiqlik dasturlarini avtomatlashtiradi. Bu orqali xaridorlar sizga qayta-qayta kelishni boshlaydi va o‘rtacha chek miqdori oshadi.
                   </div>
                 </div>
 
                 <!-- Q2 -->
                 <div class="cs_accordian">
                   <h2 class="cs_accordian_title" data-i18n="faq.q2.title">
-                    POS tizimini onlayn do‘konim bilan integratsiya qila olamanmi?
+                    Tizim orqali sotuvchilar va xodimlarni qanday nazorat qila olaman?
                     <span class="cs_accordian_toggle"><span></span></span>
                   </h2>
                   <div class="cs_accordian_body" data-i18n="faq.q2.body">
-                    To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti...
+                    Siz har bir sotuvchining kunlik va oylik savdo ko‘rsatkichlarini, tushumini real vaqt rejimida ko‘rib turasiz. Eng muhimi, tizim kassadagi kamomad va xatoliklarni 100% oldini oladi hamda xodimlarni to‘g‘ri rag‘batlantirish imkonini beradi.
                   </div>
                 </div>
 
                 <!-- Q3 -->
                 <div class="cs_accordian">
                   <h2 class="cs_accordian_title" data-i18n="faq.q3.title">
-                    POS tizimidan foydalanish uchun maxsus o‘qitish kerakmi?
+                    Internet uzilib qolsa yoki chiroq o‘chsa, do‘konimda savdo to‘xtab qolmaydimi?
                     <span class="cs_accordian_toggle"><span></span></span>
                   </h2>
                   <div class="cs_accordian_body" data-i18n="faq.q3.body">
-                    To‘g‘ri POS tizimini tanlash uchun biznes turi, hajmi, byudjeti...
+                    Aslo yo‘q! Tizim oflayn rejimda ham to‘liq ishlaydi. Internet yo‘qolganda ham sotuvlar odatdagidek amalga oshiriladi, tarmoq tiklangach esa barcha ma’lumotlar avtomatik ravishda bazaga saqlanadi. Savdo bir sekundga ham to‘xtamaydi.
                   </div>
                 </div>
 
                 <!-- Q4 -->
                 <div class="cs_accordian">
                   <h2 class="cs_accordian_title" data-i18n="faq.q4.title">
-                    POS tizimi qanday savdo tahlillarini taqdim etadi?
+                    Nasiya va qarzdorliklarni nazorat qilsa bo‘ladimi? Mijozlarga SMS yuboriladimi?
                     <span class="cs_accordian_toggle"><span></span></span>
                   </h2>
                   <div class="cs_accordian_body" data-i18n="faq.q4.body">
-                    To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti...
+                    Ha, albatta! Tizim barcha nasiyalarni aniq hisob-kitob qilib boradi va to‘lov muddati kelganda mijozlarga avtomatik SMS-eslatma yuboradi. Bu orqali siz qarzlarni o‘z vaqtida qaytarilishini ta’minlaysiz va do‘koningizdagi pul aylanishini tezlashtirasiz.
                   </div>
                 </div>
 
                 <!-- Q5 -->
                 <div class="cs_accordian">
                   <h2 class="cs_accordian_title" data-i18n="faq.q5.title">
-                    Biznesim uchun to‘g‘ri POS tizimini qanday tanlayman?
+                    Dasturni o‘rnatish va xodimlarni o‘rgatish qancha vaqt oladi?
                     <span class="cs_accordian_toggle"><span></span></span>
                   </h2>
                   <div class="cs_accordian_body" data-i18n="faq.q5.body">
-                    To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni...
+                    Tizim interfeysi juda sodda va tushunarli qilib yaratilgan. Do‘koningizni to‘liq sozlab berish va xodimlaringizni o‘rgatish uchun bor-yo‘g‘i 1 kun kifoya. Bundan tashqari, 24/7 texnik qo‘llab-quvvatlash xizmatimiz har doim yoningizda bo‘ladi.
                   </div>
                 </div>
               </div>

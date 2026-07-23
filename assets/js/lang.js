@@ -52,20 +52,20 @@
       "faq.subtitle": "Savolingiz bormi?",
       "faq.title": "Bu yerda ba'zi savollarga javoblar",
 
-      "faq.q1.title": "POS tizimi biznesimga qanday foyda keltiradi?",
-      "faq.q1.body": "To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni, kerakli funksiyalarni va kelgusidagi o‘sish imkoniyatini inobatga oling. Turli variantlarni solishtiring va sharhlarni o‘qib, ongli qaror qabul qiling. Xaridlarni boshqarish va mijozlarni ball, chegirma yoki maxsus takliflar bilan rag‘batlantirish imkoniyatini ham ko‘rib chiqing.",
+      "faq.q1.title": "Ushbu POS tizimi savdo hajmini va daromadni qanday oshirib beradi?",
+      "faq.q1.body": "Tizimimiz kassa oldida navbatlarni 2 baravarga kamaytiradi, eng ko‘p sotilayotgan va daromad keltirayotgan mahsulotlarni aniqlab beradi hamda mijozlar uchun keshbek va sodiqlik dasturlarini avtomatlashtiradi. Bu orqali xaridorlar sizga qayta-qayta kelishni boshlaydi va o‘rtacha chek miqdori oshadi.",
 
-      "faq.q2.title": "POS tizimini onlayn do‘konim bilan integratsiya qila olamanmi?",
-      "faq.q2.body": "To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti, zarur funksiyalar va kelgusidagi o‘sish ehtimolini hisobga oling. Variantlarni tadqiq qiling va foydalanuvchi sharhlarini o‘qib chiqing. Xaridlarni boshqarish va mijozlarni ball, chegirma yoki maxsus takliflar bilan mukofotlash imkoniyatlari muhim.",
+      "faq.q2.title": "Tizim orqali sotuvchilar va xodimlarni qanday nazorat qila olaman?",
+      "faq.q2.body": "Siz har bir sotuvchining kunlik va oylik savdo ko‘rsatkichlarini, tushumini real vaqt rejimida ko‘rib turasiz. Eng muhimi, tizim kassadagi kamomad va xatoliklarni 100% oldini oladi hamda xodimlarni to‘g‘ri rag‘batlantirish imkonini beradi.",
 
-      "faq.q3.title": "POS tizimidan foydalanish uchun maxsus o‘qitish kerakmi?",
-      "faq.q3.body": "To‘g‘ri POS tizimini tanlash uchun biznes turi, hajmi, byudjeti, zarur funksiyalar va kelajakdagi o‘sish rejalaringizni inobatga oling. Turli yechimlarni solishtirib, sharhlarni o‘qing. Xaridlarni yuritish hamda mijozlarni ball, chegirma yoki maxsus takliflar bilan rag‘batlantirish kabi imkoniyatlar yordam beradi.",
+      "faq.q3.title": "Internet uzilib qolsa yoki chiroq o‘chsa, do‘konimda savdo to‘xtab qolmaydimi?",
+      "faq.q3.body": "Aslo yo‘q! Tizim oflayn rejimda ham to‘liq ishlaydi. Internet yo‘qolganda ham sotuvlar odatdagidek amalga oshiriladi, tarmoq tiklangach esa barcha ma’lumotlar avtomatik ravishda bazaga saqlanadi. Savdo bir sekundga ham to‘xtamaydi.",
 
-      "faq.q4.title": "POS tizimi qanday savdo tahlillarini taqdim etadi?",
-      "faq.q4.body": "To‘g‘ri POS tizimini tanlashda biznes turi, hajmi, byudjeti, kerakli funksiyalar va o‘sish salohiyatini hisobga oling. Yechimlarni o‘rganing, sharhlarni ko‘rib chiqing va ongli qaror qabul qiling. Xaridlar statistikasi va mijozlarni ball, chegirma yoki maxsus takliflar bilan rag‘batlantirish imkoniyatlari foydali bo‘ladi.",
+      "faq.q4.title": "Nasiya va qarzdorliklarni nazorat qilsa bo‘ladimi? Mijozlarga SMS yuboriladimi?",
+      "faq.q4.body": "Ha, albatta! Tizim barcha nasiyalarni aniq hisob-kitob qilib boradi va to‘lov muddati kelganda mijozlarga avtomatik SMS-eslatma yuboradi. Bu orqali siz qarzlarni o‘z vaqtida qaytarilishini ta’minlaysiz va do‘koningizdagi pul aylanishini tezlashtirasiz.",
 
-      "faq.q5.title": "Biznesim uchun to‘g‘ri POS tizimini qanday tanlayman?",
-      "faq.q5.body": "To‘g‘ri POS tizimini tanlash uchun biznes turini, hajmini, byudjetni, zarur funksiyalarni va kelgusidagi o‘sish ehtimolini inobatga oling. Turli variantlarni tadqiq qiling, sharhlarni o‘qing va keyin qaror qabul qiling. Xaridlarni boshqarish hamda mijozlarni ball, chegirma yoki maxsus takliflar bilan rag‘batlantirish muhim mezonlardan biridir.",
+      "faq.q5.title": "Dasturni o‘rnatish va xodimlarni o‘rgatish qancha vaqt oladi?",
+      "faq.q5.body": "Tizim interfeysi juda sodda va tushunarli qilib yaratilgan. Do‘koningizni to‘liq sozlab berish va xodimlaringizni o‘rgatish uchun bor-yo‘g‘i 1 kun kifoya. Bundan tashqari, 24/7 texnik qo‘llab-quvvatlash xizmatimiz har doim yoningizda bo‘ladi.",
       "cta.title": "Biz bilan biznesingizni yangilang <br> Eng zamonaviy POS yechimlari!",
       "cta.text": "Tranzaktsiyalarning kelajagini his eting! Bugun demoni rejalashtiring va qanday qilib guvoh bo'ling <br> bizning POS yechimimiz biznesingizni inqilob qilishi mumkin.",
       "cta.demo": "Demo ishlatib ko'rish",
@@ -273,20 +273,20 @@
       "faq.subtitle": "Есть вопросы?",
       "faq.title": "Ответы на некоторые частые вопросы",
 
-      "faq.q1.title": "Как POS-система поможет моему бизнесу?",
-      "faq.q1.body": "Выбирая POS, учитывайте тип и размер бизнеса, бюджет, требуемые функции и перспективы роста. Сравните варианты и изучите отзывы. Обратите внимание на управление покупками и программы лояльности (баллы, скидки, акции).",
+      "faq.q1.title": "Как эта POS-система увеличивает объём продаж и доход?",
+      "faq.q1.body": "Наша система вдвое сокращает очереди на кассе, выявляет самые продаваемые и самые прибыльные товары, а также автоматизирует кешбэк и программы лояльности для клиентов. Благодаря этому покупатели возвращаются к вам снова и снова, а средний чек растёт.",
 
-      "faq.q2.title": "Можно ли интегрировать POS с моим интернет-магазином?",
-      "faq.q2.body": "Учитывайте тип бизнеса, масштаб, бюджет, нужные функции и возможный рост. Изучите варианты и отзывы. Важны возможности управления заказами и разного рода поощрения клиентов.",
+      "faq.q2.title": "Как через систему контролировать продавцов и сотрудников?",
+      "faq.q2.body": "Вы в режиме реального времени видите дневные и месячные показатели продаж и выручку каждого продавца. Самое главное — система на 100% предотвращает недостачи и ошибки на кассе и позволяет правильно мотивировать сотрудников.",
 
-      "faq.q3.title": "Нужно ли специальное обучение для работы с POS?",
-      "faq.q3.body": "Оцените сложность процессов и необходимые функции. Сравните решения и посмотрите отзывы. Удобно, если есть ведение покупок и инструменты лояльности — это упрощает обучение персонала.",
+      "faq.q3.title": "Если пропадёт интернет или отключат свет, продажи в магазине не остановятся?",
+      "faq.q3.body": "Вовсе нет! Система полностью работает и в офлайн-режиме. Даже при отсутствии интернета продажи проходят как обычно, а после восстановления сети все данные автоматически сохраняются в базе. Торговля не останавливается ни на секунду.",
 
-      "faq.q4.title": "Какую аналитику продаж предоставляет POS?",
-      "faq.q4.body": "Смотрите на отчёты по обороту и прибыли, статистику продаж и клиентов, экспорт данных и разрез по филиалам. Сравните варианты и сделайте осознанный выбор.",
+      "faq.q4.title": "Можно ли контролировать рассрочку и задолженности? Отправляются ли клиентам SMS?",
+      "faq.q4.body": "Да, конечно! Система точно ведёт учёт всех рассрочек и при наступлении срока оплаты автоматически отправляет клиентам SMS-напоминание. Так вы обеспечиваете своевременный возврат долгов и ускоряете оборот денег в вашем магазине.",
 
-      "faq.q5.title": "Как выбрать подходящую POS-систему?",
-      "faq.q5.body": "Учтите тип бизнеса, масштаб, бюджет, нужные функции и рост. Изучите варианты и отзывы. Обратите внимание на управление заказами и программы поощрения клиентов.",
+      "faq.q5.title": "Сколько времени занимает установка программы и обучение сотрудников?",
+      "faq.q5.body": "Интерфейс системы создан очень простым и понятным. Для полной настройки вашего магазина и обучения сотрудников достаточно всего 1 дня. Кроме того, наша служба технической поддержки 24/7 всегда рядом с вами.",
       "cta.title": "Обновите ваш бизнес с нами <br> Современные POS-решения!",
       "cta.text": "Ощутите будущее транзакций! Запланируйте демо уже сегодня и увидьте, как наше POS-решение может преобразить ваш бизнес.",
       "cta.demo": "Попробовать демо",
@@ -559,20 +559,20 @@
       "faq.subtitle": "Have a question?",
       "faq.title": "Here are answers to common questions",
 
-      "faq.q1.title": "How can a POS system benefit my business?",
-      "faq.q1.body": "When choosing a POS, consider business type and size, budget, required features, and growth plans. Compare options and read reviews. Look for purchase management and loyalty tools (points, discounts, special offers).",
+      "faq.q1.title": "How does this POS system increase sales volume and revenue?",
+      "faq.q1.body": "Our system cuts checkout queues in half, identifies your best-selling and most profitable products, and automates cashback and loyalty programs for customers. As a result, shoppers keep coming back and your average check grows.",
 
-      "faq.q2.title": "Can I integrate the POS with my online store?",
-      "faq.q2.body": "Consider your business type, scale, budget, must-have features, and growth. Research options and user feedback. Order management and loyalty rewards are important.",
+      "faq.q2.title": "How can I monitor salespeople and staff through the system?",
+      "faq.q2.body": "You can see each salesperson's daily and monthly sales figures and revenue in real time. Most importantly, the system prevents cash shortages and errors at the register 100% and lets you reward staff fairly.",
 
-      "faq.q3.title": "Do I need special training to use the POS?",
-      "faq.q3.body": "Assess process complexity and needed features. Compare solutions and reviews. Having purchase tracking and loyalty tools helps staff learn faster.",
+      "faq.q3.title": "If the internet goes down or the power is cut, will sales stop in my store?",
+      "faq.q3.body": "Not at all! The system works fully in offline mode too. Even without internet, sales continue as usual, and once the connection is restored all data is saved to the database automatically. Trading doesn't stop for a second.",
 
-      "faq.q4.title": "What sales analytics does the POS provide?",
-      "faq.q4.body": "Look for turnover/profit reports, product and customer stats, real-time dashboards, export, and branch breakdowns. Compare and choose confidently.",
+      "faq.q4.title": "Can I track installment payments and debts? Are SMS sent to customers?",
+      "faq.q4.body": "Yes, of course! The system keeps precise records of all installments and automatically sends an SMS reminder to customers when a payment is due. This ensures debts are repaid on time and speeds up cash flow in your store.",
 
-      "faq.q5.title": "How do I choose the right POS for my business?",
-      "faq.q5.body": "Account for business type, size, budget, features, and future growth. Research options, read reviews, and prefer solutions with inventory and loyalty capabilities.",
+      "faq.q5.title": "How long does it take to set up the software and train staff?",
+      "faq.q5.body": "The system's interface is designed to be very simple and intuitive. Just 1 day is enough to fully configure your store and train your staff. On top of that, our 24/7 technical support is always by your side.",
       "cta.title": "Upgrade your business with us <br> Next-gen POS solutions!",
       "cta.text": "Feel the future of transactions! Book a demo today and see how our POS can transform your business.",
       "cta.demo": "Try Demo",
