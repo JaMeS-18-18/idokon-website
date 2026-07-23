@@ -53,10 +53,10 @@
       "faq.title": "Bu yerda ba'zi savollarga javoblar",
 
       "faq.q1.title": "Ushbu POS tizimi savdo hajmini va daromadni qanday oshirib beradi?",
-      "faq.q1.body": "Tizimimiz kassa oldida navbatlarni 2 baravarga kamaytiradi, eng ko‘p sotilayotgan va daromad keltirayotgan mahsulotlarni aniqlab beradi hamda mijozlar uchun keshbek va sodiqlik dasturlarini avtomatlashtiradi. Bu orqali xaridorlar sizga qayta-qayta kelishni boshlaydi va o‘rtacha chek miqdori oshadi.",
+      "faq.q1.body": "Tizimimiz kassa oldida navbatlarni Sezilarli darajada kamaytiradi, eng ko‘p sotilayotgan va daromad keltirayotgan mahsulotlarni aniqlab beradi hamda mijozlar uchun keshbek va sodiqlik dasturlarini avtomatlashtiradi. Bu orqali xaridorlar sizga qayta-qayta kelishni boshlaydi va o‘rtacha chek miqdori oshadi.",
 
       "faq.q2.title": "Tizim orqali sotuvchilar va xodimlarni qanday nazorat qila olaman?",
-      "faq.q2.body": "Siz har bir sotuvchining kunlik va oylik savdo ko‘rsatkichlarini, tushumini real vaqt rejimida ko‘rib turasiz. Eng muhimi, tizim kassadagi kamomad va xatoliklarni 100% oldini oladi hamda xodimlarni to‘g‘ri rag‘batlantirish imkonini beradi.",
+      "faq.q2.body": "Siz har bir sotuvchining kunlik va oylik savdo ko‘rsatkichlarini, tushumini real vaqt rejimida ko‘rib turasiz. Eng muhimi, tizim kassadagi ko’pgina kamomad va xatoliklarni oldini oladi hamda xodimlarni to‘g‘ri rag‘batlantirish imkonini beradi.",
 
       "faq.q3.title": "Internet uzilib qolsa yoki chiroq o‘chsa, do‘konimda savdo to‘xtab qolmaydimi?",
       "faq.q3.body": "Aslo yo‘q! Tizim oflayn rejimda ham to‘liq ishlaydi. Internet yo‘qolganda ham sotuvlar odatdagidek amalga oshiriladi, tarmoq tiklangach esa barcha ma’lumotlar avtomatik ravishda bazaga saqlanadi. Savdo bir sekundga ham to‘xtamaydi.",
@@ -65,7 +65,7 @@
       "faq.q4.body": "Ha, albatta! Tizim barcha nasiyalarni aniq hisob-kitob qilib boradi va to‘lov muddati kelganda mijozlarga avtomatik SMS-eslatma yuboradi. Bu orqali siz qarzlarni o‘z vaqtida qaytarilishini ta’minlaysiz va do‘koningizdagi pul aylanishini tezlashtirasiz.",
 
       "faq.q5.title": "Dasturni o‘rnatish va xodimlarni o‘rgatish qancha vaqt oladi?",
-      "faq.q5.body": "Tizim interfeysi juda sodda va tushunarli qilib yaratilgan. Do‘koningizni to‘liq sozlab berish va xodimlaringizni o‘rgatish uchun bor-yo‘g‘i 1 kun kifoya. Bundan tashqari, 24/7 texnik qo‘llab-quvvatlash xizmatimiz har doim yoningizda bo‘ladi.",
+      "faq.q5.body": "Tizim interfeysi juda sodda va tushunarli qilib yaratilgan. Do‘koningizni to‘liq sozlab berish va xodimlaringizni o‘rgatish uchun bor-yo‘g‘i 1 kun kifoya. Bundan tashqari, texnik qo’llab-quvvatlash xizmatimizdan to’liq foydalanishingiz mumkin bo’ladi.",
       "cta.title": "Biz bilan biznesingizni yangilang <br> Eng zamonaviy POS yechimlari!",
       "cta.text": "Tranzaktsiyalarning kelajagini his eting! Bugun demoni rejalashtiring va qanday qilib guvoh bo'ling <br> bizning POS yechimimiz biznesingizni inqilob qilishi mumkin.",
       "cta.demo": "Demo ishlatib ko'rish",
